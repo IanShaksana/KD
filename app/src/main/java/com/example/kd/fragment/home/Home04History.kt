@@ -8,18 +8,18 @@ import androidx.fragment.app.Fragment
 import com.example.kd.R
 import com.google.android.material.button.MaterialButton
 
-class _12Attendance : Fragment() {
+class Home04History : Fragment() {
 
-    private var btn_left: MaterialButton? = null
-    private var btn_right: MaterialButton? = null
+    private var btnLeft: MaterialButton? = null
+    private var btnRight: MaterialButton? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view: View = inflater.inflate(R.layout.frag_12_attendance, container, false)
-        btn_right = view.findViewById(R.id.right)
-        btn_left = view.findViewById(R.id.left)
+    ): View {
+        val view: View = inflater.inflate(R.layout.frag_14_history, container, false)
+        btnRight = view.findViewById(R.id.right)
+        btnLeft = view.findViewById(R.id.left)
 
        return  view
     }

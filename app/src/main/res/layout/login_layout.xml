@@ -24,7 +24,8 @@
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="50%"
                 android:scaleType="centerCrop"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginStart="30dp"
+                android:contentDescription="Logo"/>
         </com.google.android.flexbox.FlexboxLayout>
 
         <com.google.android.flexbox.FlexboxLayout
@@ -161,7 +162,7 @@
                 android:text="App Version : 1.00"
                 style="@style/textview"
                 android:textAlignment="center"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
         </com.google.android.flexbox.FlexboxLayout>
 

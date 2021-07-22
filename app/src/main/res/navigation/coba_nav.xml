@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.kd.fragment.home._11Profile"
-        android:label="Profile"
+        android:name="com.example.kd.fragment.home.Home01Profile"
+        android:label="Home"
         tools:layout="@layout/frag_11_profile">
         <action
             android:id="@+id/action_nav_home_to_test1"
@@ -20,26 +20,38 @@
         android:name="com.example.kd.fragment.Test1"
         android:label="fragment_test1"
         tools:layout="@layout/fragment_test1">
+        <argument
+            android:name="theValue"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_test1_to_test2"
+            app:destination="@id/test2" />
     </fragment>
 
 
 
     <fragment
         android:id="@+id/nav_attendance"
-        android:name="com.example.kd.fragment.home._12Attendance"
+        android:name="com.example.kd.fragment.home.Home02Attendance"
         android:label="Attendance"
         tools:layout="@layout/frag_12_attendance"/>
 
     <fragment
         android:id="@+id/nav_achievement"
-        android:name="com.example.kd.fragment.home._13Achievement"
+        android:name="com.example.kd.fragment.home.Home03Achievement"
         android:label="Achievement"
         tools:layout="@layout/frag_13_achievement"/>
 
     <fragment
         android:id="@+id/nav_history"
-        android:name="com.example.kd.fragment.home._14History"
+        android:name="com.example.kd.fragment.home.Home04History"
         android:label="History"
         tools:layout="@layout/frag_14_history"/>
+    <fragment
+        android:id="@+id/test2"
+        android:name="com.example.kd.fragment.Test2"
+        android:label="fragment_test2"
+        tools:layout="@layout/fragment_test2" />
 
 </navigation>

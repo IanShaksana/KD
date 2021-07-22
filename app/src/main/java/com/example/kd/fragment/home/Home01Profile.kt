@@ -9,29 +9,25 @@ import androidx.navigation.findNavController
 import com.example.kd.R
 import com.google.android.material.button.MaterialButton
 
-class _11Profile : Fragment() {
+class Home01Profile : Fragment() {
 
-    private lateinit var btn_left: MaterialButton
-    private lateinit var btn_right: MaterialButton
+    private lateinit var btnLeft: MaterialButton
+    private lateinit var btnRight: MaterialButton
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View = inflater.inflate(R.layout.frag_11_profile, container, false)
-        btn_right = view.findViewById(R.id.right)
-        btn_left = view.findViewById(R.id.left)
-
-        btn_right.setOnClickListener {
-            view.findNavController().navigate(R.id.action_nav_home_to_test1)
-
-        }
 
         return view
     }
 
-    private fun btn_right_push(v: View) {
-        val amount: Float = 123.5F
+    private fun btnRightPush1(v: View) {
+        val action = Home01ProfileDirections.actionNavHomeToTest1(123)
+        v.findNavController().navigate(action)
     }
+
+
 
 }

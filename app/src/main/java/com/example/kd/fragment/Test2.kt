@@ -5,11 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.kd.R
-import com.google.android.material.button.MaterialButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Test1.newInstance] factory method to
+ * Use the [Test2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Test1 : Fragment() {
+class Test2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,31 +30,12 @@ class Test1 : Fragment() {
         }
     }
 
-
-    private lateinit var btnLeft: MaterialButton
-    private lateinit var btnRight: MaterialButton
-    private val yuhuu: Test1Args by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_test1, container, false)
-
-        btnRight = view.findViewById(R.id.right)
-        btnLeft = view.findViewById(R.id.left)
-
-        btnRight.setOnClickListener {
-            btnRightPush1(view)
-        }
-        val wasd = yuhuu.theValue
-        Toast.makeText(activity, "yuhuuu " + wasd, Toast.LENGTH_SHORT).show()
-        return view
-    }
-
-    private fun btnRightPush1(v: View) {
-        val action = Test1Directions.actionTest1ToTest2()
-        v.findNavController().navigate(action)
+        return inflater.inflate(R.layout.fragment_test2, container, false)
     }
 
     companion object {
@@ -68,12 +45,12 @@ class Test1 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Test1.
+         * @return A new instance of fragment Test2.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Test1().apply {
+            Test2().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
