@@ -23,10 +23,7 @@ class Home01Profile : Fragment() {
         return view
     }
 
-    private fun btnRightPush1(v: View) {
-        val action = Home01ProfileDirections.actionNavHomeToTest1(123)
-        v.findNavController().navigate(action)
-    }
+
 
 
 

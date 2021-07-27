@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.submission.loan.core.Sub31LoanCreate">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flexDirection="column">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_flexBasisPercent="80%">
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/review_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Data Calon Debitur"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Nama"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/t1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/reg_email"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:inputType="text" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Kontak"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/t2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/reg_name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:inputType="text" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Alamat"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tgender"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/reg_gender"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="NIK"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/t4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/reg_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/pengajuan_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Data Pengajuan"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Produk"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Plafon"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Jangka Waktu"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Bunga (%)"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Provisi (%)"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Tanggal"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Tanggal Angsuran Pertama"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Jenis Penggunaan"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Tujuan Kredit"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/jaminan_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Data Jaminan"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Tipe Jaminan"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Kepemilikan Jaminan"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Tahun Jaminan (BPKB)"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Nominal Jaminan"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Deskripsi Jaminan"
+                                android:textSize="15dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:endIconMode="custom"
+                                app:endIconTint="#fafbbd"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="45dp"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:inputType="text"
+                                    android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/register"
+            style="@style/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Create"
+            android:textAllCaps="false"
+            android:textColor="#101930" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+</LinearLayout>

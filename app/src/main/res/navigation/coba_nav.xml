@@ -9,11 +9,7 @@
         android:id="@+id/nav_home"
         android:name="com.example.kd.fragment.home.Home01Profile"
         android:label="Home"
-        tools:layout="@layout/frag_11_profile">
-        <action
-            android:id="@+id/action_nav_home_to_test1"
-            app:destination="@id/test1" />
-    </fragment>
+        tools:layout="@layout/frag_11_profile"/>
 
     <fragment
         android:id="@+id/test1"
@@ -29,13 +25,15 @@
             app:destination="@id/test2" />
     </fragment>
 
-
-
     <fragment
         android:id="@+id/nav_attendance"
         android:name="com.example.kd.fragment.home.Home02Attendance"
         android:label="Attendance"
-        tools:layout="@layout/frag_12_attendance"/>
+        tools:layout="@layout/frag_12_attendance">
+        <action
+            android:id="@+id/action_nav_attendance_to_test12"
+            app:destination="@id/test1" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_achievement"
@@ -52,6 +50,137 @@
         android:id="@+id/test2"
         android:name="com.example.kd.fragment.Test2"
         android:label="fragment_test2"
-        tools:layout="@layout/fragment_test2" />
+        tools:layout="@layout/fragment_test2">
+        <argument
+            android:name="theValue"
+            app:argType="string"
+            android:defaultValue="the value" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_collection"
+        android:name="com.example.kd.fragment.task.collection.Task01Collection"
+        android:label="Collection Task"
+        tools:layout="@layout/frag_21_collection_01" >
+        <action
+            android:id="@+id/action_nav_collection_to_task01CollectionDetail"
+            app:destination="@id/task01CollectionDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/task01CollectionDetail"
+        android:name="com.example.kd.fragment.task.collection.detail.Task01CollectionDetail"
+        android:label="Collection Detail"
+        tools:layout="@layout/frag_21_collection_02_detail" >
+        <argument
+            android:name="value"
+            app:argType="string"
+            android:defaultValue="The Value" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_personal"
+        android:name="com.example.kd.fragment.task.personal.Task02Personal"
+        android:label="Personal Task"
+        tools:layout="@layout/frag_22_collection_01" >
+        <action
+            android:id="@+id/action_nav_task_to_task02TaskDetail"
+            app:destination="@id/task02TaskDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/task02TaskDetail"
+        android:name="com.example.kd.fragment.task.personal.detail.Task02TaskDetail"
+        android:label="Task Detail"
+        tools:layout="@layout/frag_22_collection_02_detail" >
+        <argument
+            android:name="value"
+            app:argType="string"
+            android:defaultValue="The Value" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_deposito_submit"
+        android:name="com.example.kd.fragment.submission.deposito.core.Sub32Deposito"
+        android:label="Deposito Submit"
+        tools:layout="@layout/fragment_sub32_deposito_list" >
+        <action
+            android:id="@+id/action_nav_deposito_submit_to_sub02DepositoDetail"
+            app:destination="@id/sub02DepositoDetail" />
+        <action
+            android:id="@+id/action_nav_deposito_submit_to_sub32DepositoCreate"
+            app:destination="@id/sub32DepositoCreate" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_loan_submit"
+        android:name="com.example.kd.fragment.submission.loan.core.Sub31Loan"
+        android:label="Loan Submit"
+        tools:layout="@layout/fragment_sub31_loan_list" >
+        <action
+            android:id="@+id/action_nav_loan_submit_to_sub01LoanDetail"
+            app:destination="@id/sub01LoanDetail" />
+        <action
+            android:id="@+id/action_nav_loan_submit_to_sub31LoanCreate"
+            app:destination="@id/sub31LoanCreate" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sub01LoanDetail"
+        android:name="com.example.kd.fragment.submission.loan.detail.Sub31LoanDetail"
+        android:label="Loan Submission Detail"
+        tools:layout="@layout/sub31_loan_detail_fragment" >
+        <argument
+            android:name="idDetailLoanSubmission"
+            app:argType="string"
+            android:defaultValue="id" />
+        <action
+            android:id="@+id/action_sub01LoanDetail_to_sub31LoanEdit"
+            app:destination="@id/sub31LoanEdit" />
+    </fragment>
+    <fragment
+        android:id="@+id/sub02DepositoDetail"
+        android:name="com.example.kd.fragment.submission.deposito.detail.Sub32DepositoDetail"
+        android:label="Deposito Submission Detail"
+        tools:layout="@layout/sub32_deposito_detail_fragment" >
+        <argument
+            android:name="idDetailDepositoSubmisson"
+            app:argType="string"
+            android:defaultValue="id"/>
+        <action
+            android:id="@+id/action_sub02DepositoDetail_to_sub32DepositoEdit"
+            app:destination="@id/sub32DepositoEdit" />
+    </fragment>
+    <fragment
+        android:id="@+id/sub31LoanCreate"
+        android:name="com.example.kd.fragment.submission.loan.core.Sub31LoanCreate"
+        android:label="Loan Submission Create"
+        tools:layout="@layout/sub31_loan_create_fragment" />
+    <fragment
+        android:id="@+id/sub31LoanEdit"
+        android:name="com.example.kd.fragment.submission.loan.core.Sub31LoanEdit"
+        android:label="Deposito Submission Edit"
+        tools:layout="@layout/sub31_loan_edit_fragment" >
+        <argument
+            android:name="idDetailLoanSubmisson"
+            app:argType="string"
+            android:defaultValue="id" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sub32DepositoCreate"
+        android:name="com.example.kd.fragment.submission.deposito.core.Sub32DepositoCreate"
+        android:label="Deposito Submission Create"
+        tools:layout="@layout/sub32_deposito_create_fragment" />
+    <fragment
+        android:id="@+id/sub32DepositoEdit"
+        android:name="com.example.kd.fragment.submission.deposito.core.Sub32DepositoEdit"
+        android:label="Deposito Submission Edit"
+        tools:layout="@layout/sub32_deposito_edit_fragment" >
+        <argument
+            android:name="idDetailDepositoSubmisson"
+            app:argType="string"
+            android:defaultValue="id" />
+    </fragment>
 
 </navigation>

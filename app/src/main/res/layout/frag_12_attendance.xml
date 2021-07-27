@@ -5,62 +5,83 @@
     android:layout_height="match_parent">
 
 
-    <com.google.android.flexbox.FlexboxLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:flexDirection="row">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            app:backgroundTint="#00ffffff"
-            app:layout_flexBasisPercent="10%" />
+
+    <TextClock
+        android:id="@+id/text_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:format12Hour="yyyy-MMM-dd hh:mm:ss a"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageView
+        android:id="@+id/clock_animate"
+        android:layout_below="@+id/text_clock"
+        android:layout_width="match_parent"
+        android:layout_marginVertical="8dp"
+        android:layout_height="300dp"
+        android:src="@drawable/clock"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/attendance_btn"
+        android:layout_below="@+id/clock_animate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="ABSEN"/>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_below="@id/attendance_btn"
+        android:id="@+id/attendance_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp">
+        <!-- Media -->
 
         <com.google.android.flexbox.FlexboxLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="15dp"
-            app:flexDirection="column"
-            app:layout_flexBasisPercent="80%">
+            app:flexDirection="row">
 
-            <RelativeLayout
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_flexBasisPercent="90%">
 
+                <!-- Title, secondary and supporting text -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="This is Attendance" />
+                    android:text="Attendance List"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+            </LinearLayout>
 
-
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_flexBasisPercent="10%">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_expand_more_24"
+                    android:background="@null"/>
             </RelativeLayout>
+
 
 
         </com.google.android.flexbox.FlexboxLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            app:backgroundTint="#00ffffff"
-            app:iconGravity="end"
-            app:layout_flexBasisPercent="10%" />
 
-    </com.google.android.flexbox.FlexboxLayout>
-
-    <!--
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="This is Report 1"
-        android:textColor="#fafbbd" />
-        -->
+    </com.google.android.material.card.MaterialCardView>
 
 
 </RelativeLayout>

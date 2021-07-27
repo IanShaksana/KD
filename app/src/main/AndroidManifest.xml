@@ -10,8 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KD" >
 
-        <activity android:name=".activity.DemoActivity" >
-        </activity>
         <activity android:name=".activity.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
