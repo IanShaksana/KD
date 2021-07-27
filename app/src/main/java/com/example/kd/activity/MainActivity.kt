@@ -44,8 +44,6 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_home,
                 R.id.nav_attendance,
-                R.id.nav_achievement,
-                R.id.nav_history,
                 R.id.nav_collection,
                 R.id.nav_personal,
                 R.id.nav_deposito_submit,

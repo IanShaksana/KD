@@ -45,9 +45,18 @@ class Task01Collection : Fragment() {
                     MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS)
                 adapter = myItemRecyclerViewAdapter
                 myItemRecyclerViewAdapter.onItemClick = {
-                    val action =
-                        Task01CollectionDirections.actionNavCollectionToTask01CollectionDetail(it.id + " " + it.content)
-                    view.findNavController().navigate(action)
+                    val check: String = it.content
+                    if (check.equals("Personal",true)) {
+                        val action =
+                            Task01CollectionDirections.actionNavCollectionToTask02TaskDetail(it.id + " " + it.content)
+                        view.findNavController().navigate(action)
+                    } else {
+                        val action =
+                            Task01CollectionDirections.actionNavCollectionToTask01CollectionDetail(
+                                it.id + " " + it.content
+                            )
+                        view.findNavController().navigate(action)
+                    }
 
                 }
 

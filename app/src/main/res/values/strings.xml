@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KD</string>
+    <string name="app_name">SEGEN Employee Tracker</string>
     <string name="title_activity_nav">nav</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -15,4 +15,90 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main2">MainActivity</string>
+
+    <string name="format_date_1">dd/MM/yyyy</string>
+    <string name="format_date_2">dd/MM/yyyy HH:mm</string>
+
+
+    <string name="content_description">placeholder</string>
+
+    <!-- String Dialog -->
+
+    <string name="label_loan_dialog_title">Produk Pinjaman</string>
+    <string-array name="list_produk_loan">
+        <item>Installment</item>
+        <item>Kolektif</item>
+        <item>Karyawan</item>
+        <item>Demand Loan</item>
+        <item>Mikro</item>
+    </string-array>
+
+    <string-array name="list_produk_deposito">
+        <item>1 Bulan</item>
+        <item>3 Bulan</item>
+        <item>6 Bulan</item>
+        <item>12 Bulan</item>
+    </string-array>
+
+    <string-array name="list_tipe_deposito">
+        <item>AROP (Bunga Transfer)</item>
+        <item>AROPB</item>
+    </string-array>
+
+
+    <string-array name="list_kepemilikan_jaminan">
+        <item>Milik Sendiri</item>
+        <item>Bukan Milik Sendiri</item>
+    </string-array>
+
+    <string-array name="list_tipe_jaminan">
+        <item>BPKB</item>
+        <item>Sertifikat</item>
+        <item>Other</item>
+    </string-array>
+
+
+    <!-- String halaman login -->
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Lupa_Password">Lupa Password</string>
+    <string name="Login">Login</string>
+    <string name="AppVersion">App Version 1.0.0</string>
+
+
+    <!-- String halaman home -->
+    <string name="label_sub_sec_home">Beranda</string>
+    <string name="label_desc_tugas_col">Tugas Collection Anda : 0 </string>
+    <string name="label_desc_tugas_psl">Tugas Pribadi Anda : 0 </string>
+    <string name="plc_nama">Hi, Ian Shaksana</string>
+    <string name="plc_jabatan">IT Engineer</string>
+    <string name="plc_cabang">SEGEN Surabaya</string>
+    <string name="SEGEN">SEGEN</string>
+
+
+    <!-- String halaman attendance -->
+    <string name="label_sub_sec_att">Absen</string>
+    <string name="label_list_att">List Absen</string>
+    <string name="label_att_true">Anda Sudah Absen Hari Ini</string>
+    <string name="label_att_false">Anda Belum Absen Hari Ini</string>
+
+
+    <!-- String halaman task -->
+    <string name="label_sub_sec_task">Tugas</string>
+    <string name="label_sub_sec_task_detail">Detil Tugas</string>
+
+
+    <!-- String halaman submission loan -->
+    <string name="label_sub_sec_loan">Pinjaman Baru</string>
+    <string name="label_sub_sec_loan_detail">Detil Pinjaman Baru</string>
+    <string name="label_sub_sec_loan_create">Buat Pinjaman Baru</string>
+    <string name="label_sub_sec_loan_edit">Ubah Pinjaman Baru</string>
+
+    <!-- String halaman submission deposito -->
+    <string name="label_sub_sec_deposito">Deposito Baru</string>
+    <string name="label_sub_sec_deposito_detail">Detil Deposito Baru</string>
+    <string name="label_sub_sec_deposito_create">Buat Deposito Baru</string>
+    <string name="label_sub_sec_deposito_edit">Ubah Deposito Baru</string>
+
+
 </resources>

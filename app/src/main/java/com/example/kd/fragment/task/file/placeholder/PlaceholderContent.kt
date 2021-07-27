@@ -1,4 +1,4 @@
-package com.example.kd.fragment.task.collection.placeholder
+package com.example.kd.fragment.task.file.placeholder
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -36,13 +36,7 @@ object PlaceholderContent {
     }
 
     private fun createPlaceholderItem(position: Int): PlaceholderItem {
-        var content:String
-        if(position%2 ==0){
-            content = "Personal"
-        }else{
-            content = "Collection"
-        }
-        return PlaceholderItem(position.toString(), content, makeDetails(position))
+        return PlaceholderItem(position.toString(), "Item " + position, makeDetails(position))
     }
 
     private fun makeDetails(position: Int): String {

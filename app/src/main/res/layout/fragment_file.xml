@@ -14,29 +14,28 @@
         app:flexDirection="row">
 
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:contentDescription="Indikators"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_flexBasisPercent="10%" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
-            app:layout_flexBasisPercent="80%">
+            app:layout_flexBasisPercent="90%">
 
             <!-- Title, secondary and supporting text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="File Name"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
             <TextView
                 android:id="@+id/item_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title tugas"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
-
+                android:layout_centerInParent="true"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceListItem" />
 
             <TextView
                 android:id="@+id/content"
@@ -69,4 +68,3 @@
 
 
 </com.google.android.material.card.MaterialCardView>
-

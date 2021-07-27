@@ -27,7 +27,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/review_card"
+                        android:id="@+id/calon_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="8dp">
@@ -119,8 +119,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
                                     android:inputType="text" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -149,10 +147,7 @@
                                     android:id="@+id/reg_add"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
-                                    android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
-                                    android:inputType="text"
+                                    android:inputType="number"
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -162,7 +157,6 @@
 
 
                     </com.google.android.material.card.MaterialCardView>
-
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/pengajuan_card"
@@ -201,6 +195,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanProduk"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -233,9 +228,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
-                                    android:inputType="text"
+                                    android:inputType="number"
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -262,9 +255,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
-                                    android:inputType="text"
+                                    android:inputType="number"
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -291,9 +282,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
-                                    android:inputType="text"
+                                    android:inputType="numberDecimal"
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -320,9 +309,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
-                                    android:inputType="text"
+                                    android:inputType="numberDecimal"
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -407,8 +394,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
                                     android:inputType="text"
                                     android:textColorHint="#526c97" />
 
@@ -436,8 +421,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
                                     android:inputType="text"
                                     android:textColorHint="#526c97" />
 
@@ -448,7 +431,6 @@
 
 
                     </com.google.android.material.card.MaterialCardView>
-
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/jaminan_card"
@@ -549,9 +531,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
-                                    android:inputType="text"
+                                    android:inputType="number"
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -578,9 +558,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
-                                    android:inputType="text"
+                                    android:inputType="numberDecimal"
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -607,10 +585,50 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
-                                    android:cursorVisible="false"
-                                    android:focusableInTouchMode="false"
                                     android:inputType="text"
                                     android:textColorHint="#526c97" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/info_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Informasi Tambahan"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:inputType="textCapSentences|textMultiLine"
+                                    android:maxLength="2000" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 

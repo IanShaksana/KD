@@ -3,55 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="all">
 
-        <item android:title="Home">
-            <menu>
-            <item
-                android:id="@+id/nav_home"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Home" />
-            <item
-                android:id="@+id/nav_attendance"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Attendance" />
-            <item
-                android:id="@+id/nav_achievement"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Achievement" />
-            <item
-                android:id="@+id/nav_history"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="History" />
-            </menu>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/label_sub_sec_home" />
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/label_sub_sec_att" />
+        <!--
+    <item
+        android:id="@+id/nav_achievement"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="Achievement" />
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_menu_slideshow"
+        android:title="History" />
+        -->
 
-        </item>
+        <item
+            android:id="@+id/nav_collection"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/label_sub_sec_task" />
+        <item
+            android:id="@+id/nav_personal"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/label_sub_sec_task" />
 
-        <item android:title="Task">
-            <menu>
-            <item
-                android:id="@+id/nav_collection"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Loan Collection" />
-            <item
-                android:id="@+id/nav_personal"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Personal Task" />
-            </menu>
-        </item>
+        <item
+            android:id="@+id/nav_deposito_submit"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/label_sub_sec_deposito" />
+        <item
+            android:id="@+id/nav_loan_submit"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/label_sub_sec_loan" />
 
-        <item android:title="Submission">
-            <menu>
-            <item
-                android:id="@+id/nav_deposito_submit"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Deposito" />
-            <item
-                android:id="@+id/nav_loan_submit"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Loan" />
-            </menu>
-        </item>
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="LOGOUT" />
 
     </group>
 

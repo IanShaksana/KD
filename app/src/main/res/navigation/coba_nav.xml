@@ -8,8 +8,15 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.kd.fragment.home.Home01Profile"
-        android:label="Home"
-        tools:layout="@layout/frag_11_profile"/>
+        android:label="@string/label_sub_sec_home"
+        tools:layout="@layout/frag_11_profile">
+        <action
+            android:id="@+id/action_nav_home_to_nav_collection"
+            app:destination="@id/nav_collection" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_attendance"
+            app:destination="@id/nav_attendance" />
+    </fragment>
 
     <fragment
         android:id="@+id/test1"
@@ -28,7 +35,7 @@
     <fragment
         android:id="@+id/nav_attendance"
         android:name="com.example.kd.fragment.home.Home02Attendance"
-        android:label="Attendance"
+        android:label="@string/label_sub_sec_att"
         tools:layout="@layout/frag_12_attendance">
         <action
             android:id="@+id/action_nav_attendance_to_test12"
@@ -60,17 +67,20 @@
     <fragment
         android:id="@+id/nav_collection"
         android:name="com.example.kd.fragment.task.collection.Task01Collection"
-        android:label="Collection Task"
+        android:label="@string/label_sub_sec_task"
         tools:layout="@layout/frag_21_collection_01" >
         <action
             android:id="@+id/action_nav_collection_to_task01CollectionDetail"
             app:destination="@id/task01CollectionDetail" />
+        <action
+            android:id="@+id/action_nav_collection_to_task02TaskDetail"
+            app:destination="@id/task02TaskDetail" />
     </fragment>
 
     <fragment
         android:id="@+id/task01CollectionDetail"
         android:name="com.example.kd.fragment.task.collection.detail.Task01CollectionDetail"
-        android:label="Collection Detail"
+        android:label="@string/label_sub_sec_task_detail"
         tools:layout="@layout/frag_21_collection_02_detail" >
         <argument
             android:name="value"
@@ -81,7 +91,7 @@
     <fragment
         android:id="@+id/nav_personal"
         android:name="com.example.kd.fragment.task.personal.Task02Personal"
-        android:label="Personal Task"
+        android:label="@string/label_sub_sec_task"
         tools:layout="@layout/frag_22_collection_01" >
         <action
             android:id="@+id/action_nav_task_to_task02TaskDetail"
@@ -91,18 +101,21 @@
     <fragment
         android:id="@+id/task02TaskDetail"
         android:name="com.example.kd.fragment.task.personal.detail.Task02TaskDetail"
-        android:label="Task Detail"
+        android:label="@string/label_sub_sec_task_detail"
         tools:layout="@layout/frag_22_collection_02_detail" >
         <argument
             android:name="value"
             app:argType="string"
             android:defaultValue="The Value" />
+        <action
+            android:id="@+id/action_task02TaskDetail_to_file"
+            app:destination="@id/file" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_deposito_submit"
         android:name="com.example.kd.fragment.submission.deposito.core.Sub32Deposito"
-        android:label="Deposito Submit"
+        android:label="@string/label_sub_sec_deposito"
         tools:layout="@layout/fragment_sub32_deposito_list" >
         <action
             android:id="@+id/action_nav_deposito_submit_to_sub02DepositoDetail"
@@ -115,7 +128,7 @@
     <fragment
         android:id="@+id/nav_loan_submit"
         android:name="com.example.kd.fragment.submission.loan.core.Sub31Loan"
-        android:label="Loan Submit"
+        android:label="@string/label_sub_sec_loan"
         tools:layout="@layout/fragment_sub31_loan_list" >
         <action
             android:id="@+id/action_nav_loan_submit_to_sub01LoanDetail"
@@ -128,7 +141,7 @@
     <fragment
         android:id="@+id/sub01LoanDetail"
         android:name="com.example.kd.fragment.submission.loan.detail.Sub31LoanDetail"
-        android:label="Loan Submission Detail"
+        android:label="@string/label_sub_sec_loan_detail"
         tools:layout="@layout/sub31_loan_detail_fragment" >
         <argument
             android:name="idDetailLoanSubmission"
@@ -141,7 +154,7 @@
     <fragment
         android:id="@+id/sub02DepositoDetail"
         android:name="com.example.kd.fragment.submission.deposito.detail.Sub32DepositoDetail"
-        android:label="Deposito Submission Detail"
+        android:label="@string/label_sub_sec_deposito_detail"
         tools:layout="@layout/sub32_deposito_detail_fragment" >
         <argument
             android:name="idDetailDepositoSubmisson"
@@ -154,12 +167,15 @@
     <fragment
         android:id="@+id/sub31LoanCreate"
         android:name="com.example.kd.fragment.submission.loan.core.Sub31LoanCreate"
-        android:label="Loan Submission Create"
+        android:label="@string/label_sub_sec_loan_create"
         tools:layout="@layout/sub31_loan_create_fragment" />
+
+
+
     <fragment
         android:id="@+id/sub31LoanEdit"
         android:name="com.example.kd.fragment.submission.loan.core.Sub31LoanEdit"
-        android:label="Deposito Submission Edit"
+        android:label="@string/label_sub_sec_loan_edit"
         tools:layout="@layout/sub31_loan_edit_fragment" >
         <argument
             android:name="idDetailLoanSubmisson"
@@ -170,17 +186,22 @@
     <fragment
         android:id="@+id/sub32DepositoCreate"
         android:name="com.example.kd.fragment.submission.deposito.core.Sub32DepositoCreate"
-        android:label="Deposito Submission Create"
+        android:label="@string/label_sub_sec_deposito_create"
         tools:layout="@layout/sub32_deposito_create_fragment" />
     <fragment
         android:id="@+id/sub32DepositoEdit"
         android:name="com.example.kd.fragment.submission.deposito.core.Sub32DepositoEdit"
-        android:label="Deposito Submission Edit"
+        android:label="@string/label_sub_sec_deposito_edit"
         tools:layout="@layout/sub32_deposito_edit_fragment" >
         <argument
             android:name="idDetailDepositoSubmisson"
             app:argType="string"
             android:defaultValue="id" />
     </fragment>
+    <fragment
+        android:id="@+id/file"
+        android:name="com.example.kd.fragment.task.file.file"
+        android:label="Detil File"
+        tools:layout="@layout/fragment_file_list" />
 
 </navigation>
