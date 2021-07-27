@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home,
                 R.id.nav_attendance,
                 R.id.nav_collection,
-                R.id.nav_personal,
                 R.id.nav_deposito_submit,
                 R.id.nav_loan_submit,
             ), drawerLayout

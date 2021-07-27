@@ -15,7 +15,7 @@ class DialogJaminanTipe : DialogFragment(){
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     interface dialogListener {
-        fun onDialogClick(value:String)
+        fun onDialogJaminanTipeClick(value:String)
     }
 
 
@@ -35,11 +35,11 @@ class DialogJaminanTipe : DialogFragment(){
             val builder = AlertDialog.Builder(it)
             builder.setTitle(R.string.label_loan_dialog_title)
                 .setItems(
-                    R.array.list_produk_loan,
+                    R.array.list_tipe_jaminan,
                     DialogInterface.OnClickListener { dialog, which ->
-                        val obj = context?.resources?.getStringArray(R.array.list_produk_loan)
+                        val obj = context?.resources?.getStringArray(R.array.list_tipe_jaminan)
                         if (obj != null) {
-                            listener.onDialogClick(obj.get(which))
+                            listener.onDialogJaminanTipeClick(obj.get(which))
                         }
                         // The 'which' argument contains the index position
                         // of the selected item

@@ -28,7 +28,8 @@ class Sub31LoanDetail : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.sub31_loan_detail_fragment, container, false)
+        val view = inflater.inflate(R.layout.sub31_loan_detail_fragment, container, false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

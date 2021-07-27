@@ -15,7 +15,7 @@ class DialogDepositoTipe : DialogFragment(){
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     interface dialogListener {
-        fun onDialogClick(value:String)
+        fun onDialogDepositoTipeClick(value:String)
     }
 
 
@@ -35,11 +35,11 @@ class DialogDepositoTipe : DialogFragment(){
             val builder = AlertDialog.Builder(it)
             builder.setTitle(R.string.label_loan_dialog_title)
                 .setItems(
-                    R.array.list_produk_loan,
+                    R.array.list_tipe_deposito,
                     DialogInterface.OnClickListener { dialog, which ->
-                        val obj = context?.resources?.getStringArray(R.array.list_produk_loan)
+                        val obj = context?.resources?.getStringArray(R.array.list_tipe_deposito)
                         if (obj != null) {
-                            listener.onDialogClick(obj.get(which))
+                            listener.onDialogDepositoTipeClick(obj.get(which))
                         }
                         // The 'which' argument contains the index position
                         // of the selected item

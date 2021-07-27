@@ -7,26 +7,51 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kd.R
+import com.example.kd.dialog.*
+import com.google.android.material.textfield.TextInputEditText
 
-class Sub32DepositoCreate : Fragment() {
+class Sub32DepositoCreate : Fragment(),
+    DialogDepositoProduk.dialogListener, DialogDepositoTipe.dialogListener {
 
     companion object {
         fun newInstance() = Sub32DepositoCreate()
     }
 
     private lateinit var viewModel: Sub32DepositoCreateViewModel
+    private lateinit var depositoProduk: TextInputEditText
+    private lateinit var depositoTipe: TextInputEditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.sub32_deposito_create_fragment, container, false)
+        val view = inflater.inflate(R.layout.sub32_deposito_create_fragment, container, false)
+        depositoProduk = view.findViewById(R.id.depositoProduk)
+        depositoTipe = view.findViewById(R.id.depositoTipe)
+
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(Sub32DepositoCreateViewModel::class.java)
-        // TODO: Use the ViewModel
+        depositoProduk.setOnClickListener {
+            val dialog = DialogDepositoProduk()
+            dialog.show(childFragmentManager, "Dialog Deposito Produk")
+        }
+
+        depositoTipe.setOnClickListener {
+            val dialog = DialogDepositoTipe()
+            dialog.show(childFragmentManager, "Dialog Deposito Tipe")
+        }
+    }
+
+    override fun onDialogDepositoProdukClick(value: String) {
+        depositoProduk.setText(value)
+    }
+
+    override fun onDialogDepositoTipeClick(value: String) {
+        depositoTipe.setText(value)
     }
 
 }

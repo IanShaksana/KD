@@ -195,6 +195,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/depositoProduk"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -224,6 +225,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/depositoTipe"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"

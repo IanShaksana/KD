@@ -7,11 +7,11 @@
 
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_home_24"
             android:title="@string/label_sub_sec_home" />
         <item
             android:id="@+id/nav_attendance"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_watch_later_24"
             android:title="@string/label_sub_sec_att" />
         <!--
     <item
@@ -26,25 +26,26 @@
 
         <item
             android:id="@+id/nav_collection"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_sticky_note_2_24"
             android:title="@string/label_sub_sec_task" />
+        <!--
         <item
             android:id="@+id/nav_personal"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/label_sub_sec_task" />
+         -->
 
         <item
             android:id="@+id/nav_deposito_submit"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_baseline_library_add_24"
             android:title="@string/label_sub_sec_deposito" />
         <item
             android:id="@+id/nav_loan_submit"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_playlist_add_check_24"
             android:title="@string/label_sub_sec_loan" />
 
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_menu_gallery"
             android:title="LOGOUT" />
 
     </group>
