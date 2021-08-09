@@ -17,21 +17,14 @@
         android:layout_centerHorizontal="true"
         />
 
-    <ImageView
-        android:id="@+id/clock_animate"
-        android:layout_below="@+id/text_clock"
-        android:layout_width="match_parent"
-        android:layout_marginVertical="8dp"
-        android:layout_height="300dp"
-        android:src="@drawable/clock"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/attendance_btn"
-        android:layout_below="@+id/clock_animate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/text_clock"
         android:layout_marginVertical="8dp"
-        android:text="@string/label_sub_sec_att"/>
+        android:text="@string/label_sub_sec_att" />
 
 
     <com.google.android.material.card.MaterialCardView

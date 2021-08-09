@@ -9,9 +9,10 @@ import androidx.fragment.app.DialogFragment
 import com.example.kd.R
 
 class DialogJaminanTipe : DialogFragment(){
-    internal lateinit var listener: dialogListener
+    private lateinit var listener: dialogListener
 
-    /* The activity that creates an instance of this dialog fragment must
+    /*
+     * The activity that creates an instance of this dialog fragment must
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     interface dialogListener {
@@ -33,13 +34,13 @@ class DialogJaminanTipe : DialogFragment(){
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            builder.setTitle(R.string.label_loan_dialog_title)
+            builder.setTitle(R.string.label_jaminan_tipe_dialog_title)
                 .setItems(
                     R.array.list_tipe_jaminan,
-                    DialogInterface.OnClickListener { dialog, which ->
+                    DialogInterface.OnClickListener { _, which ->
                         val obj = context?.resources?.getStringArray(R.array.list_tipe_jaminan)
                         if (obj != null) {
-                            listener.onDialogJaminanTipeClick(obj.get(which))
+                            listener.onDialogJaminanTipeClick(obj[which])
                         }
                         // The 'which' argument contains the index position
                         // of the selected item

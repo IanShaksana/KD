@@ -19,27 +19,13 @@
     </fragment>
 
     <fragment
-        android:id="@+id/test1"
-        android:name="com.example.kd.fragment.Test1"
-        android:label="fragment_test1"
-        tools:layout="@layout/fragment_test1">
-        <argument
-            android:name="theValue"
-            app:argType="integer"
-            android:defaultValue="0" />
-        <action
-            android:id="@+id/action_test1_to_test2"
-            app:destination="@id/test2" />
-    </fragment>
-
-    <fragment
         android:id="@+id/nav_attendance"
         android:name="com.example.kd.fragment.home.Home02Attendance"
         android:label="@string/label_sub_sec_att"
         tools:layout="@layout/frag_12_attendance">
         <action
-            android:id="@+id/action_nav_attendance_to_test12"
-            app:destination="@id/test1" />
+            android:id="@+id/action_nav_attendance_to_attendanceList"
+            app:destination="@id/attendanceList" />
     </fragment>
 
     <fragment
@@ -53,16 +39,6 @@
         android:name="com.example.kd.fragment.home.Home04History"
         android:label="History"
         tools:layout="@layout/frag_14_history"/>
-    <fragment
-        android:id="@+id/test2"
-        android:name="com.example.kd.fragment.Test2"
-        android:label="fragment_test2"
-        tools:layout="@layout/fragment_test2">
-        <argument
-            android:name="theValue"
-            app:argType="string"
-            android:defaultValue="the value" />
-    </fragment>
 
     <fragment
         android:id="@+id/nav_collection"
@@ -86,16 +62,6 @@
             android:name="value"
             app:argType="string"
             android:defaultValue="The Value" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/nav_personal"
-        android:name="com.example.kd.fragment.task.personal.Task02Personal"
-        android:label="@string/label_sub_sec_task"
-        tools:layout="@layout/frag_22_collection_01" >
-        <action
-            android:id="@+id/action_nav_task_to_task02TaskDetail"
-            app:destination="@id/task02TaskDetail" />
     </fragment>
 
     <fragment
@@ -203,5 +169,10 @@
         android:name="com.example.kd.fragment.task.file.file"
         android:label="Detil File"
         tools:layout="@layout/fragment_file_list" />
+    <fragment
+        android:id="@+id/attendanceList"
+        android:name="com.example.kd.fragment.home.attendance.AttendanceList"
+        android:label="List Absen"
+        tools:layout="@layout/fragment_attendance_list_list" />
 
 </navigation>

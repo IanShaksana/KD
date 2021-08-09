@@ -4,18 +4,19 @@ import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.kd.R
 
-class DialogJaminanKepemelikan: DialogFragment() {
+class DialogInputMarketing : DialogFragment() {
     internal lateinit var listener: dialogListener
 
     /* The activity that creates an instance of this dialog fragment must
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     interface dialogListener {
-        fun onDialogJaminanKepemilikanClick(value:String)
+        fun onDialogInputMarketingClick(value: String)
     }
 
 
@@ -26,24 +27,31 @@ class DialogJaminanKepemelikan: DialogFragment() {
             listener = parentFragment as dialogListener
         } catch (e: ClassCastException) {
             // The activity doesn't implement the interface, throw exception
-            throw ClassCastException((context.toString() +
-                    " must implement dialogListener"))
+            throw ClassCastException(
+                (context.toString() +
+                        " must implement dialogListener")
+            )
         }
     }
+
+    private lateinit var editText: EditText
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            builder.setTitle(R.string.label_jaminan_kepemilikan_dialog_title)
-                .setItems(
-                    R.array.list_kepemilikan_jaminan,
-                    DialogInterface.OnClickListener { dialog, which ->
-                        val obj = context?.resources?.getStringArray(R.array.list_kepemilikan_jaminan)
-                        if (obj != null) {
-                            listener.onDialogJaminanKepemilikanClick(obj.get(which))
-                        }
-                        // The 'which' argument contains the index position
-                        // of the selected item
+            val view = layoutInflater.inflate(R.layout.dialog_text, null)
+            editText = view.findViewById(R.id.dialog_input)
+            builder
+                .setTitle(R.string.label_informasi_tambahan_dialog_title)
+                .setView(view)
+                .setPositiveButton("Kirim",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        val input = editText.text.toString()
+                        listener.onDialogInputMarketingClick(input)
                     })
+                .setNegativeButton("Batal",
+                    DialogInterface.OnClickListener { dialog, id ->
+                    })
+
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }

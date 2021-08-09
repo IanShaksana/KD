@@ -44,10 +44,6 @@
             android:icon="@drawable/ic_baseline_playlist_add_check_24"
             android:title="@string/label_sub_sec_loan" />
 
-        <item
-            android:id="@+id/logout"
-            android:title="LOGOUT" />
-
     </group>
 
 </menu>

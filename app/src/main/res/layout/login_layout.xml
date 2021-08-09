@@ -22,10 +22,10 @@
                 android:id="@+id/logo_vis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_flexBasisPercent="50%"
-                android:scaleType="centerCrop"
                 android:layout_marginStart="30dp"
-                android:contentDescription="@string/content_description"/>
+                android:contentDescription="@string/content_description"
+                android:scaleType="centerCrop"
+                app:layout_flexBasisPercent="50%" />
         </com.google.android.flexbox.FlexboxLayout>
 
         <com.google.android.flexbox.FlexboxLayout
@@ -36,12 +36,12 @@
             app:layout_flexBasisPercent="50%">
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                style="@style/textview"
-                android:text="@string/Email" />
+                android:text="@string/username" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/t1"
@@ -55,21 +55,20 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email_input"
+                    style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:inputType="text"
-                    style="@style/edittext"
-                    />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                style="@style/textview"
-                android:text="@string/Password"/>
+                android:text="@string/Password" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/t2"
@@ -83,11 +82,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pass_input"
+                    style="@style/edittext"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:inputType="textPassword"
-                    style="@style/edittext"
-                    />
+                    android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,6 +97,7 @@
                 android:layout_marginRight="30dp"
                 app:flexDirection="row">
 
+                <!--
                 <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -106,15 +105,15 @@
 
                     <TextView
                         android:id="@+id/forget_pass"
+                        style="@style/textview"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_alignParentBottom="true"
                         android:text="@string/Lupa_Password"
-                        style="@style/textview"
-                        android:textAllCaps="false"/>
+                        android:textAllCaps="false" />
 
                 </com.google.android.flexbox.FlexboxLayout>
-
+                -->
                 <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,12 +122,12 @@
 
                     <Button
                         android:id="@+id/log_in"
+                        style="@style/button"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_alignParentBottom="true"
                         android:text="@string/Login"
-                        style="@style/button"
-                        android:textAllCaps="false"/>
+                        android:textAllCaps="false" />
 
                 </com.google.android.flexbox.FlexboxLayout>
 
@@ -147,11 +146,11 @@
             app:layout_flexBasisPercent="35%">
 
             <TextView
+                style="@style/textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:text="@string/AppVersion"
-                style="@style/textview"
                 android:textAlignment="center"
                 android:textSize="15sp" />
 

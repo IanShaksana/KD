@@ -22,7 +22,48 @@
 
     <string name="content_description">placeholder</string>
 
+
+    <!-- String Shared Preferences -->
+
+    <string name="credPref">credential_preferences</string>
+    <string name="emailPref">email</string>
+    <string name="passPref">pass</string>
+    <string name="loginIdPref">loginId</string>
+
+
+    <!-- String API http://128.199.102.132:8081 http://192.168.0.3:8081 -->
+
+
+    <string name="login">http://128.199.102.132:8081/api/mar/login</string>
+    <string name="homeStat">http://128.199.102.132:8081/api/mar/home</string>
+    <string name="attendancePost">http://128.199.102.132:8081/api/mar/att</string>
+    <string name="attendanceList">http://128.199.102.132:8081/api/mar/att/list</string>
+
+    <string name="getTask">http://128.199.102.132:8081/api/mar/task</string>
+    <string name="getTaskDetail">http://128.199.102.132:8081/api/mar/task/detail</string>
+    <string name="finishTask">http://128.199.102.132:8081/api/mar/task/finish</string>
+
+
+    <!--
+    <string name="submitLoanGet">http://192.168.0.3:8081/api/mar/submit/loan</string>
+    <string name="submitLoanGetDetail">http://192.168.0.3:8081/api/mar/submit/loan/detail</string>
+    <string name="submitLoanCreate">http://192.168.0.3:8081/api/mar/submit/loan/create</string>
+    <string name="submitLoanEdit">http://192.168.0.3:8081/api/mar/submit/loan/edit</string>
+    <string name="submitLoanDelete">http://192.168.0.3:8081/api/mar/submit/loan/delete</string>
+    <string name="submitLoanSend">http://192.168.0.3:8081/api/mar/submit/loan/send</string>
+
+    <string name="submitDepositoGet">http://192.168.0.3:8081/api/mar/submit/deposito</string>
+    <string name="submitDepositoGetDetail">http://192.168.0.3:8081/api/mar/submit/deposito/detail</string>
+    <string name="submitDepositoCreate">http://192.168.0.3:8081/api/mar/submit/deposito/create</string>
+    <string name="submitDepositoEdit">http://192.168.0.3:8081/api/mar/submit/deposito/edit</string>
+    <string name="submitDepositoDelete">http://192.168.0.3:8081/api/mar/submit/deposito/delete</string>
+    <string name="submitDepositoSend">http://192.168.0.3:8081/api/mar/submit/deposito/send</string>
+    -->
+
+
     <!-- String Dialog -->
+
+    <string name="label_informasi_tambahan_dialog_title">Informasi Tambahan</string>
 
     <string name="label_loan_dialog_title">Produk Pinjaman</string>
     <string-array name="list_produk_loan">
@@ -33,6 +74,7 @@
         <item>Mikro</item>
     </string-array>
 
+    <string name="label_deposito_produk_dialog_title">Produk Deposito</string>
     <string-array name="list_produk_deposito">
         <item>1 Bulan</item>
         <item>3 Bulan</item>
@@ -40,17 +82,21 @@
         <item>12 Bulan</item>
     </string-array>
 
+
+    <string name="label_deposito_tipe_dialog_title">Tipe Deposito</string>
     <string-array name="list_tipe_deposito">
         <item>AROP (Bunga Transfer)</item>
         <item>AROPB</item>
     </string-array>
 
 
+    <string name="label_jaminan_kepemilikan_dialog_title">Kepemelikan Jaminan</string>
     <string-array name="list_kepemilikan_jaminan">
         <item>Milik Sendiri</item>
         <item>Bukan Milik Sendiri</item>
     </string-array>
 
+    <string name="label_jaminan_tipe_dialog_title">Tipe Jaminan</string>
     <string-array name="list_tipe_jaminan">
         <item>BPKB</item>
         <item>Sertifikat</item>
@@ -60,6 +106,7 @@
 
     <!-- String halaman login -->
     <string name="Email">Email</string>
+    <string name="username">Username</string>
     <string name="Password">Password</string>
     <string name="Lupa_Password">Lupa Password</string>
     <string name="Login">Login</string>
@@ -74,6 +121,7 @@
     <string name="plc_jabatan">IT Engineer</string>
     <string name="plc_cabang">SEGEN Surabaya</string>
     <string name="SEGEN">SEGEN</string>
+    <string name="logout">Logout</string>
 
 
     <!-- String halaman attendance -->

@@ -33,7 +33,7 @@ class DialogDepositoTipe : DialogFragment(){
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            builder.setTitle(R.string.label_loan_dialog_title)
+            builder.setTitle(R.string.label_deposito_tipe_dialog_title)
                 .setItems(
                     R.array.list_tipe_deposito,
                     DialogInterface.OnClickListener { dialog, which ->
