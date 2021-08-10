@@ -1,4 +1,4 @@
-package com.example.kd.fragment.task.collection
+package com.example.kd.fragment.task
 
 import android.content.Context
 import android.os.Bundle

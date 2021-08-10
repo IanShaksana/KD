@@ -31,18 +31,26 @@
     <string name="loginIdPref">loginId</string>
 
 
-    <!-- String API http://128.199.102.132:8081 http://192.168.0.3:8081 -->
+    <!-- String API http://128.199.102.132:8081, http://192.168.0.3:8081, http://192.168.1.14:8081 -->
 
 
-    <string name="login">http://128.199.102.132:8081/api/mar/login</string>
-    <string name="homeStat">http://128.199.102.132:8081/api/mar/home</string>
-    <string name="attendancePost">http://128.199.102.132:8081/api/mar/att</string>
-    <string name="attendanceList">http://128.199.102.132:8081/api/mar/att/list</string>
+    <string name="login">http://192.168.1.14:8081/api/mar/login</string>
+    <string name="homeStat">http://192.168.1.14:8081/api/mar/home</string>
+    <string name="attendancePost">http://192.168.1.14:8081/api/mar/att</string>
+    <string name="attendanceList">http://192.168.1.14:8081/api/mar/att/list</string>
 
-    <string name="getTask">http://128.199.102.132:8081/api/mar/task</string>
-    <string name="getTaskDetail">http://128.199.102.132:8081/api/mar/task/detail</string>
-    <string name="finishTask">http://128.199.102.132:8081/api/mar/task/finish</string>
+    <string name="getTask">http://192.168.1.14:8081/api/mar/task</string>
+    <string name="getTaskDetail">http://192.168.1.14:8081/api/mar/task/detail</string>
+    <string name="finishTask">http://192.168.1.14:8081/api/mar/task/finish</string>
 
+
+
+    <string name="submitDepositoGet">http://192.168.1.14:8081/api/mar/submit/deposito</string>
+    <string name="submitDepositoGetDetail">http://192.168.1.14:8081/api/mar/submit/deposito/detail</string>
+    <string name="submitDepositoCreate">http://192.168.1.14:8081/api/mar/submit/deposito/create</string>
+    <string name="submitDepositoEdit">http://192.168.1.14:8081/api/mar/submit/deposito/edit</string>
+    <string name="submitDepositoDelete">http://192.168.1.14:8081/api/mar/submit/deposito/delete</string>
+    <string name="submitDepositoSend">http://192.168.1.14:8081/api/mar/submit/deposito/send</string>
 
     <!--
     <string name="submitLoanGet">http://192.168.0.3:8081/api/mar/submit/loan</string>
@@ -52,12 +60,6 @@
     <string name="submitLoanDelete">http://192.168.0.3:8081/api/mar/submit/loan/delete</string>
     <string name="submitLoanSend">http://192.168.0.3:8081/api/mar/submit/loan/send</string>
 
-    <string name="submitDepositoGet">http://192.168.0.3:8081/api/mar/submit/deposito</string>
-    <string name="submitDepositoGetDetail">http://192.168.0.3:8081/api/mar/submit/deposito/detail</string>
-    <string name="submitDepositoCreate">http://192.168.0.3:8081/api/mar/submit/deposito/create</string>
-    <string name="submitDepositoEdit">http://192.168.0.3:8081/api/mar/submit/deposito/edit</string>
-    <string name="submitDepositoDelete">http://192.168.0.3:8081/api/mar/submit/deposito/delete</string>
-    <string name="submitDepositoSend">http://192.168.0.3:8081/api/mar/submit/deposito/send</string>
     -->
 
 

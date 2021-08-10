@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/nav_collection"
-        android:name="com.example.kd.fragment.task.collection.Task01Collection"
+        android:name="com.example.kd.fragment.task.Task01Collection"
         android:label="@string/label_sub_sec_task"
         tools:layout="@layout/frag_21_collection_01" >
         <action

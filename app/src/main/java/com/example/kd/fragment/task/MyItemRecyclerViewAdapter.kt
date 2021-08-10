@@ -1,6 +1,5 @@
-package com.example.kd.fragment.task.collection
+package com.example.kd.fragment.task
 
-import android.graphics.drawable.Drawable
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup

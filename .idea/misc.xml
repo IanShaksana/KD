@@ -3,30 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable-v24/border.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/shape_deadline.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/shape_deadline1.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/shape_status_1.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/shape_status_2.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/shape_status_3.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/shape_status_4.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/shape_tipe.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/drawable/side_nav_bar.xml" value="0.2234375" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/dialog_text.xml" value="0.33" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_11_profile.xml" value="0.33" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_12_attendance.xml" value="0.20729166666666668" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_21_collection_01.xml" value="0.33" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_21_collection_02_detail.xml" value="0.20729166666666668" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_22_collection_01.xml" value="0.20729166666666668" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_22_collection_02_detail.xml" value="0.22" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_item_frag_21_collection_01.xml" value="0.33" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_item_frag_22_collection_01.xml" value="0.1" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/fragment_attendance_list.xml" value="0.20729166666666668" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/fragment_attendance_list_list.xml" value="0.20729166666666668" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/fragment_sub31_loan_list.xml" value="0.20729166666666668" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/login_layout.xml" value="0.22" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/sub31_loan_create_fragment.xml" value="0.1" />
-        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/menu/coba_main_drawer.xml" value="0.2041025641025641" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/frag_12_attendance.xml" value="0.21927083333333333" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/frag_item_frag_21_collection_01.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/fragment_sub31_loan.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/fragment_sub32_deposito.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/fragment_sub32_deposito_list.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/sub31_loan_create_fragment.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/sub31_loan_detail_fragment.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/sub31_loan_edit_fragment.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/sub32_deposito_create_fragment.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/sub32_deposito_detail_fragment.xml" value="0.215625" />
+        <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/sub32_deposito_edit_fragment.xml" value="0.215625" />
       </map>
     </option>
   </component>

@@ -16,9 +16,7 @@ class Sub31LoanCreate : Fragment(),
     DialogLoanProduk.dialogListener, DialogJaminanKepemelikan.dialogListener,
     DialogJaminanTipe.dialogListener {
 
-    companion object {
-        fun newInstance() = Sub31LoanCreate()
-    }
+
 
     private lateinit var viewModel: Sub31LoanCreateViewModel
     private lateinit var loanProduk: TextInputEditText

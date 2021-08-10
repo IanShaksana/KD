@@ -11,20 +11,60 @@
         android:layout_height="wrap_content"
         app:flexDirection="column">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_flexBasisPercent="80%">
 
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:layout_flexBasisPercent="80%">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/title_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Title"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:inputType="textCapSentences|textMultiLine"
+                                    android:maxLength="2000" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/calon_card"
@@ -64,7 +104,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_email"
+                                    android:id="@+id/debiturNama"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:inputType="text" />
@@ -89,7 +129,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_name"
+                                    android:id="@+id/debiturKontak"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:inputType="text" />
@@ -115,7 +155,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_gender"
+                                    android:id="@+id/debiturAlamat"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -144,7 +184,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_add"
+                                    android:id="@+id/debiturNik"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:inputType="number"
@@ -225,6 +265,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanPlafon"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -252,6 +293,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanTime"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -279,6 +321,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanBungaRate"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -306,6 +349,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanProvisirate"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -333,6 +377,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanTanggal"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -362,6 +407,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanTanggal1"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -391,6 +437,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanJenis"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -418,6 +465,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loanTujuan"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -530,6 +578,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/jaminanTahun"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -557,6 +606,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/jaminanNominal"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -584,6 +634,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/jaminanDeskripsi"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -626,6 +677,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/informasiTambahan"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -645,10 +697,10 @@
 
             </ScrollView>
 
-        </RelativeLayout>
+
 
         <Button
-            android:id="@+id/register"
+            android:id="@+id/edit"
             style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

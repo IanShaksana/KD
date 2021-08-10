@@ -1,58 +1,234 @@
 package com.example.kd.fragment.submission.deposito.core
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.RequestFuture
+import com.android.volley.toolbox.Volley
 import com.example.kd.R
+import com.example.kd.databinding.Sub32DepositoEditFragmentBinding
 import com.example.kd.dialog.DialogDepositoProduk
 import com.example.kd.dialog.DialogDepositoTipe
+import com.example.kd.modelbody.DepositoEdit
+import com.example.kd.modelbody.IdOnly
+import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import java.util.concurrent.TimeUnit
 import com.google.android.material.textfield.TextInputEditText
+
 
 class Sub32DepositoEdit : Fragment(),
     DialogDepositoProduk.dialogListener, DialogDepositoTipe.dialogListener {
 
-    companion object {
-        fun newInstance() = Sub32DepositoEdit()
-    }
 
-    private lateinit var viewModel: Sub32DepositoEditViewModel
-    private lateinit var depositoProduk: TextInputEditText
-    private lateinit var depositoTipe: TextInputEditText
+    private lateinit var binding: Sub32DepositoEditFragmentBinding
+    private val value: Sub32DepositoEditArgs by navArgs()
+    private lateinit var data: JSONObject
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.sub32_deposito_edit_fragment, container, false)
-        depositoProduk = view.findViewById(R.id.depositoProduk)
-        depositoTipe = view.findViewById(R.id.depositoTipe)
-
-        return view
+    ): View {
+        binding = Sub32DepositoEditFragmentBinding.inflate(inflater, container, false)
+        backgroundInitial()
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(Sub32DepositoEditViewModel::class.java)
-        depositoProduk.setOnClickListener {
+        binding.pengajuanProduk.setOnClickListener {
             val dialog = DialogDepositoProduk()
             dialog.show(childFragmentManager, "Dialog Deposito Produk")
         }
 
-        depositoTipe.setOnClickListener {
+        binding.pengajuanTipe.setOnClickListener {
             val dialog = DialogDepositoTipe()
             dialog.show(childFragmentManager, "Dialog Deposito Tipe")
+        }
+
+        binding.edit.setOnClickListener {
+            var fields: Array<TextInputEditText> = arrayOf(
+                binding.deposanNama,
+                binding.deposanAlamat,
+                binding.deposanKontak,
+                binding.deposanNik,
+                binding.pengajuanBungaRate,
+                binding.pengajuanJangkaWaktu,
+                binding.pengajuanProduk,
+                binding.pengajuanSaldoAwal,
+                binding.pengajuanTanggal,
+                binding.pengajuanTipe,
+                binding.pengajuanTitle
+            )
+            if (validate(fields)) {
+                backgroundEdit()
+            }
         }
     }
 
     override fun onDialogDepositoProdukClick(value: String) {
-        depositoProduk.setText(value)
+        binding.pengajuanProduk.setText(value)
     }
 
     override fun onDialogDepositoTipeClick(value: String) {
-        depositoTipe.setText(value)
+        binding.pengajuanTipe.setText(value)
     }
 
+
+    private fun backgroundInitial() {
+        CoroutineScope(Dispatchers.IO).launch {
+            onSuccess(
+                getDetail(
+                    this@Sub32DepositoEdit.requireContext().resources.getString(R.string.submitDepositoGetDetail),
+                    JSONObject(
+                        Gson().toJson(
+                            IdOnly(
+                                value.idDetailDepositoSubmisson
+                            )
+                        )
+                    )
+                )
+            )
+        }
+    }
+
+    private fun getDetail(url: String, jObject: JSONObject): JSONObject {
+        val future = RequestFuture.newFuture<JSONObject>()
+        val queue = Volley.newRequestQueue(this.requireContext())
+        val stringRequest = JsonObjectRequest(
+            Request.Method.POST, url, jObject, future, future
+        )
+        queue.add(stringRequest)
+
+        var resp = JSONObject()
+        try {
+            resp = future.get(15, TimeUnit.SECONDS)
+            //val resp = future.get()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return resp
+
+    }
+
+    private suspend fun onSuccess(resp: JSONObject) {
+        withContext(Dispatchers.Main) {
+            val data = resp.getJSONArray("data").getJSONObject(0)
+            this@Sub32DepositoEdit.data = data
+            binding.apply {
+                pengajuanTitle.setText(data.getString("pengajuanTitle"))
+
+                deposanNama.setText("${data.getString("deposanNama")}")
+                deposanKontak.setText("${data.getString("deposanKontak")}")
+                deposanAlamat.setText("${data.getString("deposanAlamat")}")
+                deposanNik.setText("${data.getString("deposanNik")}")
+
+                pengajuanProduk.setText("${data.getString("pengajuanProduk")}")
+                pengajuanTipe.setText("${data.getString("pengajuanTipe")}")
+                pengajuanSaldoAwal.setText("${data.getString("pengajuanSaldoAwal")}")
+                pengajuanJangkaWaktu.setText(
+                    "${data.getString("pengajuanJangkaWaktu")}"
+                )
+                pengajuanBungaRate.setText("${data.getString("pengajuanBungaRate")}")
+                pengajuanTanggal.setText("${data.getString("pengajuanTanggal")}")
+
+
+                informasiTambahan.setText(
+                    "${data.getString("informasiTambahan")}"
+                )
+            }
+
+        }
+
+
+    }
+
+
+    private fun backgroundEdit() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val sharedPref = this@Sub32DepositoEdit.requireActivity().getSharedPreferences(
+                getString(R.string.credPref), Context.MODE_PRIVATE
+            )
+
+            onSuccessEdit(
+                edit(
+                    this@Sub32DepositoEdit.requireContext().resources.getString(R.string.submitDepositoCreate),
+                    JSONObject(
+                        Gson().toJson(
+                            DepositoEdit(
+                                value.idDetailDepositoSubmisson,
+                                sharedPref.getString(
+                                    getString(R.string.loginIdPref),
+                                    ""
+                                ),
+                                binding.pengajuanTitle.text.toString(),
+                                binding.deposanNama.text.toString(),
+                                binding.deposanKontak.text.toString(),
+                                binding.deposanAlamat.text.toString(),
+                                binding.deposanNik.text.toString(),
+                                binding.pengajuanProduk.text.toString(),
+                                binding.pengajuanTipe.text.toString(),
+                                binding.pengajuanSaldoAwal.text.toString(),
+                                binding.pengajuanBungaRate.text.toString(),
+                                binding.pengajuanTanggal.text.toString(),
+                                binding.informasiTambahan.text.toString(),
+                                2
+                            )
+                        )
+                    )
+                )
+            )
+        }
+    }
+
+    private fun edit(url: String, jObject: JSONObject): JSONObject {
+        val future = RequestFuture.newFuture<JSONObject>()
+        val queue = Volley.newRequestQueue(this.requireContext())
+        val stringRequest = JsonObjectRequest(
+            Request.Method.POST, url, jObject, future, future
+        )
+        queue.add(stringRequest)
+
+        var resp = JSONObject()
+        try {
+            resp = future.get(15, TimeUnit.SECONDS)
+            //val resp = future.get()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return resp
+
+    }
+
+    private suspend fun onSuccessEdit(resp: JSONObject) {
+        withContext(Dispatchers.Main) {
+            if (resp["status"] == 1) {
+                binding.root.findNavController().popBackStack()
+            }
+        }
+    }
+
+
+    private fun validate(fields: Array<TextInputEditText>): Boolean {
+        for (i in fields.indices) {
+            val currentField = fields[i]
+            if (currentField.text.toString().isEmpty()) {
+                return false
+            }
+        }
+        return true
+    }
 }
+
+

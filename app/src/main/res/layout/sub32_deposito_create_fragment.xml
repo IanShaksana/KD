@@ -26,6 +26,48 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/title_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Title"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                app:boxBackgroundMode="none"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/pengajuanTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:inputType="textCapSentences|textMultiLine"
+                                    android:maxLength="2000" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/calon_card"
@@ -65,7 +107,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_email"
+                                    android:id="@+id/deposanNama"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:inputType="text" />
@@ -90,7 +132,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_name"
+                                    android:id="@+id/deposanKontak"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:inputType="text" />
@@ -116,7 +158,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_gender"
+                                    android:id="@+id/deposanAlamat"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -145,7 +187,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/reg_add"
+                                    android:id="@+id/deposanNik"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:inputType="number"
@@ -196,7 +238,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/depositoProduk"
+                                    android:id="@+id/pengajuanProduk"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -226,7 +268,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/depositoTipe"
+                                    android:id="@+id/pengajuanTipe"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -256,6 +298,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/pengajuanSaldoAwal"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -283,6 +326,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/pengajuanJangkaWaktu"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -310,6 +354,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/pengajuanBungaRate"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -337,6 +382,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/pengajuanTanggal"
                                     android:layout_width="match_parent"
                                     android:layout_height="45dp"
                                     android:clickable="true"
@@ -346,7 +392,6 @@
                                     android:textColorHint="#526c97" />
 
                             </com.google.android.material.textfield.TextInputLayout>
-
 
 
                         </LinearLayout>
@@ -374,7 +419,6 @@
                                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
 
-
                             <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -384,6 +428,7 @@
                                 app:hintEnabled="false">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/informasiTambahan"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -406,15 +451,13 @@
 
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/register"
-            style="@style/button"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="Create"
-            android:textAllCaps="false"
-            android:textColor="#101930" />
+            android:textAllCaps="false" />
 
     </com.google.android.flexbox.FlexboxLayout>
 

@@ -1,5 +1,6 @@
 package com.example.kd.fragment.submission.deposito.core
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -8,82 +9,117 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.RequestFuture
+import com.android.volley.toolbox.Volley
 import com.example.kd.R
-import com.example.kd.fragment.submission.deposito.core.placeholder.PlaceholderContent
-import com.example.kd.fragment.submission.loan.core.Sub31LoanDirections
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.kd.databinding.FragmentSub32DepositoListBinding
+import com.example.kd.fragment.task.Task01CollectionDirections
+import com.example.kd.modelbody.IdOnly
+import com.example.kd.modelbody.TaskModel
+import com.example.kd.modelbody.TaskModelLoan
+import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONArray
+import org.json.JSONObject
+import java.util.concurrent.TimeUnit
 
 /**
  * A fragment representing a list of Items.
  */
 class Sub32Deposito : Fragment() {
 
-    private var columnCount = 1
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var binding: FragmentSub32DepositoListBinding
+    private lateinit var inputData: MutableList<TaskModelLoan>
 
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
-    }
-
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var createButton: FloatingActionButton
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_sub32_deposito_list, container, false)
 
-        recyclerView = view.findViewById(R.id.list)
-        createButton = view.findViewById(R.id.fab)
+        binding = FragmentSub32DepositoListBinding.inflate(inflater, container, false)
+        background()
 
-        createButton.setOnClickListener {
-            Toast.makeText(context, "T", Toast.LENGTH_SHORT).show()
+        binding.fab.setOnClickListener {
             val action =
                 Sub32DepositoDirections.actionNavDepositoSubmitToSub32DepositoCreate()
-            view.findNavController().navigate(action)
+            binding.root.findNavController().navigate(action)
         }
 
-        val myItemRecyclerViewAdapter: MyItemRecyclerViewAdapter = MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS)
-        myItemRecyclerViewAdapter.onItemClick = {
-            Toast.makeText(context, it.id + " " + it.content, Toast.LENGTH_SHORT).show()
-            val action =
-                Sub32DepositoDirections.actionNavDepositoSubmitToSub02DepositoDetail(it.id + " " + it.content)
-            view.findNavController().navigate(action)
-        }
-        recyclerView.adapter = myItemRecyclerViewAdapter
-
-
-        // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS)
-            }
-        }
-        return view
+        return binding.root
     }
 
-    companion object {
 
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            Sub32Deposito().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
+    private fun background() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val sharedPref = this@Sub32Deposito.requireActivity().getSharedPreferences(
+                getString(R.string.credPref), Context.MODE_PRIVATE
+            )
+            onSuccess(
+                getTask(
+                    this@Sub32Deposito.requireContext().resources.getString(R.string.submitDepositoGet),
+                    JSONObject(
+                        Gson().toJson(
+                            IdOnly(
+                                sharedPref.getString(
+                                    getString(R.string.loginIdPref),
+                                    ""
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        }
     }
+
+    private fun getTask(url: String, jObject: JSONObject): MutableList<TaskModelLoan> {
+        val future = RequestFuture.newFuture<JSONObject>()
+        val queue = Volley.newRequestQueue(this.requireContext())
+        val stringRequest = JsonObjectRequest(
+            Request.Method.POST, url, jObject, future, future
+        )
+        queue.add(stringRequest)
+
+        val data: MutableList<TaskModelLoan> = ArrayList()
+        try {
+            val resp = future.get(15, TimeUnit.SECONDS)
+            //val resp = future.get()
+            val array: JSONArray = resp.getJSONArray("data")
+            for (i in 0 until array.length()) {
+                val item = array.getJSONObject(i)
+                data.add(Gson().fromJson(item.toString(), TaskModelLoan::class.java))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return data
+
+    }
+
+    private suspend fun onSuccess(resp: MutableList<TaskModelLoan>) {
+        withContext(Dispatchers.Main) {
+            inputData = resp
+
+            val myItemRecyclerViewAdapter =
+                MyItemRecyclerViewAdapter(inputData)
+            binding.list.adapter = myItemRecyclerViewAdapter
+
+
+            myItemRecyclerViewAdapter.onItemClick = {
+                val action =
+                    Sub32DepositoDirections.actionNavDepositoSubmitToSub02DepositoDetail(it.id)
+                binding.root.findNavController().navigate(action)
+
+            }
+
+        }
+    }
+
+
 }
