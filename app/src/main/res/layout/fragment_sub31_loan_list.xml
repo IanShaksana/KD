@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
-        tools:context=".fragment.submission.loan.core.Sub31Loan"
+        tools:context=".fragment.marketing.submission.loan.core.Sub31Loan"
         tools:listitem="@layout/fragment_sub31_loan" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

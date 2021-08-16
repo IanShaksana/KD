@@ -13,13 +13,17 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.Frag12AttendanceBinding
+import com.example.kd.modelbody.AttModel
+import com.example.kd.modelbody.AttModelUser
 import com.example.kd.modelbody.IdOnly
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.joda.time.DateTime
 import org.json.JSONObject
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class Home02Attendance : Fragment() {
@@ -55,11 +59,12 @@ class Home02Attendance : Fragment() {
                     this@Home02Attendance.requireContext().resources.getString(R.string.attendancePost),
                     JSONObject(
                         Gson().toJson(
-                            IdOnly(
+                            AttModelUser(
                                 sharedPref.getString(
                                     getString(R.string.loginIdPref),
                                     ""
-                                )
+                                ),
+                                DateTime(Date()).toString(requireContext().resources.getString(R.string.format_date_sb))
                             )
                         )
                     )

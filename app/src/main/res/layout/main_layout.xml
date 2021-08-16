@@ -12,22 +12,15 @@
         android:layout_height="match_parent"
         app:flexDirection="column">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
             <fragment
                 android:id="@+id/main_fragment"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="20dp"
                 app:defaultNavHost="true"
                 app:layout_alignSelf="center"
                 app:navGraph="@navigation/coba_nav" />
-
-        </ScrollView>
 
     </com.google.android.flexbox.FlexboxLayout>
 

@@ -92,6 +92,7 @@ class LoginActivity : AppCompatActivity() {
                 val editor = sharedPref.edit()
                 with(editor) {
                     putString(getString(R.string.loginIdPref), data["id"].toString())
+                    putString(getString(R.string.posisiPref), data["posisi"].toString())
                     apply()
                 }
 

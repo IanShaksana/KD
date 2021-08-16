@@ -94,7 +94,7 @@ class AttendanceList : Fragment() {
             inputData = resp
 
             if (view is RecyclerView) {
-                val myItemRecyclerViewAdapter = MyItemRecyclerViewAdapter(inputData)
+                val myItemRecyclerViewAdapter = MyItemRecyclerViewAdapter(inputData,requireContext())
                 binding.list.adapter = myItemRecyclerViewAdapter
 
             }

@@ -7,5 +7,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".fragment.task.Task01Collection"
+    tools:context=".fragment.marketing.task.Task01Collection"
     tools:listitem="@layout/frag_item_frag_21_collection_01" />

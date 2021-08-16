@@ -17,7 +17,6 @@ class DialogDate : DialogFragment() {
         val day = c[Calendar.DAY_OF_MONTH]
         val wasd = DatePickerDialog(
             requireContext(),
-            AlertDialog.THEME_HOLO_LIGHT,
             parentFragment as OnDateSetListener,
             year,
             month,

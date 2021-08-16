@@ -1,31 +1,29 @@
 package com.example.kd.modelbody
 
-import java.math.BigDecimal
-import java.util.*
 
 data class LoanCreate(
 
-    val idmarketing: String,
+    val idmarketing: String?,
 
-    val title: String,
+    val pengajuanTitle: String,
     val debiturNama: String,
     val debiturKontak: String,
     val debiturAlamat: String,
     val debiturNik: String,
 
-    val loanProduk: String,
-    val loanPlafon: String,
-    val loanTime: String,
-    val loanBungarate: String,
-    val loanProvisirate: String,
-    val loanTanggal: String,
-    val loanTanggal1: String,
-    val loanJenis: String,
-    val loanTujuan: String,
+    val pengajuanProduk: String,
+    val pengajuanPlafon: String,
+    val pengajuanJangkaWaktu: String,
+    val pengajuanBungaRate: String,
+    val pengajuanProvisiRate: String,
+    val pengajuanTanggal: String,
+    val pengajuanTanggalAngsuranPertama: String,
+    val pengajuanJenisPenggunaan: String,
+    val pengajuanTujuanKredit: String,
 
     val jaminanTipe: String,
     val jaminanKepemilikan: String,
-    val jaminanTahun: Integer,
+    val jaminanTahun: String,
     val jaminanNominal: String,
     val jaminanDeskripsi: String,
 

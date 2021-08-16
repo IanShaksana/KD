@@ -1,10 +1,13 @@
 package com.example.kd.fragment.home
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.android.volley.Request
@@ -13,6 +16,7 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.Frag11ProfileBinding
+import com.example.kd.dialog.DialogDate
 import com.example.kd.modelbody.IdOnly
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -20,9 +24,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-class Home01Profile : Fragment() {
+class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
     private lateinit var binding: Frag11ProfileBinding
 
     override fun onCreateView(
@@ -103,6 +108,10 @@ class Home01Profile : Fragment() {
         withContext(Dispatchers.Main) {
             val data = resp.getJSONArray("data").getJSONObject(0)
             binding.apply {
+                Timber.i(data.toString())
+                nama.text = "Hi, ${data.getString("nama")}"
+                posisi.text = "${data.getString("posisi")}"
+                cabang.text = "SEGEN ${data.getString("cabang")}"
                 countCollection.text = "Tugas Collection : ${data.getString("countCollection")}"
                 countPersonal.text = "Tugas Personal : ${data.getString("countPersonal")}"
                 if (!data.getBoolean("attendance")) {
@@ -116,6 +125,10 @@ class Home01Profile : Fragment() {
 
 
         }
+    }
+
+    override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+        Toast.makeText(requireContext(),"yuhuuuu",Toast.LENGTH_SHORT).show()
     }
 
 
