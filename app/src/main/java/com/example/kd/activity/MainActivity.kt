@@ -81,9 +81,12 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_home,
                 R.id.nav_attendance,
+                R.id.nav_collection,
+                R.id.nav_deposito_submit,
+                R.id.nav_loan_submit,
                 R.id.nav_task_manager, // ini diganti
-                R.id.nav_deposito_submit, // ini diganti
-                R.id.nav_loan_submit, // ini diganti
+                R.id.nav_deposito_manager, // ini diganti
+                R.id.nav_loan_manager, // ini diganti
             ), drawerLayout
         )
 

@@ -1,4 +1,4 @@
-package com.example.kd.fragment.marketing.submission.loan.core
+package com.example.kd.fragment.marketing.task.core
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.kd.R
-import com.example.kd.databinding.FragmentSub31LoanBinding
-import com.example.kd.modelbody.TaskModelLoan
+import com.example.kd.databinding.FragItemFrag21Collection01Binding
+
+import com.example.kd.modelbody.TaskModel
 import com.google.android.material.card.MaterialCardView
 import org.joda.time.DateTime
 import org.joda.time.LocalDate
@@ -17,15 +18,15 @@ import org.joda.time.LocalDate
  * TODO: Replace the implementation with code for your data type.
  */
 class MyItemRecyclerViewAdapter(
-    private val values: List<TaskModelLoan>, private val context : Context
+    private val values: List<TaskModel>, private val context : Context
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
+    var onItemClick: ((TaskModel) -> Unit)? = null
 
-    var onItemClick: ((TaskModelLoan) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
-            FragmentSub31LoanBinding.inflate(
+            FragItemFrag21Collection01Binding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -36,11 +37,11 @@ class MyItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.taskTitle.text = item.pengajuanTitle
-        holder.taskType.text = item.pengajuanProduk
+        holder.taskTitle.text = item.title
+        holder.taskType.text = item.tipe
         holder.taskStatus.text = item.status
 
-        if (item.status.equals("Draft", true)) {
+        if (item.status.equals("To Do", true)) {
             holder.taskStatus.setBackgroundResource(R.drawable.shape_status_1)
         }
         if (item.status.equals("Review", true)) {
@@ -52,7 +53,7 @@ class MyItemRecyclerViewAdapter(
         if (item.status.equals("Ditolak", true)) {
             holder.taskStatus.setBackgroundResource(R.drawable.shape_status_4)
         }
-        val dt: LocalDate = DateTime(item.tanggal).toLocalDate()
+        val dt: LocalDate = DateTime(item.deadline).toLocalDate()
         val today: LocalDate = DateTime(item.deadline).toLocalDate()
         if ((dt.isEqual(today) && !item.status.equals(
                 "Selesai",
@@ -63,26 +64,23 @@ class MyItemRecyclerViewAdapter(
         }else{
             holder.card.setBackgroundResource(R.drawable.shape_deadline1)
         }
-
-
-        holder.card.setBackgroundResource(R.drawable.shape_deadline1)
-
         holder.taskDeadline.text =
-            "Tanggal : " + dt.toString(context.applicationContext.resources.getString(R.string.format_date_1))
-        holder.taskAttachment.text = "-"
+            "Deadline : " + dt.toString(context.applicationContext.resources.getString(R.string.format_date_1))
+        holder.taskAttachment.text = item.attachment
+
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragmentSub31LoanBinding) :
+    inner class ViewHolder(binding: FragItemFrag21Collection01Binding) :
         RecyclerView.ViewHolder(binding.root) {
-
-        val taskTitle: TextView = binding.subTitle
-        val taskType: TextView = binding.subType
-        val taskStatus: TextView = binding.subStatus
-        val taskDeadline: TextView = binding.subTanggal
-        val taskAttachment: TextView = binding.subAttachment
+        val taskTitle: TextView = binding.taskTitle
+        val taskType: TextView = binding.taskType
+        val taskStatus: TextView = binding.taskStatus
+        val taskDeadline: TextView = binding.taskDeadline
+        val taskAttachment: TextView = binding.taskAttachment
         val card: MaterialCardView = binding.collectionCard
+
 
         override fun toString(): String {
             return super.toString() + " '" + taskTitle.text + "'"
@@ -93,8 +91,6 @@ class MyItemRecyclerViewAdapter(
                 onItemClick?.invoke(values[adapterPosition])
             }
         }
-
-
     }
 
 }

@@ -1,6 +1,5 @@
-package com.example.kd.fragment.marketing.task.collection.detail
+package com.example.kd.fragment.marketing.task.detail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,7 +27,6 @@ import java.util.concurrent.TimeUnit
 
 class Task01CollectionDetail : Fragment(), DialogInputMarketing.dialogListener {
 
-    private lateinit var viewModel: Task01CollectionDetailViewModel
     private lateinit var binding: Frag21Collection02DetailBinding
     private val value: Task01CollectionDetailArgs by navArgs()
 
@@ -45,13 +43,7 @@ class Task01CollectionDetail : Fragment(), DialogInputMarketing.dialogListener {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(Task01CollectionDetailViewModel::class.java)
-        val arg = value.value
-        viewModel.initial(arg, activity)
-        // TODO: Use the ViewModel
-    }
+
 
     private fun background() {
         CoroutineScope(Dispatchers.IO).launch {

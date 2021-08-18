@@ -1,4 +1,4 @@
-package com.example.kd.fragment.manager.task.core.list
+package com.example.kd.fragment.manager.task.list
 
 import android.content.Context
 import android.os.Bundle

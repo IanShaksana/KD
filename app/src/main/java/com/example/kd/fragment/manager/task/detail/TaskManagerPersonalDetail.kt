@@ -1,4 +1,4 @@
-package com.example.kd.fragment.manager.task.core.detail
+package com.example.kd.fragment.manager.task.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,12 +13,10 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerPersonalDetailBinding
+import com.example.kd.dialog.DialogFinishReject
 import com.example.kd.dialog.DialogInputMarketing
-import com.example.kd.fragment.manager.task.core.crud.personal.TaskManagerPersonalEditArgs
-import com.example.kd.fragment.marketing.task.personal.detail.Task02TaskDetailDirections
 import com.example.kd.modelbody.IdMessageOnly
 import com.example.kd.modelbody.IdOnly
-import com.example.kd.modelbody.ListMarketingModel
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,7 +27,7 @@ import org.json.JSONObject
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-class TaskManagerPersonalDetail : Fragment(), DialogInputMarketing.dialogListener {
+class TaskManagerPersonalDetail : Fragment(), DialogFinishReject.dialogListenerFinishReject {
 
     private lateinit var binding: FragmentTaskManagerPersonalDetailBinding
     private val value: TaskManagerPersonalDetailArgs by navArgs()
@@ -57,7 +55,7 @@ class TaskManagerPersonalDetail : Fragment(), DialogInputMarketing.dialogListene
             backgroundSend()
         }
         binding.finish.setOnClickListener {
-            val dialog = DialogInputMarketing()
+            val dialog = DialogFinishReject()
             dialog.show(childFragmentManager, "Dialog Input Marketing")
         }
         return binding.root
@@ -229,21 +227,38 @@ class TaskManagerPersonalDetail : Fragment(), DialogInputMarketing.dialogListene
         }
     }
 
-    private fun backgroundFinish(message: String) {
+    private fun backgroundFinish(message: String, choice: Int) {
         CoroutineScope(Dispatchers.IO).launch {
-
-            onFinish(
-                finish(
-                    this@TaskManagerPersonalDetail.requireContext().resources.getString(R.string.finishTaskManager),
-                    JSONObject(
-                        Gson().toJson(
-                            IdMessageOnly(
-                                value.idtask, message
+            if(choice ==1){
+                onFinish(
+                    finish(
+                        this@TaskManagerPersonalDetail.requireContext().resources.getString(R.string.finishTaskManager),
+                        JSONObject(
+                            Gson().toJson(
+                                IdMessageOnly(
+                                    value.idtask, message
+                                )
                             )
                         )
                     )
                 )
-            )
+            }
+
+            if(choice ==0){
+                onFinish(
+                    finish(
+                        this@TaskManagerPersonalDetail.requireContext().resources.getString(R.string.rejectTaskManager),
+                        JSONObject(
+                            Gson().toJson(
+                                IdMessageOnly(
+                                    value.idtask, message
+                                )
+                            )
+                        )
+                    )
+                )
+            }
+
         }
     }
 
@@ -313,8 +328,10 @@ class TaskManagerPersonalDetail : Fragment(), DialogInputMarketing.dialogListene
         }
     }
 
-    override fun onDialogInputMarketingClick(value: String) {
-        backgroundFinish(value)
+
+
+    override fun onDialogClickFinishReject(value: String, choice: Int) {
+        backgroundFinish(value,choice)
     }
 
 }

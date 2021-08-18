@@ -29,20 +29,8 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_achievement"
-        android:name="com.example.kd.fragment.home.Home03Achievement"
-        android:label="Achievement"
-        tools:layout="@layout/frag_13_achievement"/>
-
-    <fragment
-        android:id="@+id/nav_history"
-        android:name="com.example.kd.fragment.home.Home04History"
-        android:label="History"
-        tools:layout="@layout/frag_14_history"/>
-
-    <fragment
         android:id="@+id/nav_collection"
-        android:name="com.example.kd.fragment.marketing.task.Task01Collection"
+        android:name="com.example.kd.fragment.marketing.task.core.Task01Collection"
         android:label="@string/label_sub_sec_task"
         tools:layout="@layout/frag_21_collection_01" >
         <action
@@ -55,7 +43,7 @@
 
     <fragment
         android:id="@+id/task01CollectionDetail"
-        android:name="com.example.kd.fragment.marketing.task.collection.detail.Task01CollectionDetail"
+        android:name="com.example.kd.fragment.marketing.task.detail.Task01CollectionDetail"
         android:label="@string/label_sub_sec_task_detail"
         tools:layout="@layout/frag_21_collection_02_detail" >
         <argument
@@ -66,7 +54,7 @@
 
     <fragment
         android:id="@+id/task02TaskDetail"
-        android:name="com.example.kd.fragment.marketing.task.personal.detail.Task02TaskDetail"
+        android:name="com.example.kd.fragment.marketing.task.detail.Task02TaskDetail"
         android:label="@string/label_sub_sec_task_detail"
         tools:layout="@layout/frag_22_collection_02_detail" >
         <argument
@@ -177,7 +165,7 @@
 
     <fragment
         android:id="@+id/nav_task_manager"
-        android:name="com.example.kd.fragment.manager.task.core.list.TaskManager"
+        android:name="com.example.kd.fragment.manager.task.list.TaskManager"
         android:label="Manajemen Tugas"
         tools:layout="@layout/fragment_task_manager_list">
         <action
@@ -192,7 +180,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerCrudSelect"
-        android:name="com.example.kd.fragment.manager.task.core.crud.TaskManagerCrudSelect"
+        android:name="com.example.kd.fragment.manager.task.crud.TaskManagerCrudSelect"
         android:label="Buat Tugas"
         tools:layout="@layout/fragment_task_manager_crud_select" >
         <action
@@ -204,7 +192,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerPersonalDetail"
-        android:name="com.example.kd.fragment.manager.task.core.detail.TaskManagerPersonalDetail"
+        android:name="com.example.kd.fragment.manager.task.detail.TaskManagerPersonalDetail"
         android:label="Detil Tugas Personal"
         tools:layout="@layout/fragment_task_manager_personal_detail">
         <action
@@ -217,7 +205,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerCollectionDetail"
-        android:name="com.example.kd.fragment.manager.task.core.detail.TaskManagerCollectionDetail"
+        android:name="com.example.kd.fragment.manager.task.detail.TaskManagerCollectionDetail"
         android:label="Detil Tugas Collection"
         tools:layout="@layout/fragment_task_manager_collection_detail">
         <action
@@ -230,28 +218,62 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerCollectionCreate"
-        android:name="com.example.kd.fragment.manager.task.core.crud.collection.TaskManagerCollectionCreate"
+        android:name="com.example.kd.fragment.manager.task.crud.collection.TaskManagerCollectionCreate"
         android:label="Buat Tugas Collection"
         tools:layout="@layout/fragment_task_manager_collection_create" />
     <fragment
         android:id="@+id/taskManagerPersonalCreate"
-        android:name="com.example.kd.fragment.manager.task.core.crud.personal.TaskManagerPersonalCreate"
+        android:name="com.example.kd.fragment.manager.task.crud.personal.TaskManagerPersonalCreate"
         android:label="Buat Tugas Personal"
         tools:layout="@layout/fragment_task_manager_personal_create" />
     <fragment
         android:id="@+id/taskManagerCollectionEdit"
-        android:name="com.example.kd.fragment.manager.task.core.crud.collection.TaskManagerCollectionEdit"
+        android:name="com.example.kd.fragment.manager.task.crud.collection.TaskManagerCollectionEdit"
         android:label="fragment_task_manager_collection_edit"
         tools:layout="@layout/fragment_task_manager_collection_edit" />
     <fragment
         android:id="@+id/taskManagerPersonalEdit"
-        android:name="com.example.kd.fragment.manager.task.core.crud.personal.TaskManagerPersonalEdit"
+        android:name="com.example.kd.fragment.manager.task.crud.personal.TaskManagerPersonalEdit"
         android:label="Edit Tugas Personal"
         tools:layout="@layout/fragment_task_manager_personal_edit">
         <argument
             android:name="idtask"
             android:defaultValue="idtask"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_deposito_manager"
+        android:name="com.example.kd.fragment.manager.submission.deposito.core.DepositoManage"
+        android:label="Manajemen Deposito Baru"
+        tools:layout="@layout/fragment_deposito_manage_list" >
+        <action
+            android:id="@+id/action_nav_deposito_manager_to_depositoManageDetail"
+            app:destination="@id/depositoManageDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_loan_manager"
+        android:name="com.example.kd.fragment.manager.submission.loan.core.LoanManage"
+        android:label="Manajemen Pinjaman Baru"
+        tools:layout="@layout/fragment_loan_manage_list" >
+        <action
+            android:id="@+id/action_nav_loan_manager_to_loanManageDetail"
+            app:destination="@id/loanManageDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/depositoManageDetail"
+        android:name="com.example.kd.fragment.manager.submission.deposito.detail.DepositoManageDetail"
+        android:label="Detil Deposito Baru"
+        tools:layout="@layout/fragment_deposito_manage_detail">
+        <argument
+            android:name="idsub"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanManageDetail"
+        android:name="com.example.kd.fragment.manager.submission.loan.detail.LoanManageDetail"
+        android:label="Detil Pinjaman Baru"
+        tools:layout="@layout/fragment_loan_manage_detail">
+        <argument android:name="idsub" />
     </fragment>
 
 </navigation>

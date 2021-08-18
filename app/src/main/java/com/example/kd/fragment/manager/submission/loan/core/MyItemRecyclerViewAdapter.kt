@@ -1,4 +1,4 @@
-package com.example.kd.fragment.marketing.submission.loan.core
+package com.example.kd.fragment.manager.submission.loan.core
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
@@ -6,26 +6,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.kd.R
-import com.example.kd.databinding.FragmentSub31LoanBinding
+import com.example.kd.databinding.FragmentLoanManageBinding
+
 import com.example.kd.modelbody.TaskModelLoan
 import com.google.android.material.card.MaterialCardView
 import org.joda.time.DateTime
 import org.joda.time.LocalDate
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyItemRecyclerViewAdapter(
     private val values: List<TaskModelLoan>, private val context : Context
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
-
     var onItemClick: ((TaskModelLoan) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
-            FragmentSub31LoanBinding.inflate(
+            FragmentLoanManageBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -68,15 +65,14 @@ class MyItemRecyclerViewAdapter(
         holder.card.setBackgroundResource(R.drawable.shape_deadline1)
 
         holder.taskDeadline.text =
-            "Tanggal : " + dt.toString(context.applicationContext.resources.getString(R.string.format_date_1))
+            "Deadline : " + dt.toString(context.applicationContext.resources.getString(R.string.format_date_1))
         holder.taskAttachment.text = "-"
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragmentSub31LoanBinding) :
+    inner class ViewHolder(binding: FragmentLoanManageBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         val taskTitle: TextView = binding.subTitle
         val taskType: TextView = binding.subType
         val taskStatus: TextView = binding.subStatus
@@ -93,8 +89,6 @@ class MyItemRecyclerViewAdapter(
                 onItemClick?.invoke(values[adapterPosition])
             }
         }
-
-
     }
 
 }

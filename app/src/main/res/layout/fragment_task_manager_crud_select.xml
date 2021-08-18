@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.manager.task.core.crud.TaskManagerCrudSelect"
+    tools:context=".fragment.manager.task.crud.TaskManagerCrudSelect"
     android:orientation="vertical">
 
     <com.google.android.material.button.MaterialButton

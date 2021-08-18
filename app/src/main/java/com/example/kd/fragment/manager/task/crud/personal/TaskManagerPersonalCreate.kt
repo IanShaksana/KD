@@ -1,4 +1,4 @@
-package com.example.kd.fragment.manager.task.core.crud.personal
+package com.example.kd.fragment.manager.task.crud.personal
 
 import android.app.DatePickerDialog
 import android.content.Context

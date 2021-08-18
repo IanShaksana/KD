@@ -1,4 +1,4 @@
-package com.example.kd.fragment.marketing.submission.loan.detail
+package com.example.kd.fragment.manager.submission.loan.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,9 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
-import com.example.kd.databinding.Sub31LoanDetailFragmentBinding
+import com.example.kd.databinding.FragmentLoanManageDetailBinding
+import com.example.kd.dialog.DialogFinishReject
+import com.example.kd.modelbody.IdMessageOnly
 import com.example.kd.modelbody.IdOnly
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -23,48 +25,35 @@ import org.joda.time.DateTime
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
-class Sub31LoanDetail : Fragment() {
 
+class LoanManageDetail : Fragment(), DialogFinishReject.dialogListenerFinishReject {
 
-    private lateinit var binding: Sub31LoanDetailFragmentBinding
-    private val value: Sub31LoanDetailArgs by navArgs()
+    private lateinit var binding: FragmentLoanManageDetailBinding
+    private val value: LoanManageDetailArgs by navArgs()
     private lateinit var data: JSONObject
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = Sub31LoanDetailFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentLoanManageDetailBinding.inflate(inflater, container, false)
         backgroundInitial()
-        return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        binding.edit.setOnClickListener {
-            val action =
-                Sub31LoanDetailDirections.actionSub01LoanDetailToSub31LoanEdit(value.idDetailLoanSubmission)
-            binding.root.findNavController().navigate(action)
-        }
-
-        binding.delete.setOnClickListener {
-            backgroundDelete()
-        }
-
         binding.finish.setOnClickListener {
-            backgroundFinish()
+            val dialog = DialogFinishReject()
+            dialog.show(childFragmentManager, "Dialog Input Marketing")
         }
+        return binding.root
     }
 
     private fun backgroundInitial() {
         CoroutineScope(Dispatchers.IO).launch {
             onSuccess(
                 getDetail(
-                    this@Sub31LoanDetail.requireContext().resources.getString(R.string.submitLoanGetDetail),
+                    this@LoanManageDetail.requireContext().resources.getString(R.string.submitLoanGetDetailManager),
                     JSONObject(
                         Gson().toJson(
                             IdOnly(
-                                value.idDetailLoanSubmission
+                                value.idsub
                             )
                         )
                     )
@@ -95,7 +84,7 @@ class Sub31LoanDetail : Fragment() {
     private suspend fun onSuccess(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             val data = resp.getJSONArray("data").getJSONObject(0)
-            this@Sub31LoanDetail.data = data
+            this@LoanManageDetail.data = data
             binding.apply {
                 pengajuanTitle.text = data.getString("pengajuanTitle")
 
@@ -109,7 +98,8 @@ class Sub31LoanDetail : Fragment() {
                 pengajuanJangkaWaktu.text =
                     "Jangka Waktu : ${data.getString("pengajuanJangkaWaktu")}"
                 pengajuanBungaRate.text = "Bunga (%) : ${data.getString("pengajuanBungaRate")}"
-                pengajuanProvisiRate.text = "Provisi (%) : ${data.getString("pengajuanProvisiRate")}"
+                pengajuanProvisiRate.text =
+                    "Provisi (%) : ${data.getString("pengajuanProvisiRate")}"
                 val tanggal1 = DateTime(data.getString("pengajuanTanggal"))
                 val valueTanggal1 =
                     tanggal1.toString(activity?.resources?.getString(R.string.format_date_1))
@@ -118,8 +108,10 @@ class Sub31LoanDetail : Fragment() {
                     tanggal2.toString(activity?.resources?.getString(R.string.format_date_1))
                 pengajuanTanggal.text = "Tanggal : ${valueTanggal1}"
                 pengajuanTanggalAngsuranPertama.text = "Tanggal Angsuran Pertama : ${valueTanggal2}"
-                pengajuanJenisPenggunaan.text = "Jenis Penggunaan : ${data.getString("pengajuanJenisPenggunaan")}"
-                pengajuanTujuanKredit.text = "Tujuan Kredit : ${data.getString("pengajuanTujuanKredit")}"
+                pengajuanJenisPenggunaan.text =
+                    "Jenis Penggunaan : ${data.getString("pengajuanJenisPenggunaan")}"
+                pengajuanTujuanKredit.text =
+                    "Tujuan Kredit : ${data.getString("pengajuanTujuanKredit")}"
 
                 jaminanTipe.text = "Tipe : ${data.getString("jaminanTipe")}"
                 jaminanKepemilikan.text = "Kepemelikan : ${data.getString("jaminanKepemilikan")}"
@@ -134,15 +126,7 @@ class Sub31LoanDetail : Fragment() {
 
 
 
-                if (data.getString("status").equals("Draft", true)) {
-                    edit.isEnabled = true
-                    delete.isEnabled = true
-                    finish.isEnabled = true
-                } else {
-                    edit.isEnabled = false
-                    delete.isEnabled = false
-                    finish.isEnabled = false
-                }
+                finish.isEnabled = data.getString("status").equals("Diajukan", true)
 
             }
 
@@ -150,54 +134,39 @@ class Sub31LoanDetail : Fragment() {
         }
     }
 
-    private fun backgroundDelete() {
+    private fun backgroundFinish(message: String, choice: Int) {
         CoroutineScope(Dispatchers.IO).launch {
 
-            onSuccessDelete(
-                delete(
-                    this@Sub31LoanDetail.requireContext().resources.getString(R.string.submitLoanDelete),
-                    this@Sub31LoanDetail.data
+            if (choice == 1) {
+                onFinish(
+                    finish(
+                        this@LoanManageDetail.requireContext().resources.getString(R.string.submitLoanFinishManager),
+                        JSONObject(
+                            Gson().toJson(
+                                IdMessageOnly(
+                                    value.idsub, message
+                                )
+                            )
+                        )
+                    )
                 )
-            )
-        }
-    }
-
-    private fun delete(url: String, jObject: JSONObject): JSONObject {
-        val future = RequestFuture.newFuture<JSONObject>()
-        val queue = Volley.newRequestQueue(this.requireContext())
-        val stringRequest = JsonObjectRequest(
-            Request.Method.POST, url, jObject, future, future
-        )
-        queue.add(stringRequest)
-
-        var resp = JSONObject()
-        try {
-            resp = future.get(15, TimeUnit.SECONDS)
-            //val resp = future.get()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return resp
-
-    }
-
-    private suspend fun onSuccessDelete(resp: JSONObject) {
-        withContext(Dispatchers.Main) {
-            if (resp["status"] == 1) {
-                binding.root.findNavController().popBackStack()
             }
-        }
-    }
 
-    private fun backgroundFinish() {
-        CoroutineScope(Dispatchers.IO).launch {
-
-            onSuccessFinish(
-                finish(
-                    this@Sub31LoanDetail.requireContext().resources.getString(R.string.submitLoanSend),
-                    this@Sub31LoanDetail.data
+            if (choice == 0) {
+                onFinish(
+                    finish(
+                        this@LoanManageDetail.requireContext().resources.getString(R.string.submitLoanRejectManager),
+                        JSONObject(
+                            Gson().toJson(
+                                IdMessageOnly(
+                                    value.idsub, message
+                                )
+                            )
+                        )
+                    )
                 )
-            )
+            }
+
         }
     }
 
@@ -212,7 +181,6 @@ class Sub31LoanDetail : Fragment() {
         var resp = JSONObject()
         try {
             resp = future.get(15, TimeUnit.SECONDS)
-            //val resp = future.get()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -220,12 +188,17 @@ class Sub31LoanDetail : Fragment() {
 
     }
 
-    private suspend fun onSuccessFinish(resp: JSONObject) {
+    private suspend fun onFinish(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                // update fragment
                 binding.root.findNavController().popBackStack()
             }
         }
+    }
+
+    override fun onDialogClickFinishReject(value: String, choice: Int) {
+        backgroundFinish(value, choice)
     }
 
 

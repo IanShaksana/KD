@@ -1,11 +1,10 @@
-package com.example.kd.fragment.manager.task.core.detail
+package com.example.kd.fragment.manager.task.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerCollectionDetailBinding
 
 class TaskManagerCollectionDetail : Fragment() {

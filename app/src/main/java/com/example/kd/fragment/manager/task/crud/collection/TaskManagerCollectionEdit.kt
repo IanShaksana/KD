@@ -1,4 +1,4 @@
-package com.example.kd.fragment.manager.task.core.crud.collection
+package com.example.kd.fragment.manager.task.crud.collection
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

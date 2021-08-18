@@ -1,4 +1,4 @@
-package com.example.kd.fragment.manager.task.core.crud
+package com.example.kd.fragment.manager.task.crud
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerCrudSelectBinding
 
 class TaskManagerCrudSelect : Fragment() {

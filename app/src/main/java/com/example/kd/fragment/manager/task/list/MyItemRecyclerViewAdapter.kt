@@ -1,4 +1,4 @@
-package com.example.kd.fragment.marketing.task
+package com.example.kd.fragment.manager.task.list
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
@@ -6,27 +6,28 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.kd.R
-import com.example.kd.databinding.FragItemFrag21Collection01Binding
-
-import com.example.kd.modelbody.TaskModel
+import com.example.kd.databinding.FragmentTaskManagerBinding
+import com.example.kd.modelbody.TaskModelManager
 import com.google.android.material.card.MaterialCardView
 import org.joda.time.DateTime
 import org.joda.time.LocalDate
+
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
  * TODO: Replace the implementation with code for your data type.
  */
 class MyItemRecyclerViewAdapter(
-    private val values: List<TaskModel>, private val context : Context
+    private val values: List<TaskModelManager>, private val context: Context
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
-    var onItemClick: ((TaskModel) -> Unit)? = null
+
+    var onItemClick: ((TaskModelManager) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         return ViewHolder(
-            FragItemFrag21Collection01Binding.inflate(
+            FragmentTaskManagerBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -61,26 +62,26 @@ class MyItemRecyclerViewAdapter(
             )) || (dt.isBefore(today) && !item.status.equals("Selesai", true))
         ) {
             holder.card.setBackgroundResource(R.drawable.shape_deadline)
-        }else{
+        } else {
             holder.card.setBackgroundResource(R.drawable.shape_deadline1)
         }
         holder.taskDeadline.text =
             "Deadline : " + dt.toString(context.applicationContext.resources.getString(R.string.format_date_1))
+        holder.taskMarketing.text = "Marketing : " + item.marketing
         holder.taskAttachment.text = item.attachment
-
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragItemFrag21Collection01Binding) :
+    inner class ViewHolder(binding: FragmentTaskManagerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val taskTitle: TextView = binding.taskTitle
         val taskType: TextView = binding.taskType
         val taskStatus: TextView = binding.taskStatus
         val taskDeadline: TextView = binding.taskDeadline
+        val taskMarketing: TextView = binding.taskMarketing
         val taskAttachment: TextView = binding.taskAttachment
         val card: MaterialCardView = binding.collectionCard
-
 
         override fun toString(): String {
             return super.toString() + " '" + taskTitle.text + "'"

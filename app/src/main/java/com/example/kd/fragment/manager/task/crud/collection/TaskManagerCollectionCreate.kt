@@ -1,4 +1,4 @@
-package com.example.kd.fragment.manager.task.core.crud.collection
+package com.example.kd.fragment.manager.task.crud.collection
 
 import android.content.Context
 import android.os.Bundle
@@ -16,8 +16,6 @@ import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerCollectionCreateBinding
 import com.example.kd.dialog.collection.DialogCollection
 import com.example.kd.dialog.marketing.DialogMarketing
-import com.example.kd.fragment.marketing.submission.loan.core.MyItemRecyclerViewAdapter
-import com.example.kd.fragment.marketing.submission.loan.core.Sub31LoanDirections
 import com.example.kd.modelbody.*
 import com.google.android.material.textfield.TextInputEditText
 import com.google.gson.Gson

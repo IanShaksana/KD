@@ -1,11 +1,11 @@
-package com.example.kd.fragment.marketing.submission.deposito.detail
+package com.example.kd.fragment.manager.submission.deposito.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
@@ -13,7 +13,12 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
+import com.example.kd.databinding.FragmentDepositoManageDetailBinding
 import com.example.kd.databinding.Sub32DepositoDetailFragmentBinding
+import com.example.kd.dialog.DialogFinishReject
+import com.example.kd.dialog.DialogInputMarketing
+import com.example.kd.fragment.marketing.submission.deposito.detail.Sub32DepositoDetailArgs
+import com.example.kd.modelbody.IdMessageOnly
 import com.example.kd.modelbody.IdOnly
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -24,50 +29,36 @@ import org.joda.time.DateTime
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
-class Sub32DepositoDetail : Fragment() {
 
+class DepositoManageDetail : Fragment(), DialogFinishReject.dialogListenerFinishReject {
 
-    private lateinit var binding: Sub32DepositoDetailFragmentBinding
-    private val value: Sub32DepositoDetailArgs by navArgs()
+    private lateinit var binding: FragmentDepositoManageDetailBinding
+    private val value: DepositoManageDetailArgs by navArgs()
     private lateinit var data: JSONObject
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = Sub32DepositoDetailFragmentBinding.inflate(inflater, container, false)
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentDepositoManageDetailBinding.inflate(inflater, container, false)
         backgroundInitial()
+        binding.finish.setOnClickListener {
+            val dialog = DialogFinishReject()
+            dialog.show(childFragmentManager, "Dialog Input Marketing")
+        }
         return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        binding.edit.setOnClickListener {
-            Toast.makeText(context, value.idDetailDepositoSubmisson, Toast.LENGTH_SHORT).show()
-            val action =
-                Sub32DepositoDetailDirections.actionSub02DepositoDetailToSub32DepositoEdit(value.idDetailDepositoSubmisson)
-            requireView().findNavController().navigate(action)
-        }
-
-        binding.delete.setOnClickListener {
-            backgroundDelete()
-        }
-
-        binding.finish.setOnClickListener {
-            backgroundFinish()
-        }
-    }
-
 
     private fun backgroundInitial() {
         CoroutineScope(Dispatchers.IO).launch {
             onSuccess(
                 getDetail(
-                    this@Sub32DepositoDetail.requireContext().resources.getString(R.string.submitDepositoGetDetail),
+                    this@DepositoManageDetail.requireContext().resources.getString(R.string.submitDepositoGetDetailManager),
                     JSONObject(
                         Gson().toJson(
                             IdOnly(
-                                value.idDetailDepositoSubmisson
+                                value.idsub
                             )
                         )
                     )
@@ -98,7 +89,7 @@ class Sub32DepositoDetail : Fragment() {
     private suspend fun onSuccess(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             val data = resp.getJSONArray("data").getJSONObject(0)
-            this@Sub32DepositoDetail.data = data
+            this@DepositoManageDetail.data = data
             binding.apply {
                 pengajuanTitle.text = data.getString("pengajuanTitle")
 
@@ -124,15 +115,7 @@ class Sub32DepositoDetail : Fragment() {
                 informasiTambahan.text = "Detail : ${data.getString("informasiTambahan")}"
                 review.text = "Detail : ${data.getString("review")}"
 
-                if (data.getString("status").equals("Draft", true)) {
-                    edit.isEnabled = true
-                    delete.isEnabled = true
-                    finish.isEnabled = true
-                } else {
-                    edit.isEnabled = false
-                    delete.isEnabled = false
-                    finish.isEnabled = false
-                }
+                finish.isEnabled = data.getString("status").equals("Diajukan", true)
 
             }
 
@@ -140,54 +123,39 @@ class Sub32DepositoDetail : Fragment() {
         }
     }
 
-    private fun backgroundDelete() {
+    private fun backgroundFinish(message: String, choice: Int) {
         CoroutineScope(Dispatchers.IO).launch {
 
-            onSuccessDelete(
-                delete(
-                    this@Sub32DepositoDetail.requireContext().resources.getString(R.string.submitDepositoDelete),
-                    this@Sub32DepositoDetail.data
+            if(choice ==1){
+                onFinish(
+                    finish(
+                        this@DepositoManageDetail.requireContext().resources.getString(R.string.submitDepositoFinishManager),
+                        JSONObject(
+                            Gson().toJson(
+                                IdMessageOnly(
+                                    value.idsub, message
+                                )
+                            )
+                        )
+                    )
                 )
-            )
-        }
-    }
-
-    private fun delete(url: String, jObject: JSONObject): JSONObject {
-        val future = RequestFuture.newFuture<JSONObject>()
-        val queue = Volley.newRequestQueue(this.requireContext())
-        val stringRequest = JsonObjectRequest(
-            Request.Method.POST, url, jObject, future, future
-        )
-        queue.add(stringRequest)
-
-        var resp = JSONObject()
-        try {
-            resp = future.get(15, TimeUnit.SECONDS)
-            //val resp = future.get()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return resp
-
-    }
-
-    private suspend fun onSuccessDelete(resp: JSONObject) {
-        withContext(Dispatchers.Main) {
-            if (resp["status"] == 1) {
-                binding.root.findNavController().popBackStack()
             }
-        }
-    }
 
-    private fun backgroundFinish() {
-        CoroutineScope(Dispatchers.IO).launch {
-
-            onSuccessFinish(
-                finish(
-                    this@Sub32DepositoDetail.requireContext().resources.getString(R.string.submitDepositoSend),
-                    this@Sub32DepositoDetail.data
+            if(choice ==0){
+                onFinish(
+                    finish(
+                        this@DepositoManageDetail.requireContext().resources.getString(R.string.submitDepositoRejectManager),
+                        JSONObject(
+                            Gson().toJson(
+                                IdMessageOnly(
+                                    value.idsub, message
+                                )
+                            )
+                        )
+                    )
                 )
-            )
+            }
+
         }
     }
 
@@ -202,7 +170,6 @@ class Sub32DepositoDetail : Fragment() {
         var resp = JSONObject()
         try {
             resp = future.get(15, TimeUnit.SECONDS)
-            //val resp = future.get()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -210,13 +177,18 @@ class Sub32DepositoDetail : Fragment() {
 
     }
 
-    private suspend fun onSuccessFinish(resp: JSONObject) {
+    private suspend fun onFinish(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                // update fragment
                 binding.root.findNavController().popBackStack()
             }
         }
     }
 
+
+    override fun onDialogClickFinishReject(value: String, choice: Int) {
+        backgroundFinish(value, choice)
+    }
 
 }

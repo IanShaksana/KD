@@ -1,4 +1,4 @@
-package com.example.kd.fragment.manager.task.core.crud.personal
+package com.example.kd.fragment.manager.task.crud.personal
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -19,8 +19,6 @@ import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerPersonalEditBinding
 import com.example.kd.dialog.DialogDate
 import com.example.kd.dialog.marketing.DialogMarketing
-import com.example.kd.fragment.marketing.submission.deposito.core.Sub32DepositoEditArgs
-import com.example.kd.modelbody.DepositoEdit
 import com.example.kd.modelbody.EditPersonalModel
 import com.example.kd.modelbody.IdOnly
 import com.example.kd.modelbody.ListMarketingModel

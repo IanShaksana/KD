@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     app:flexDirection="column">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_flexBasisPercent="70%">
+        app:layout_flexBasisPercent="90%">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +30,6 @@
                     app:flexDirection="row">
 
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -45,9 +45,6 @@
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                     </LinearLayout>
-
-
-
 
 
                 </com.google.android.flexbox.FlexboxLayout>
@@ -68,7 +65,6 @@
                     app:flexDirection="row">
 
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -79,11 +75,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Data Calon Debitur"
+                            android:text="Data Calon Deposan"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <TextView
-                            android:id="@+id/debiturNama"
+                            android:id="@+id/deposanNama"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -93,7 +89,7 @@
 
 
                         <TextView
-                            android:id="@+id/debiturKontak"
+                            android:id="@+id/deposanKontak"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -102,7 +98,7 @@
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
-                            android:id="@+id/debiturAlamat"
+                            android:id="@+id/deposanAlamat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -111,21 +107,16 @@
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
-                            android:id="@+id/debiturNik"
+                            android:id="@+id/deposanNik"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="NIK : IT Engineer"
+                            android:text="Pekerjaan : IT Engineer"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
 
-
-
                     </LinearLayout>
-
-
-
 
 
                 </com.google.android.flexbox.FlexboxLayout>
@@ -144,7 +135,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:flexDirection="row">
-
 
 
                     <LinearLayout
@@ -170,11 +160,21 @@
                             android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
-                            android:id="@+id/pengajuanPlafon"
+                            android:id="@+id/pengajuanTipe"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Plafon : XXX"
+                            android:text="Tipe : AROPB"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+
+                        <TextView
+                            android:id="@+id/pengajuanSaldoAwal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Saldo Awal : XXX"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
@@ -196,14 +196,6 @@
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
-                        <TextView
-                            android:id="@+id/pengajuanProvisiRate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Provisi (%) : XXX"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
                             android:id="@+id/pengajuanTanggal"
@@ -214,121 +206,8 @@
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
-                        <TextView
-                            android:id="@+id/pengajuanTanggalAngsuranPertama"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Tanggal Angsuran Pertama  : XXX"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                        <TextView
-                            android:id="@+id/pengajuanJenisPenggunaan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Jenis Penggunaan : XXX"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                        <TextView
-                            android:id="@+id/pengajuanTujuanKredit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Tujuan Kredit : XXX"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
 
                     </LinearLayout>
-
-
-
-
-
-                </com.google.android.flexbox.FlexboxLayout>
-
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/agunan_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp">
-                <!-- Media -->
-
-                <com.google.android.flexbox.FlexboxLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:flexDirection="row">
-
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <!-- Title, secondary and supporting text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Data Jaminan"
-                            android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                        <TextView
-                            android:id="@+id/jaminanTipe"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Tipe Jaminan : Sertifikat"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                        <TextView
-                            android:id="@+id/jaminanKepemilikan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Kepemilikan Jaminan : Sertifikat"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                        <TextView
-                            android:id="@+id/jaminanTahun"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Tahun Jaminan (BPKB)  : 2021"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                        <TextView
-                            android:id="@+id/jaminanNominal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Nominal Jaminan : ..."
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                        <TextView
-                            android:id="@+id/jaminanDeskripsi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Deskripsi Tambahan : ..."
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                    </LinearLayout>
-
-
-
 
 
                 </com.google.android.flexbox.FlexboxLayout>
@@ -347,7 +226,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:flexDirection="row">
-
 
 
                     <LinearLayout
@@ -376,9 +254,6 @@
                     </LinearLayout>
 
 
-
-
-
                 </com.google.android.flexbox.FlexboxLayout>
 
 
@@ -395,7 +270,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:flexDirection="row">
-
 
 
                     <LinearLayout
@@ -424,13 +298,11 @@
                     </LinearLayout>
 
 
-
-
-
                 </com.google.android.flexbox.FlexboxLayout>
 
 
             </com.google.android.material.card.MaterialCardView>
+
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/review_card"
@@ -477,30 +349,17 @@
             </com.google.android.material.card.MaterialCardView>
 
 
-        </LinearLayout>
 
+        </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Edit"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Delete"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Finish"/>
+        android:text="Finish" />
 
 
 </com.google.android.flexbox.FlexboxLayout>
