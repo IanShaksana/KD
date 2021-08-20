@@ -17,14 +17,17 @@ import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.Frag11ProfileBinding
 import com.example.kd.dialog.DialogDate
+import com.example.kd.modelbody.AttModelUser
 import com.example.kd.modelbody.IdOnly
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.joda.time.DateTime
 import org.json.JSONObject
 import timber.log.Timber
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
@@ -72,11 +75,13 @@ class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
                     this@Home01Profile.requireContext().resources.getString(R.string.homeStat),
                     JSONObject(
                         Gson().toJson(
-                            IdOnly(
+                            AttModelUser(
                                 sharedPref.getString(
                                     getString(R.string.loginIdPref),
                                     ""
-                                )
+                                ),
+                                Date(),
+                                Calendar.getInstance().timeZone.rawOffset
                             )
                         )
                     )
@@ -128,7 +133,7 @@ class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
     }
 
     override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-        Toast.makeText(requireContext(),"yuhuuuu",Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "yuhuuuu", Toast.LENGTH_SHORT).show()
     }
 
 

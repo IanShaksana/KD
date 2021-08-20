@@ -1,4 +1,4 @@
-package com.example.kd.dialog.collection
+package com.example.kd.dialog.marketing
 
 import android.app.Dialog
 import android.content.Context
@@ -7,19 +7,18 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.kd.R
 import android.widget.ArrayAdapter
-import com.example.kd.modelbody.ListCollectionModel
 import com.example.kd.modelbody.ListMarketingModel
 
 
-class DialogCollection(private val adapter: ArrayAdapter<ListCollectionModel>) : DialogFragment() {
+class DialogMarketing2(private val adapter: MarketingAdapter) : DialogFragment() {
 
-    internal lateinit var listener: dialogListenerCollection
+    internal lateinit var listener: dialogListenerMarketing2
 
     /* The activity that creates an instance of this dialog fragment must
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
-    interface dialogListenerCollection {
-        fun onDialogClickCollection(value1: String, value2: Int)
+    interface dialogListenerMarketing2 {
+        fun onDialogClickMarketing2(value1: String, value2: String)
     }
 
 
@@ -27,7 +26,7 @@ class DialogCollection(private val adapter: ArrayAdapter<ListCollectionModel>) :
         super.onAttach(context)
         try {
             // Instantiate the NoticeDialogListener so we can send events to the host
-            listener = parentFragment as dialogListenerCollection
+            listener = parentFragment as dialogListenerMarketing2
         } catch (e: ClassCastException) {
             // The activity doesn't implement the interface, throw exception
             throw ClassCastException(
@@ -43,13 +42,13 @@ class DialogCollection(private val adapter: ArrayAdapter<ListCollectionModel>) :
             val builder = AlertDialog.Builder(it)
 
 
-            builder.setTitle(R.string.label_loan_dialog_title)
+            builder.setTitle("Marketing")
                 .setAdapter(
                     adapter
                 ) { dialog, which ->
 
                     if (adapter.getItem(which) != null) {
-                        listener.onDialogClickCollection(adapter.getItem(which)!!.id,which)
+                        listener.onDialogClickMarketing2(adapter.getItem(which)!!.id,adapter.getItem(which)!!.nama)
                     }
 
 

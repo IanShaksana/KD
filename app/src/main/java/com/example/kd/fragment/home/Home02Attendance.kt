@@ -64,7 +64,9 @@ class Home02Attendance : Fragment() {
                                     getString(R.string.loginIdPref),
                                     ""
                                 ),
-                                DateTime(Date()).toString(requireContext().resources.getString(R.string.format_date_sb))
+                                Date(),
+                                Calendar.getInstance().timeZone.rawOffset
+//                                        DateTime(Date()).toString(requireContext().resources.getString(R.string.format_date_sb2))
                             )
                         )
                     )
@@ -111,11 +113,13 @@ class Home02Attendance : Fragment() {
                     this@Home02Attendance.requireContext().resources.getString(R.string.homeStat),
                     JSONObject(
                         Gson().toJson(
-                            IdOnly(
+                            AttModelUser(
                                 sharedPref.getString(
                                     getString(R.string.loginIdPref),
                                     ""
-                                )
+                                ),
+                                Date(),
+                                Calendar.getInstance().timeZone.rawOffset
                             )
                         )
                     )

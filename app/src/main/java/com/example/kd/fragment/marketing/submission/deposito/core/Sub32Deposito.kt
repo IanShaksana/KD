@@ -36,7 +36,7 @@ class Sub32Deposito : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentSub32DepositoListBinding.inflate(inflater, container, false)
         background()

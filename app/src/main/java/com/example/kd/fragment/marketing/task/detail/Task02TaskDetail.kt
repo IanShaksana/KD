@@ -98,12 +98,12 @@ class Task02TaskDetail : Fragment(), DialogInputMarketing.dialogListener {
             binding.apply {
                 detailSumber.text = "Sumber : ${data.getString("detailSumber")}"
 
-                val tanggal = DateTime(data.getString("detailTanggal"))
+                val tanggal = DateTime(data.getString("createdat"))
                 val deadline = DateTime(data.getString("detailDeadline"))
                 val valueTanggal =
                     tanggal.toString(activity?.resources?.getString(R.string.format_date_1))
                 val valueDeadline =
-                    deadline.toString(activity?.resources?.getString(R.string.format_date_2))
+                    deadline.toString(activity?.resources?.getString(R.string.format_date_1))
 
                 detailTanggal.text = "Tanggal : $valueTanggal"
                 detailDeadline.text = "Deadline : $valueDeadline"

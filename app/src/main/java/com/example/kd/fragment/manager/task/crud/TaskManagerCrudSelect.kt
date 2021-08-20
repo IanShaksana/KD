@@ -18,14 +18,17 @@ class TaskManagerCrudSelect : Fragment() {
     ): View {
         binding = FragmentTaskManagerCrudSelectBinding.inflate(inflater, container, false)
         binding.createCollection.setOnClickListener {
-            val action = TaskManagerCrudSelectDirections.actionTaskManagerCrudSelectToTaskManagerCollectionCreate()
+            val action =
+                TaskManagerCrudSelectDirections.actionTaskManagerCrudSelectToTaskManagerCollectionCreate()
             binding.root.findNavController().navigate(action)
         }
 
         binding.createPersonal.setOnClickListener {
-            val action = TaskManagerCrudSelectDirections.actionTaskManagerCrudSelectToTaskManagerPersonalCreate()
+            val action =
+                TaskManagerCrudSelectDirections.actionTaskManagerCrudSelectToTaskManagerPersonalCreate()
             binding.root.findNavController().navigate(action)
         }
+        binding.createCollection.isEnabled = true
         return binding.root
     }
 

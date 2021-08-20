@@ -304,34 +304,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="15dp"
-                        android:text="Jangka Waktu"
-                        android:textSize="15dp" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        app:boxBackgroundMode="none"
-                        app:endIconMode="custom"
-                        app:endIconTint="#fafbbd"
-                        app:hintEnabled="false">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/pengajuanJangkaWaktu"
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:clickable="true"
-                            android:inputType="number"
-                            android:textColorHint="#526c97" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp"
                         android:text="Bunga (%)"
                         android:textSize="15dp" />
 

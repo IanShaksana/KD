@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.navigation.findNavController
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -18,6 +19,8 @@ import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerPersonalCreateBinding
 import com.example.kd.dialog.DialogDate
 import com.example.kd.dialog.marketing.DialogMarketing
+import com.example.kd.dialog.marketing.DialogMarketing2
+import com.example.kd.dialog.marketing.MarketingAdapter
 import com.example.kd.modelbody.CreatePersonalModel
 import com.example.kd.modelbody.IdOnly
 import com.example.kd.modelbody.ListMarketingModel
@@ -27,6 +30,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.joda.time.LocalDate
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -36,10 +40,11 @@ import kotlin.collections.ArrayList
 
 
 class TaskManagerPersonalCreate : Fragment(), DialogMarketing.dialogListenerMarketing,
-    DatePickerDialog.OnDateSetListener {
+    DatePickerDialog.OnDateSetListener, DialogMarketing2.dialogListenerMarketing2 {
 
     private lateinit var binding: FragmentTaskManagerPersonalCreateBinding
     private lateinit var adapterMarketing: ArrayAdapter<ListMarketingModel>
+    private lateinit var adapterMarketing2: MarketingAdapter
 
     private var chosenMarketing = ""
     override fun onCreateView(
@@ -49,7 +54,10 @@ class TaskManagerPersonalCreate : Fragment(), DialogMarketing.dialogListenerMark
         binding = FragmentTaskManagerPersonalCreateBinding.inflate(inflater, container, false)
         backgroundInitial1()
         binding.marketing.setOnClickListener {
-            val dialog = DialogMarketing(adapterMarketing)
+//            val dialog = DialogMarketing(adapterMarketing)
+//            dialog.show(childFragmentManager, "Dialog Marketing")
+
+            val dialog = DialogMarketing2(adapterMarketing2)
             dialog.show(childFragmentManager, "Dialog Marketing")
         }
         binding.deadline.setOnClickListener {
@@ -65,6 +73,12 @@ class TaskManagerPersonalCreate : Fragment(), DialogMarketing.dialogListenerMark
             )
             if (validate(fields)) {
                 backgroundCreate()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Ada Bagian Yang Belum Terisi",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
         return binding.root
@@ -125,6 +139,7 @@ class TaskManagerPersonalCreate : Fragment(), DialogMarketing.dialogListenerMark
                 requireContext(),
                 android.R.layout.select_dialog_singlechoice
             )
+            adapterMarketing2 = MarketingAdapter(requireContext(), resp)
             adapterMarketing.addAll(resp)
         }
     }
@@ -214,7 +229,22 @@ class TaskManagerPersonalCreate : Fragment(), DialogMarketing.dialogListenerMark
         c[Calendar.DAY_OF_MONTH] = p3
         val format1 = SimpleDateFormat(requireContext().resources.getString(R.string.format_date_1))
         val currentDate = format1.format(c.time)
-        binding.deadline.setText(currentDate)
+        val dt = LocalDate(c.time)
+        val today = LocalDate(Date())
+        if (!dt.isBefore(today)) {
+            binding.deadline.setText(currentDate)
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "Tanggal Tidak Boleh Kurang Dari Tanggal Hari Ini",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    override fun onDialogClickMarketing2(value1: String, value2: String) {
+        chosenMarketing = value1
+        binding.marketing.setText(value2)
     }
 
 

@@ -1,7 +1,5 @@
 package com.example.kd.modelbody
 
-import java.util.*
-
 data class CreatePersonalModel(
 
     val idmarketing: String,

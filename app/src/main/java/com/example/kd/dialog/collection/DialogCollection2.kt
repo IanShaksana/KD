@@ -11,7 +11,7 @@ import com.example.kd.modelbody.ListCollectionModel
 import com.example.kd.modelbody.ListMarketingModel
 
 
-class DialogCollection(private val adapter: ArrayAdapter<ListCollectionModel>) : DialogFragment() {
+class DialogCollection2(private val adapter: ArrayAdapter<ListCollectionModel>) : DialogFragment() {
 
     internal lateinit var listener: dialogListenerCollection
 
@@ -43,7 +43,7 @@ class DialogCollection(private val adapter: ArrayAdapter<ListCollectionModel>) :
             val builder = AlertDialog.Builder(it)
 
 
-            builder.setTitle(R.string.label_loan_dialog_title)
+            builder.setTitle("Collection")
                 .setAdapter(
                     adapter
                 ) { dialog, which ->

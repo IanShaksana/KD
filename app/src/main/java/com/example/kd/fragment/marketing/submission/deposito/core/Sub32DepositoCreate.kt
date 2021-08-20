@@ -24,6 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.joda.time.LocalDate
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -69,7 +70,7 @@ class Sub32DepositoCreate : Fragment(),
                 binding.deposanKontak,
                 binding.deposanNik,
                 binding.pengajuanBungaRate,
-                binding.pengajuanJangkaWaktu,
+                // binding.pengajuanJangkaWaktu,
                 binding.pengajuanProduk,
                 binding.pengajuanSaldoAwal,
                 binding.pengajuanTanggal,
@@ -78,9 +79,12 @@ class Sub32DepositoCreate : Fragment(),
             )
             if (validate(fields)) {
                 background()
-            } else {
-                Toast.makeText(requireContext(), "Form Belum Terisi Semua", Toast.LENGTH_SHORT)
-                    .show()
+            } else{
+                Toast.makeText(
+                    requireContext(),
+                    "Ada Bagian Yang Belum Terisi",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -172,7 +176,17 @@ class Sub32DepositoCreate : Fragment(),
         c[Calendar.DAY_OF_MONTH] = p3
         val format1 = SimpleDateFormat(requireContext().resources.getString(R.string.format_date_1))
         val currentDate = format1.format(c.time)
-        binding.pengajuanTanggal.setText(currentDate)
+        val dt = LocalDate(c.time)
+        val today = LocalDate(Date())
+        if (!dt.isBefore(today)) {
+            binding.pengajuanTanggal.setText(currentDate)
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "Tanggal Tidak Boleh Kurang Dari Tanggal Hari Ini",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
 

@@ -10,5 +10,6 @@ data class TaskModelLoan(
     val status: String,
     val deadline: Date,
     val attachment: String,
-    val tanggal: String
+    val tanggal: String,
+    val createdat: String
 )

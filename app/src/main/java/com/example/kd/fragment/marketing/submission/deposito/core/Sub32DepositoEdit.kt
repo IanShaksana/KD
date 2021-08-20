@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
@@ -30,6 +31,7 @@ import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 import com.google.android.material.textfield.TextInputEditText
 import org.joda.time.DateTime
+import org.joda.time.LocalDate
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -76,7 +78,7 @@ class Sub32DepositoEdit : Fragment(),
                 binding.deposanKontak,
                 binding.deposanNik,
                 binding.pengajuanBungaRate,
-                binding.pengajuanJangkaWaktu,
+                // binding.pengajuanJangkaWaktu,
                 binding.pengajuanProduk,
                 binding.pengajuanSaldoAwal,
                 binding.pengajuanTanggal,
@@ -85,6 +87,12 @@ class Sub32DepositoEdit : Fragment(),
             )
             if (validate(fields)) {
                 backgroundEdit()
+            }else{
+                Toast.makeText(
+                    requireContext(),
+                    "Ada Bagian Yang Belum Terisi",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -148,9 +156,9 @@ class Sub32DepositoEdit : Fragment(),
                 pengajuanProduk.setText("${data.getString("pengajuanProduk")}")
                 pengajuanTipe.setText("${data.getString("pengajuanTipe")}")
                 pengajuanSaldoAwal.setText("${data.getString("pengajuanSaldoAwal")}")
-                pengajuanJangkaWaktu.setText(
-                    "${data.getString("pengajuanJangkaWaktu")}"
-                )
+//                pengajuanJangkaWaktu.setText(
+//                    "${data.getString("pengajuanJangkaWaktu")}"
+//                )
                 pengajuanBungaRate.setText("${data.getString("pengajuanBungaRate")}")
                 val tanggal = DateTime(data.getString("pengajuanTanggal"))
                 val valueTanggal =
@@ -248,7 +256,17 @@ class Sub32DepositoEdit : Fragment(),
         c[Calendar.DAY_OF_MONTH] = p3
         val format1 = SimpleDateFormat(requireContext().resources.getString(R.string.format_date_1))
         val currentDate = format1.format(c.time)
-        binding.pengajuanTanggal.setText(currentDate)
+        val dt = LocalDate(c.time)
+        val today = LocalDate(Date())
+        if (!dt.isBefore(today)) {
+            binding.pengajuanTanggal.setText(currentDate)
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "Tanggal Tidak Boleh Kurang Dari Tanggal Hari Ini",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
 }

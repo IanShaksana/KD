@@ -110,8 +110,8 @@ class Sub32DepositoDetail : Fragment() {
                 pengajuanProduk.text = "Produk : ${data.getString("pengajuanProduk")}"
                 pengajuanTipe.text = "Tipe : ${data.getString("pengajuanTipe")}"
                 pengajuanSaldoAwal.text = "Saldo Awal : ${data.getString("pengajuanSaldoAwal")}"
-                pengajuanJangkaWaktu.text =
-                    "Jangka Waktu : ${data.getString("pengajuanJangkaWaktu")}"
+//                pengajuanJangkaWaktu.text =
+//                    "Jangka Waktu : ${data.getString("pengajuanJangkaWaktu")}"
                 pengajuanBungaRate.text = "Bunga (%) : ${data.getString("pengajuanBungaRate")}"
 
                 val tanggal = DateTime(data.getString("pengajuanTanggal"))

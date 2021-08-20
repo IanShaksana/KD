@@ -14,8 +14,12 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerCollectionCreateBinding
+import com.example.kd.dialog.collection.CollectionAdapter
 import com.example.kd.dialog.collection.DialogCollection
+import com.example.kd.dialog.collection.DialogCollection2
 import com.example.kd.dialog.marketing.DialogMarketing
+import com.example.kd.dialog.marketing.DialogMarketing2
+import com.example.kd.dialog.marketing.MarketingAdapter
 import com.example.kd.modelbody.*
 import com.google.android.material.textfield.TextInputEditText
 import com.google.gson.Gson
@@ -30,12 +34,14 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMarketing,
-    DialogCollection.dialogListenerCollection {
+class TaskManagerCollectionCreate : Fragment(),
+    DialogCollection2.dialogListenerCollection, DialogMarketing2.dialogListenerMarketing2 {
 
     private lateinit var binding: FragmentTaskManagerCollectionCreateBinding
     private lateinit var adapterMarketing: ArrayAdapter<ListMarketingModel>
+    private lateinit var adapterMarketing2: MarketingAdapter
     private lateinit var adapterCollection: ArrayAdapter<ListCollectionModel>
+    private lateinit var adapterCollection2: CollectionAdapter
 
     private var choosenMarketing = ""
     private var choosenCollection = ""
@@ -45,13 +51,13 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
     ): View {
         binding = FragmentTaskManagerCollectionCreateBinding.inflate(inflater, container, false)
         backgroundInitial1()
-        // backgroundInitial2()
+        backgroundInitial2()
         binding.marketing.setOnClickListener {
-            val dialog = DialogMarketing(adapterMarketing)
+            val dialog = DialogMarketing2(adapterMarketing2)
             dialog.show(childFragmentManager, "Dialog Marketing")
         }
         binding.collection.setOnClickListener {
-            val dialog = DialogMarketing(adapterMarketing)
+            val dialog = DialogCollection2(adapterCollection2)
             dialog.show(childFragmentManager, "Dialog Marketing")
         }
         binding.create.setOnClickListener {
@@ -61,7 +67,7 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
                 binding.collection
             )
             if (validate(fields)) {
-                // backgroundCreate()
+                backgroundCreate()
             }
 
         }
@@ -122,6 +128,8 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
                 requireContext(),
                 android.R.layout.select_dialog_singlechoice
             )
+
+            adapterMarketing2 = MarketingAdapter(requireContext(), resp)
             adapterMarketing.addAll(resp)
         }
     }
@@ -180,6 +188,7 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
                 requireContext(),
                 android.R.layout.select_dialog_singlechoice
             )
+            adapterCollection2 = CollectionAdapter(requireContext(), resp)
             adapterCollection.addAll(resp)
         }
     }
@@ -190,10 +199,12 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
                 this@TaskManagerCollectionCreate.requireActivity().getSharedPreferences(
                     getString(R.string.credPref), Context.MODE_PRIVATE
                 )
-
+            val tanggal = DateTime(Date())
+            val valueTanggal =
+                tanggal.toString(activity?.resources?.getString(R.string.format_date_1))
             onSuccess(
                 create(
-                    this@TaskManagerCollectionCreate.requireContext().resources.getString(R.string.submitLoanCreate),
+                    this@TaskManagerCollectionCreate.requireContext().resources.getString(R.string.createTaskManager),
                     JSONObject(
                         Gson().toJson(
                             CreateCollectionModel(
@@ -201,7 +212,7 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
                                 choosenCollection,
                                 binding.pengajuanTitle.text.toString(),
                                 "COLLECTION",
-                                Date(),
+                                valueTanggal,
                                 "",
                                 sharedPref.getString(
                                     requireContext().getString(R.string.loginIdPref),
@@ -252,18 +263,14 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
         return true
     }
 
-    override fun onDialogClickMarketing(value1: String, value2: String) {
-        binding.marketing.setText(value2)
-        this.choosenMarketing = value1
-    }
-
     override fun onDialogClickCollection(value1: String, value2: Int) {
         val dataPreview = adapterCollection.getItem(value2)!!
+        this.choosenCollection = value1
         binding.apply {
-            collection.setText(value1)
-            anggotaNama.text = "Nama : ${dataPreview.anggotaNama}"
-            anggotaAlamat.text = "Alamat : ${dataPreview.anggotaAlamat}"
-            anggotaKontak.text = "Kontak : ${dataPreview.anggotaKontak}"
+            collection.setText(dataPreview.nama + "-" + dataPreview.nopk)
+            anggotaNama.text = "Nama : ${dataPreview.nama}"
+            anggotaAlamat.text = "Alamat : ${dataPreview.alamat}"
+            anggotaKontak.text = "Kontak : ${dataPreview.kontak}"
 
             val tanggal = DateTime(dataPreview.angsuranTanggal)
             val valueTanggal =
@@ -272,6 +279,11 @@ class TaskManagerCollectionCreate : Fragment(), DialogMarketing.dialogListenerMa
             angsuranNominal.text = "Nominal : ${dataPreview.angsuranNominal}"
             angsuranDenda.text = "Denda : ${dataPreview.angsuranDenda}"
         }
+    }
+
+    override fun onDialogClickMarketing2(value1: String, value2: String) {
+        choosenMarketing = value1
+        binding.marketing.setText(value2)
     }
 
 }

@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/dialog_marketing.xml" value="0.20729166666666668" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_12_attendance.xml" value="0.10833333333333334" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/frag_21_collection_02_detail.xml" value="0.2" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/fragment_deposito_manage_detail.xml" value="0.1" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/fragment_task_manager_collection_create.xml" value="0.22" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/fragment_task_manager_collection_detail.xml" value="0.22" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/fragment_task_manager_personal_detail.xml" value="0.22" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/sub32_deposito_create_fragment.xml" value="0.1" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/sub32_deposito_detail_fragment.xml" value="0.1" />
+        <entry key="..\:/Pekerjaan/SEGEN/KD/app/src/main/res/layout/sub32_deposito_edit_fragment.xml" value="0.1" />
         <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/frag_12_attendance.xml" value="0.21927083333333333" />
         <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/frag_item_frag_21_collection_01.xml" value="0.215625" />
         <entry key="..\:/WORK/SEGEN/KD/app/src/main/res/layout/fragment_deposito_manage.xml" value="0.3875" />

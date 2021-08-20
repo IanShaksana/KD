@@ -12,6 +12,7 @@ import com.example.kd.modelbody.TaskModel
 import com.google.android.material.card.MaterialCardView
 import org.joda.time.DateTime
 import org.joda.time.LocalDate
+import java.util.*
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
@@ -54,7 +55,7 @@ class MyItemRecyclerViewAdapter(
             holder.taskStatus.setBackgroundResource(R.drawable.shape_status_4)
         }
         val dt: LocalDate = DateTime(item.deadline).toLocalDate()
-        val today: LocalDate = DateTime(item.deadline).toLocalDate()
+        val today: LocalDate = DateTime(Date()).toLocalDate()
         if ((dt.isEqual(today) && !item.status.equals(
                 "Selesai",
                 true

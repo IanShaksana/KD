@@ -52,17 +52,17 @@ class MyItemRecyclerViewAdapter(
         if (item.status.equals("Ditolak", true)) {
             holder.taskStatus.setBackgroundResource(R.drawable.shape_status_4)
         }
-        val dt: LocalDate = DateTime(item.tanggal).toLocalDate()
-        val today: LocalDate = DateTime(item.deadline).toLocalDate()
-        if ((dt.isEqual(today) && !item.status.equals(
-                "Selesai",
-                true
-            )) || (dt.isBefore(today) && !item.status.equals("Selesai", true))
-        ) {
-            holder.card.setBackgroundResource(R.drawable.shape_deadline)
-        }else{
-            holder.card.setBackgroundResource(R.drawable.shape_deadline1)
-        }
+        val dt: LocalDate = DateTime(item.createdat).toLocalDate()
+//        val today: LocalDate = DateTime(item.deadline).toLocalDate()
+//        if ((dt.isEqual(today) && !item.status.equals(
+//                "Selesai",
+//                true
+//            )) || (dt.isBefore(today) && !item.status.equals("Selesai", true))
+//        ) {
+//            holder.card.setBackgroundResource(R.drawable.shape_deadline)
+//        }else{
+//            holder.card.setBackgroundResource(R.drawable.shape_deadline1)
+//        }
 
 
         holder.card.setBackgroundResource(R.drawable.shape_deadline1)

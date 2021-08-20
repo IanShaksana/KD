@@ -30,6 +30,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.joda.time.DateTime
+import org.joda.time.LocalDate
+import org.joda.time.format.DateTimeFormat
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -73,15 +75,26 @@ class Sub31LoanEdit : Fragment(),
         binding.pengajuanTanggal.setOnClickListener {
             focused = 1
             val dialog = DialogDate()
-            dialog.show(childFragmentManager,"")
+            dialog.show(childFragmentManager, "")
 //            binding.pengajuanTanggal.setText("2020-01-01")
         }
 
         binding.pengajuanTanggalAngsuranPertama.setOnClickListener {
-            focused = 2
-            val dialog = DialogDate()
-            dialog.show(childFragmentManager,"")
+            var fields: Array<TextInputEditText> = arrayOf(
+                binding.pengajuanTanggal,
+            )
+            if (validate(fields)) {
+                focused = 2
+                val dialog = DialogDate()
+                dialog.show(childFragmentManager, "")
 //            binding.pengajuanTanggalAngsuranPertama.setText("2020-01-01")
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Isi Tanggal Diajukan Terlebih Dahulu",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
 
@@ -113,8 +126,11 @@ class Sub31LoanEdit : Fragment(),
             if (validate(fields)) {
                 backgroundEdit()
             } else {
-                Toast.makeText(requireContext(), "Form Belum Terisi Semua", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(
+                    requireContext(),
+                    "Ada Bagian Yang Belum Terisi",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -308,11 +324,34 @@ class Sub31LoanEdit : Fragment(),
         c[Calendar.DAY_OF_MONTH] = p3
         val format1 = SimpleDateFormat(requireContext().resources.getString(R.string.format_date_1))
         val currentDate = format1.format(c.time)
-        if(focused ==1){
-            binding.pengajuanTanggal.setText(currentDate)
+        if (focused == 1) {
+            val dt = LocalDate(c.time)
+            val today = LocalDate(Date())
+            if (!dt.isBefore(today)) {
+                binding.pengajuanTanggal.setText(currentDate)
+                binding.pengajuanTanggalAngsuranPertama.text = null
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Tanggal Tidak Boleh Kurang Dari Tanggal Hari Ini",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
-        if (focused == 2){
-            binding.pengajuanTanggalAngsuranPertama.setText(currentDate)
+        if (focused == 2) {
+            val dt = LocalDate(c.time)
+            val today = DateTimeFormat.forPattern("dd/MM/yyyy")
+                .parseDateTime(binding.pengajuanTanggal.text.toString()).toLocalDate()
+
+            if (!dt.isBefore(today)) {
+                binding.pengajuanTanggalAngsuranPertama.setText(currentDate)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Tanggal Tidak Boleh Kurang Dari Tanggal Pengajuan",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         focused = 0
     }

@@ -230,7 +230,11 @@
         android:id="@+id/taskManagerCollectionEdit"
         android:name="com.example.kd.fragment.manager.task.crud.collection.TaskManagerCollectionEdit"
         android:label="fragment_task_manager_collection_edit"
-        tools:layout="@layout/fragment_task_manager_collection_edit" />
+        tools:layout="@layout/fragment_task_manager_collection_edit" >
+        <argument
+            android:name="idtask"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/taskManagerPersonalEdit"
         android:name="com.example.kd.fragment.manager.task.crud.personal.TaskManagerPersonalEdit"
