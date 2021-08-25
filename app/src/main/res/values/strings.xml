@@ -76,13 +76,13 @@
 
     <string name="submitDepositoGetManager">http://128.199.102.132:8081/api/manager/submit/deposito</string>
     <string name="submitDepositoGetDetailManager">http://128.199.102.132:8081/api/manager/submit/deposito/detail</string>
-    <string name="submitDepositoFinishManager">http://128.199.102.132:8081/api/manager/submit/deposito/create</string>
-    <string name="submitDepositoRejectManager">http://128.199.102.132:8081/api/manager/submit/deposito/send</string>
+    <string name="submitDepositoFinishManager">http://128.199.102.132:8081/api/manager/submit/deposito/finish</string>
+    <string name="submitDepositoRejectManager">http://128.199.102.132:8081/api/manager/submit/deposito/reject</string>
 
     <string name="submitLoanGetManager">http://128.199.102.132:8081/api/manager/submit/loan</string>
     <string name="submitLoanGetDetailManager">http://128.199.102.132:8081/api/manager/submit/loan/detail</string>
-    <string name="submitLoanFinishManager">http://128.199.102.132:8081/api/manager/submit/loan/create</string>
-    <string name="submitLoanRejectManager">http://128.199.102.132:8081/api/manager/submit/loan/send</string>
+    <string name="submitLoanFinishManager">http://128.199.102.132:8081/api/manager/submit/loan/finish</string>
+    <string name="submitLoanRejectManager">http://128.199.102.132:8081/api/manager/submit/loan/reject</string>
 
 
     <!-- String API http://192.168.0.3:8081 -->
@@ -233,7 +233,7 @@
     <string name="Password">Password</string>
     <string name="Lupa_Password">Lupa Password</string>
     <string name="Login">Login</string>
-    <string name="AppVersion">App Version 1.0.0</string>
+    <string name="AppVersion">App Version 1.0.1</string>
 
 
     <!-- String halaman home -->

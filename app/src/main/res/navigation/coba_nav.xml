@@ -229,7 +229,7 @@
     <fragment
         android:id="@+id/taskManagerCollectionEdit"
         android:name="com.example.kd.fragment.manager.task.crud.collection.TaskManagerCollectionEdit"
-        android:label="fragment_task_manager_collection_edit"
+        android:label="Edit Tugas Collection"
         tools:layout="@layout/fragment_task_manager_collection_edit" >
         <argument
             android:name="idtask"

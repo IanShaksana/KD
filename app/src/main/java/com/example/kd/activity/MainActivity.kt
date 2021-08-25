@@ -34,12 +34,15 @@ class MainActivity : AppCompatActivity() {
         )
 
 
+
         if (!sharedPref.getString(getString(R.string.posisiPref), "").equals("manager", true)) {
             binding = ActivityMainBinding.inflate(layoutInflater)
+            setSupportActionBar(binding.appBarMain.toolbar)
             setContentView(binding.root)
             drawerProcess()
         } else {
             binding2 = ActivityMain2Binding.inflate(layoutInflater)
+            setSupportActionBar(binding2.appBarMain.toolbar)
             setContentView(binding2.root)
             drawerProcess2()
 
