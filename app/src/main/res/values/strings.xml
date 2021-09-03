@@ -38,101 +38,102 @@
 
 
     <!-- String API http://128.199.102.132:8081 -->
+    <!--
+        <string name="login">http://128.199.102.132:8081/api/mar/login</string>
+        <string name="homeStat">http://128.199.102.132:8081/api/mar/home</string>
+        <string name="attendancePost">http://128.199.102.132:8081/api/mar/att</string>
+        <string name="attendanceList">http://128.199.102.132:8081/api/mar/att/list</string>
 
-    <string name="login">http://128.199.102.132:8081/api/mar/login</string>
-    <string name="homeStat">http://128.199.102.132:8081/api/mar/home</string>
-    <string name="attendancePost">http://128.199.102.132:8081/api/mar/att</string>
-    <string name="attendanceList">http://128.199.102.132:8081/api/mar/att/list</string>
+        <string name="getTask">http://128.199.102.132:8081/api/mar/task</string>
+        <string name="getTaskDetail">http://128.199.102.132:8081/api/mar/task/detail</string>
+        <string name="finishTask">http://128.199.102.132:8081/api/mar/task/finish</string>
 
-    <string name="getTask">http://128.199.102.132:8081/api/mar/task</string>
-    <string name="getTaskDetail">http://128.199.102.132:8081/api/mar/task/detail</string>
-    <string name="finishTask">http://128.199.102.132:8081/api/mar/task/finish</string>
+        <string name="submitDepositoGet">http://128.199.102.132:8081/api/mar/submit/deposito</string>
+        <string name="submitDepositoGetDetail">http://128.199.102.132:8081/api/mar/submit/deposito/detail</string>
+        <string name="submitDepositoCreate">http://128.199.102.132:8081/api/mar/submit/deposito/create</string>
+        <string name="submitDepositoEdit">http://128.199.102.132:8081/api/mar/submit/deposito/edit</string>
+        <string name="submitDepositoDelete">http://128.199.102.132:8081/api/mar/submit/deposito/delete</string>
+        <string name="submitDepositoSend">http://128.199.102.132:8081/api/mar/submit/deposito/send</string>
 
-    <string name="submitDepositoGet">http://128.199.102.132:8081/api/mar/submit/deposito</string>
-    <string name="submitDepositoGetDetail">http://128.199.102.132:8081/api/mar/submit/deposito/detail</string>
-    <string name="submitDepositoCreate">http://128.199.102.132:8081/api/mar/submit/deposito/create</string>
-    <string name="submitDepositoEdit">http://128.199.102.132:8081/api/mar/submit/deposito/edit</string>
-    <string name="submitDepositoDelete">http://128.199.102.132:8081/api/mar/submit/deposito/delete</string>
-    <string name="submitDepositoSend">http://128.199.102.132:8081/api/mar/submit/deposito/send</string>
-
-    <string name="submitLoanGet">http://128.199.102.132:8081/api/mar/submit/loan</string>
-    <string name="submitLoanGetDetail">http://128.199.102.132:8081/api/mar/submit/loan/detail</string>
-    <string name="submitLoanCreate">http://128.199.102.132:8081/api/mar/submit/loan/create</string>
-    <string name="submitLoanEdit">http://128.199.102.132:8081/api/mar/submit/loan/edit</string>
-    <string name="submitLoanDelete">http://128.199.102.132:8081/api/mar/submit/loan/delete</string>
-    <string name="submitLoanSend">http://128.199.102.132:8081/api/mar/submit/loan/send</string>
-
+        <string name="submitLoanGet">http://128.199.102.132:8081/api/mar/submit/loan</string>
+        <string name="submitLoanGetDetail">http://128.199.102.132:8081/api/mar/submit/loan/detail</string>
+        <string name="submitLoanCreate">http://128.199.102.132:8081/api/mar/submit/loan/create</string>
+        <string name="submitLoanEdit">http://128.199.102.132:8081/api/mar/submit/loan/edit</string>
+        <string name="submitLoanDelete">http://128.199.102.132:8081/api/mar/submit/loan/delete</string>
+        <string name="submitLoanSend">http://128.199.102.132:8081/api/mar/submit/loan/send</string>
+    -->
     <!-- Manager API http://128.199.102.132:8081-->
-    <string name="getMarketing">http://128.199.102.132:8081/api/mar</string>
-    <string name="getCollection">http://128.199.102.132:8081/api/manager/task/collection</string>
-    <string name="getTaskManager">http://128.199.102.132:8081/api/manager/task</string>
-    <string name="getTaskDetailManager">http://128.199.102.132:8081/api/manager/task/detail</string>
-    <string name="createTaskManager">http://128.199.102.132:8081/api/manager/task/create</string>
-    <string name="editTaskManager">http://128.199.102.132:8081/api/manager/task/edit</string>
-    <string name="deleteTaskManager">http://128.199.102.132:8081/api/manager/task/delete</string>
-    <string name="sendTaskManager">http://128.199.102.132:8081/api/manager/task/send</string>
-    <string name="finishTaskManager">http://128.199.102.132:8081/api/manager/task/finish</string>
-    <string name="rejectTaskManager">http://128.199.102.132:8081/api/manager/task/reject</string>
+    <!--
+        <string name="getMarketing">http://128.199.102.132:8081/api/mar</string>
+        <string name="getCollection">http://128.199.102.132:8081/api/manager/task/collection</string>
+        <string name="getTaskManager">http://128.199.102.132:8081/api/manager/task</string>
+        <string name="getTaskDetailManager">http://128.199.102.132:8081/api/manager/task/detail</string>
+        <string name="createTaskManager">http://128.199.102.132:8081/api/manager/task/create</string>
+        <string name="editTaskManager">http://128.199.102.132:8081/api/manager/task/edit</string>
+        <string name="deleteTaskManager">http://128.199.102.132:8081/api/manager/task/delete</string>
+        <string name="sendTaskManager">http://128.199.102.132:8081/api/manager/task/send</string>
+        <string name="finishTaskManager">http://128.199.102.132:8081/api/manager/task/finish</string>
+        <string name="rejectTaskManager">http://128.199.102.132:8081/api/manager/task/reject</string>
 
-    <string name="submitDepositoGetManager">http://128.199.102.132:8081/api/manager/submit/deposito</string>
-    <string name="submitDepositoGetDetailManager">http://128.199.102.132:8081/api/manager/submit/deposito/detail</string>
-    <string name="submitDepositoFinishManager">http://128.199.102.132:8081/api/manager/submit/deposito/finish</string>
-    <string name="submitDepositoRejectManager">http://128.199.102.132:8081/api/manager/submit/deposito/reject</string>
+        <string name="submitDepositoGetManager">http://128.199.102.132:8081/api/manager/submit/deposito</string>
+        <string name="submitDepositoGetDetailManager">http://128.199.102.132:8081/api/manager/submit/deposito/detail</string>
+        <string name="submitDepositoFinishManager">http://128.199.102.132:8081/api/manager/submit/deposito/finish</string>
+        <string name="submitDepositoRejectManager">http://128.199.102.132:8081/api/manager/submit/deposito/reject</string>
 
-    <string name="submitLoanGetManager">http://128.199.102.132:8081/api/manager/submit/loan</string>
-    <string name="submitLoanGetDetailManager">http://128.199.102.132:8081/api/manager/submit/loan/detail</string>
-    <string name="submitLoanFinishManager">http://128.199.102.132:8081/api/manager/submit/loan/finish</string>
-    <string name="submitLoanRejectManager">http://128.199.102.132:8081/api/manager/submit/loan/reject</string>
-
+        <string name="submitLoanGetManager">http://128.199.102.132:8081/api/manager/submit/loan</string>
+        <string name="submitLoanGetDetailManager">http://128.199.102.132:8081/api/manager/submit/loan/detail</string>
+        <string name="submitLoanFinishManager">http://128.199.102.132:8081/api/manager/submit/loan/finish</string>
+        <string name="submitLoanRejectManager">http://128.199.102.132:8081/api/manager/submit/loan/reject</string>
+    -->
 
     <!-- String API http://192.168.0.3:8081 -->
-    <!--
-        <string name="login">http://192.168.0.3:8081/api/mar/login</string>
-        <string name="homeStat">http://192.168.0.3:8081/api/mar/home</string>
-        <string name="attendancePost">http://192.168.0.3:8081/api/mar/att</string>
-        <string name="attendanceList">http://192.168.0.3:8081/api/mar/att/list</string>
 
-        <string name="getTask">http://192.168.0.3:8081/api/mar/task</string>
-        <string name="getTaskDetail">http://192.168.0.3:8081/api/mar/task/detail</string>
-        <string name="finishTask">http://192.168.0.3:8081/api/mar/task/finish</string>
+    <string name="login">http://192.168.0.3:8081/api/mar/login</string>
+    <string name="homeStat">http://192.168.0.3:8081/api/mar/home</string>
+    <string name="attendancePost">http://192.168.0.3:8081/api/mar/att</string>
+    <string name="attendanceList">http://192.168.0.3:8081/api/mar/att/list</string>
 
-        <string name="submitDepositoGet">http://192.168.0.3:8081/api/mar/submit/deposito</string>
-        <string name="submitDepositoGetDetail">http://192.168.0.3:8081/api/mar/submit/deposito/detail</string>
-        <string name="submitDepositoCreate">http://192.168.0.3:8081/api/mar/submit/deposito/create</string>
-        <string name="submitDepositoEdit">http://192.168.0.3:8081/api/mar/submit/deposito/edit</string>
-        <string name="submitDepositoDelete">http://192.168.0.3:8081/api/mar/submit/deposito/delete</string>
-        <string name="submitDepositoSend">http://192.168.0.3:8081/api/mar/submit/deposito/send</string>
+    <string name="getTask">http://192.168.0.3:8081/api/mar/task</string>
+    <string name="getTaskDetail">http://192.168.0.3:8081/api/mar/task/detail</string>
+    <string name="finishTask">http://192.168.0.3:8081/api/mar/task/finish</string>
 
-        <string name="submitLoanGet">http://192.168.0.3:8081/api/mar/submit/loan</string>
-        <string name="submitLoanGetDetail">http://192.168.0.3:8081/api/mar/submit/loan/detail</string>
-        <string name="submitLoanCreate">http://192.168.0.3:8081/api/mar/submit/loan/create</string>
-        <string name="submitLoanEdit">http://192.168.0.3:8081/api/mar/submit/loan/edit</string>
-        <string name="submitLoanDelete">http://192.168.0.3:8081/api/mar/submit/loan/delete</string>
-        <string name="submitLoanSend">http://192.168.0.3:8081/api/mar/submit/loan/send</string>
-    -->
+    <string name="submitDepositoGet">http://192.168.0.3:8081/api/mar/submit/deposito</string>
+    <string name="submitDepositoGetDetail">http://192.168.0.3:8081/api/mar/submit/deposito/detail</string>
+    <string name="submitDepositoCreate">http://192.168.0.3:8081/api/mar/submit/deposito/create</string>
+    <string name="submitDepositoEdit">http://192.168.0.3:8081/api/mar/submit/deposito/edit</string>
+    <string name="submitDepositoDelete">http://192.168.0.3:8081/api/mar/submit/deposito/delete</string>
+    <string name="submitDepositoSend">http://192.168.0.3:8081/api/mar/submit/deposito/send</string>
+
+    <string name="submitLoanGet">http://192.168.0.3:8081/api/mar/submit/loan</string>
+    <string name="submitLoanGetDetail">http://192.168.0.3:8081/api/mar/submit/loan/detail</string>
+    <string name="submitLoanCreate">http://192.168.0.3:8081/api/mar/submit/loan/create</string>
+    <string name="submitLoanEdit">http://192.168.0.3:8081/api/mar/submit/loan/edit</string>
+    <string name="submitLoanDelete">http://192.168.0.3:8081/api/mar/submit/loan/delete</string>
+    <string name="submitLoanSend">http://192.168.0.3:8081/api/mar/submit/loan/send</string>
+
     <!-- Manager API http://192.168.0.3:8081-->
-    <!--
-        <string name="getMarketing">http://192.168.0.3:8081/api/mar</string>
-        <string name="getCollection">http://192.168.0.3:8081/api/manager/task/collection</string>
-        <string name="getTaskManager">http://192.168.0.3:8081/api/manager/task</string>
-        <string name="getTaskDetailManager">http://192.168.0.3:8081/api/manager/task/detail</string>
-        <string name="createTaskManager">http://192.168.0.3:8081/api/manager/task/create</string>
-        <string name="editTaskManager">http://192.168.0.3:8081/api/manager/task/edit</string>
-        <string name="deleteTaskManager">http://192.168.0.3:8081/api/manager/task/delete</string>
-        <string name="sendTaskManager">http://192.168.0.3:8081/api/manager/task/send</string>
-        <string name="finishTaskManager">http://192.168.0.3:8081/api/manager/task/finish</string>
-        <string name="rejectTaskManager">http://192.168.0.3:8081/api/manager/task/reject</string>
 
-        <string name="submitDepositoGetManager">http://192.168.0.3:8081/api/manager/submit/deposito</string>
-        <string name="submitDepositoGetDetailManager">http://192.168.0.3:8081/api/manager/submit/deposito/detail</string>
-        <string name="submitDepositoFinishManager">http://192.168.0.3:8081/api/manager/submit/deposito/create</string>
-        <string name="submitDepositoRejectManager">http://192.168.0.3:8081/api/manager/submit/deposito/send</string>
+    <string name="getMarketing">http://192.168.0.3:8081/api/mar</string>
+    <string name="getCollection">http://192.168.0.3:8081/api/manager/task/collection</string>
+    <string name="getTaskManager">http://192.168.0.3:8081/api/manager/task</string>
+    <string name="getTaskDetailManager">http://192.168.0.3:8081/api/manager/task/detail</string>
+    <string name="createTaskManager">http://192.168.0.3:8081/api/manager/task/create</string>
+    <string name="editTaskManager">http://192.168.0.3:8081/api/manager/task/edit</string>
+    <string name="deleteTaskManager">http://192.168.0.3:8081/api/manager/task/delete</string>
+    <string name="sendTaskManager">http://192.168.0.3:8081/api/manager/task/send</string>
+    <string name="finishTaskManager">http://192.168.0.3:8081/api/manager/task/finish</string>
+    <string name="rejectTaskManager">http://192.168.0.3:8081/api/manager/task/reject</string>
 
-        <string name="submitLoanGetManager">http://192.168.0.3:8081/api/manager/submit/loan</string>
-        <string name="submitLoanGetDetailManager">http://192.168.0.3:8081/api/manager/submit/loan/detail</string>
-        <string name="submitLoanFinishManager">http://192.168.0.3:8081/api/manager/submit/loan/create</string>
-        <string name="submitLoanRejectManager">http://192.168.0.3:8081/api/manager/submit/loan/send</string>
-    -->
+    <string name="submitDepositoGetManager">http://192.168.0.3:8081/api/manager/submit/deposito</string>
+    <string name="submitDepositoGetDetailManager">http://192.168.0.3:8081/api/manager/submit/deposito/detail</string>
+    <string name="submitDepositoFinishManager">http://192.168.0.3:8081/api/manager/submit/deposito/create</string>
+    <string name="submitDepositoRejectManager">http://192.168.0.3:8081/api/manager/submit/deposito/send</string>
+
+    <string name="submitLoanGetManager">http://192.168.0.3:8081/api/manager/submit/loan</string>
+    <string name="submitLoanGetDetailManager">http://192.168.0.3:8081/api/manager/submit/loan/detail</string>
+    <string name="submitLoanFinishManager">http://192.168.0.3:8081/api/manager/submit/loan/create</string>
+    <string name="submitLoanRejectManager">http://192.168.0.3:8081/api/manager/submit/loan/send</string>
+
     <!-- String API http://192.168.1.14:8081 -->
     <!--
         <string name="login">http://192.168.1.14:8081/api/mar/login</string>
@@ -226,6 +227,23 @@
         <item>Other</item>
     </string-array>
 
+    <string name="status_tugas">Status</string>
+    <string-array name="status_tugas_detail">
+        <item>ALL</item>
+        <item>Draft</item>
+        <item>To Do</item>
+        <item>Review</item>
+        <item>Finish</item>
+    </string-array>
+
+    <string name="status_sub">Status</string>
+    <string-array name="status_sub_detail">
+        <item>ALL</item>
+        <item>Draft</item>
+        <item>Diajukan</item>
+        <item>Finish</item>
+    </string-array>
+
 
     <!-- String halaman login -->
     <string name="Email">Email</string>
@@ -238,10 +256,10 @@
 
     <!-- String halaman home -->
     <string name="label_sub_sec_home">Beranda</string>
-    <string name="label_desc_tugas_col">Tugas Collection Anda : 0 </string>
-    <string name="label_desc_tugas_psl">Tugas Pribadi Anda : 0 </string>
-    <string name="plc_nama">Hi, Ian Shaksana</string>
-    <string name="plc_jabatan">IT Engineer</string>
+    <string name="label_desc_tugas_col">Tugas Collection Anda :  </string>
+    <string name="label_desc_tugas_psl">Tugas Pribadi Anda :  </string>
+    <string name="plc_nama">Hi, </string>
+    <string name="plc_jabatan"> </string>
     <string name="plc_cabang">SEGEN Surabaya</string>
     <string name="SEGEN">SEGEN</string>
     <string name="logout">Logout</string>
@@ -260,13 +278,13 @@
 
 
     <!-- String halaman submission loan -->
-    <string name="label_sub_sec_loan">Pinjaman Baru</string>
+    <string name="label_sub_sec_loan">Laporan Pinjaman Baru</string>
     <string name="label_sub_sec_loan_detail">Detil Pinjaman Baru</string>
     <string name="label_sub_sec_loan_create">Buat Pinjaman Baru</string>
     <string name="label_sub_sec_loan_edit">Ubah Pinjaman Baru</string>
 
     <!-- String halaman submission deposito -->
-    <string name="label_sub_sec_deposito">Deposito Baru</string>
+    <string name="label_sub_sec_deposito">Laporan Deposito Baru</string>
     <string name="label_sub_sec_deposito_detail">Detil Deposito Baru</string>
     <string name="label_sub_sec_deposito_create">Buat Deposito Baru</string>
     <string name="label_sub_sec_deposito_edit">Ubah Deposito Baru</string>

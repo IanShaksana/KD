@@ -89,6 +89,8 @@ class LoginActivity : AppCompatActivity() {
                 )
 
                 val data = resp.getJSONArray("data").getJSONObject(0)
+
+                Timber.i(data.toString())
                 val editor = sharedPref.edit()
                 with(editor) {
                     putString(getString(R.string.loginIdPref), data["id"].toString())

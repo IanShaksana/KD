@@ -9,5 +9,6 @@ data class TaskModel(
     val status: String,
     val deadline: Date,
     val attachment: String,
-    val tanggal: String
+    val tanggal: String,
+    val finishdate: String,
 )

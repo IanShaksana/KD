@@ -147,7 +147,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/deadline"
                             android:layout_width="match_parent"
-                            android:layout_height="45dp"
+                            android:layout_height="wrap_content"
                             android:clickable="true"
                             android:cursorVisible="false"
                             android:focusableInTouchMode="false"

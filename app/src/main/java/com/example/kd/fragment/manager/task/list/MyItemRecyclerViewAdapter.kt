@@ -70,6 +70,18 @@ class MyItemRecyclerViewAdapter(
             "Deadline : " + dt.toString(context.applicationContext.resources.getString(R.string.format_date_1))
         holder.taskMarketing.text = "Marketing : " + item.marketing
         holder.taskAttachment.text = item.attachment
+
+        val finishDate: LocalDate = DateTime(item.finishdate).toLocalDate()
+        if (item.status.equals("Review", true) || item.status.equals(
+                "Selesai",
+                true
+            ) || item.status.equals("Ditolak", true)
+        )
+            holder.taskFinishDate.text = "Tanggal selesai : " + finishDate.toString(
+                context.applicationContext.resources.getString(R.string.format_date_1)
+            ) else {
+            holder.taskFinishDate.text = "Tanggal selesai : "
+        }
     }
 
     override fun getItemCount(): Int = values.size
@@ -82,6 +94,7 @@ class MyItemRecyclerViewAdapter(
         val taskDeadline: TextView = binding.taskDeadline
         val taskMarketing: TextView = binding.taskMarketing
         val taskAttachment: TextView = binding.taskAttachment
+        val taskFinishDate: TextView = binding.taskFinishDate
         val card: MaterialCardView = binding.collectionCard
 
         override fun toString(): String {

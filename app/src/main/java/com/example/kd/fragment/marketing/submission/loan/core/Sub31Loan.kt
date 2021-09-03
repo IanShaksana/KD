@@ -14,6 +14,9 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.FragmentSub31LoanListBinding
+import com.example.kd.dialog.DialogStatusSub
+import com.example.kd.dialog.DialogStatusTugas
+import com.example.kd.modelbody.IdMessageOnly
 import com.example.kd.modelbody.IdOnly
 import com.example.kd.modelbody.TaskModelLoan
 import com.google.gson.Gson
@@ -28,7 +31,7 @@ import java.util.concurrent.TimeUnit
 /**
  * A fragment representing a list of Items.
  */
-class Sub31Loan : Fragment() {
+class Sub31Loan : Fragment(), DialogStatusSub.dialogListener {
 
 
     private lateinit var binding: FragmentSub31LoanListBinding
@@ -38,20 +41,24 @@ class Sub31Loan : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSub31LoanListBinding.inflate(inflater,container, false)
-        background()
+        binding = FragmentSub31LoanListBinding.inflate(inflater, container, false)
+        background("ALL")
         binding.fab.setOnClickListener {
-            Toast.makeText(context, "T", Toast.LENGTH_SHORT).show()
             val action =
                 Sub31LoanDirections.actionNavLoanSubmitToSub31LoanCreate()
             binding.root.findNavController().navigate(action)
+        }
+
+        binding.statusCard.setOnClickListener {
+            val dialog = DialogStatusSub()
+            dialog.show(childFragmentManager, "Dialog Loan Produk")
         }
 
         return binding.root
     }
 
 
-    private fun background() {
+    private fun background(status: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val sharedPref = this@Sub31Loan.requireActivity().getSharedPreferences(
                 getString(R.string.credPref), Context.MODE_PRIVATE
@@ -61,11 +68,12 @@ class Sub31Loan : Fragment() {
                     this@Sub31Loan.requireContext().resources.getString(R.string.submitLoanGet),
                     JSONObject(
                         Gson().toJson(
-                            IdOnly(
+                            IdMessageOnly(
                                 sharedPref.getString(
                                     getString(R.string.loginIdPref),
                                     ""
-                                )
+                                ),
+                                status
                             )
                         )
                     )
@@ -114,6 +122,11 @@ class Sub31Loan : Fragment() {
             }
 
         }
+    }
+
+    override fun onDialogStatusSubClick(value: String) {
+        binding.statusText.text = value
+        background(value)
     }
 
 

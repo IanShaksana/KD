@@ -13,6 +13,7 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.FragmentLoanManageListBinding
+import com.example.kd.dialog.DialogStatusSub
 import com.example.kd.fragment.marketing.submission.loan.core.MyItemRecyclerViewAdapter
 import com.example.kd.fragment.marketing.submission.loan.core.Sub31LoanDirections
 import com.example.kd.modelbody.IdOnly
@@ -26,7 +27,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
-class LoanManage : Fragment() {
+class LoanManage : Fragment(), DialogStatusSub.dialogListener {
 
     private lateinit var binding: FragmentLoanManageListBinding
     private lateinit var inputData: MutableList<TaskModelLoan>
@@ -36,11 +37,16 @@ class LoanManage : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoanManageListBinding.inflate(inflater,container,false)
-        background()
+        background("ALL")
+
+        binding.statusCard.setOnClickListener {
+            val dialog = DialogStatusSub()
+            dialog.show(childFragmentManager, "Dialog Loan Produk")
+        }
         return binding.root
     }
 
-    private fun background() {
+    private fun background(status:String) {
         CoroutineScope(Dispatchers.IO).launch {
             val sharedPref = this@LoanManage.requireActivity().getSharedPreferences(
                 getString(R.string.credPref), Context.MODE_PRIVATE
@@ -51,10 +57,7 @@ class LoanManage : Fragment() {
                     JSONObject(
                         Gson().toJson(
                             IdOnly(
-                                sharedPref.getString(
-                                    getString(R.string.loginIdPref),
-                                    ""
-                                )
+                                status
                             )
                         )
                     )
@@ -105,6 +108,10 @@ class LoanManage : Fragment() {
         }
     }
 
+    override fun onDialogStatusSubClick(value: String) {
+        binding.statusText.text = value
+        background(value)
+    }
 
 
 }

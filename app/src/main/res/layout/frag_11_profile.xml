@@ -205,5 +205,39 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:clickable="true"
+        android:focusable="true">
+        <!-- Media -->
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:flexDirection="row">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="demo"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+            </LinearLayout>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </LinearLayout>

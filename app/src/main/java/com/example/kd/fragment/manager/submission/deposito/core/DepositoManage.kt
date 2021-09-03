@@ -13,6 +13,7 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.FragmentDepositoManageListBinding
+import com.example.kd.dialog.DialogStatusSub
 import com.example.kd.modelbody.IdOnly
 import com.example.kd.modelbody.TaskModelLoan
 import com.google.gson.Gson
@@ -27,7 +28,7 @@ import java.util.concurrent.TimeUnit
 /**
  * A fragment representing a list of Items.
  */
-class DepositoManage : Fragment() {
+class DepositoManage : Fragment(), DialogStatusSub.dialogListener {
 
 
     private lateinit var binding: FragmentDepositoManageListBinding
@@ -38,12 +39,17 @@ class DepositoManage : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDepositoManageListBinding.inflate(inflater,container,false)
-        background()
+        background("ALL")
+
+        binding.statusCard.setOnClickListener {
+            val dialog = DialogStatusSub()
+            dialog.show(childFragmentManager, "Dialog Loan Produk")
+        }
         return binding.root
     }
 
 
-    private fun background() {
+    private fun background(status:String) {
         CoroutineScope(Dispatchers.IO).launch {
             val sharedPref = this@DepositoManage.requireActivity().getSharedPreferences(
                 getString(R.string.credPref), Context.MODE_PRIVATE
@@ -54,10 +60,7 @@ class DepositoManage : Fragment() {
                     JSONObject(
                         Gson().toJson(
                             IdOnly(
-                                sharedPref.getString(
-                                    getString(R.string.loginIdPref),
-                                    ""
-                                )
+                                status
                             )
                         )
                     )
@@ -107,6 +110,11 @@ class DepositoManage : Fragment() {
             }
 
         }
+    }
+
+    override fun onDialogStatusSubClick(value: String) {
+        binding.statusText.text = value
+        background(value)
     }
 
 

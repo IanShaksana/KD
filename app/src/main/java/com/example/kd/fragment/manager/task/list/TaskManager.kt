@@ -13,6 +13,8 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.FragmentTaskManagerListBinding
+import com.example.kd.dialog.DialogLoanProduk
+import com.example.kd.dialog.DialogStatusTugas
 import com.example.kd.modelbody.IdOnly
 import com.example.kd.modelbody.TaskModelManager
 import com.google.gson.Gson
@@ -27,7 +29,7 @@ import java.util.concurrent.TimeUnit
 /**
  * A fragment representing a list of Items.
  */
-class TaskManager : Fragment() {
+class TaskManager : Fragment(), DialogStatusTugas.dialogListener {
 
     private lateinit var binding: FragmentTaskManagerListBinding
     private lateinit var inputData: MutableList<TaskModelManager>
@@ -41,12 +43,16 @@ class TaskManager : Fragment() {
             val action = TaskManagerDirections.actionTaskManagerToTaskManagerCrudSelect()
             binding.root.findNavController().navigate(action)
         }
-        background()
+        binding.statusCard.setOnClickListener {
+            val dialog = DialogStatusTugas()
+            dialog.show(childFragmentManager, "Dialog Loan Produk")
+        }
+        background("ALL")
         return binding.root
     }
 
 
-    private fun background() {
+    private fun background(status:String) {
         CoroutineScope(Dispatchers.IO).launch {
             val sharedPref = this@TaskManager.requireActivity().getSharedPreferences(
                 getString(R.string.credPref), Context.MODE_PRIVATE
@@ -57,10 +63,7 @@ class TaskManager : Fragment() {
                     JSONObject(
                         Gson().toJson(
                             IdOnly(
-                                sharedPref.getString(
-                                    getString(R.string.loginIdPref),
-                                    ""
-                                )
+                                status
                             )
                         )
                     )
@@ -118,6 +121,11 @@ class TaskManager : Fragment() {
             }
 
         }
+    }
+
+    override fun onDialogStatusTugasClick(value: String) {
+        binding.statusText.text = value
+        background(value)
     }
 
 

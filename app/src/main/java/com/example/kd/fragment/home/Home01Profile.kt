@@ -16,9 +16,7 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.Frag11ProfileBinding
-import com.example.kd.dialog.DialogDate
 import com.example.kd.modelbody.AttModelUser
-import com.example.kd.modelbody.IdOnly
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -60,6 +58,11 @@ class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
             sharedPref.edit().clear().apply()
             requireActivity().finish()
         }
+        binding.demo.setOnClickListener {
+            val action =
+                Home01ProfileDirections.actionNavHomeToCollectionDemoFragment()
+            binding.root.findNavController().navigate(action)
+        }
 
         return binding.root
     }
@@ -69,6 +72,13 @@ class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
         CoroutineScope(Dispatchers.IO).launch {
             val sharedPref = this@Home01Profile.requireActivity().getSharedPreferences(
                 getString(R.string.credPref), Context.MODE_PRIVATE
+            )
+
+            Timber.i(
+                "yang dikirim   " + sharedPref.getString(
+                    getString(R.string.loginIdPref),
+                    ""
+                )
             )
             onSuccess(
                 getHome(
@@ -80,7 +90,7 @@ class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
                                     getString(R.string.loginIdPref),
                                     ""
                                 ),
-                                Date(),
+                                DateTime(Date()).toString("MMM dd, yyyy hh:mm:ss a"),
                                 Calendar.getInstance().timeZone.rawOffset
                             )
                         )
@@ -98,6 +108,8 @@ class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
         )
         queue.add(stringRequest)
 
+        Timber.i("yang dikirim  : " + jObject)
+
         var resp = JSONObject()
         try {
             resp = future.get(15, TimeUnit.SECONDS)
@@ -111,6 +123,7 @@ class Home01Profile : Fragment(), DatePickerDialog.OnDateSetListener {
 
     private suspend fun onSuccess(resp: JSONObject) {
         withContext(Dispatchers.Main) {
+            Timber.i(resp.toString())
             val data = resp.getJSONArray("data").getJSONObject(0)
             binding.apply {
                 Timber.i(data.toString())

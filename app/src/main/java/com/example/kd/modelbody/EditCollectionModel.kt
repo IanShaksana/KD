@@ -5,7 +5,8 @@ data class EditCollectionModel(
     val id: String,
     val idmarketing: String,
     val idcollection: String,
-    val title: String,
+    val deadline: String,
+    val description: String,
     val lastmodifiedby: String,
     val version: Int
 )

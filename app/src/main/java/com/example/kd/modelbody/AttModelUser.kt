@@ -5,6 +5,6 @@ import java.util.*
 
 data class AttModelUser(
     val id: String?,
-    val dt: Date,
+    val dt: String,
     val rawOffset: Int
 )

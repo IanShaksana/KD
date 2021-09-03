@@ -14,12 +14,9 @@ import org.joda.time.DateTime
 import org.joda.time.LocalDate
 import java.util.*
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
+
 class MyItemRecyclerViewAdapter(
-    private val values: List<TaskModel>, private val context : Context
+    private val values: List<TaskModel>, private val context: Context
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
     var onItemClick: ((TaskModel) -> Unit)? = null
@@ -62,12 +59,25 @@ class MyItemRecyclerViewAdapter(
             )) || (dt.isBefore(today) && !item.status.equals("Selesai", true))
         ) {
             holder.card.setBackgroundResource(R.drawable.shape_deadline)
-        }else{
+        } else {
             holder.card.setBackgroundResource(R.drawable.shape_deadline1)
         }
         holder.taskDeadline.text =
             "Deadline : " + dt.toString(context.applicationContext.resources.getString(R.string.format_date_1))
         holder.taskAttachment.text = item.attachment
+
+        val finishDate: LocalDate = DateTime(item.finishdate).toLocalDate()
+        if (item.status.equals("Review", true) || item.status.equals(
+                "Selesai",
+                true
+            ) || item.status.equals("Ditolak", true)
+        )
+            holder.taskFinishDate.text = "Tanggal selesai : " + finishDate.toString(
+                context.applicationContext.resources.getString(R.string.format_date_1)
+            ) else {
+            holder.taskFinishDate.text = "Tanggal selesai : "
+        }
+
 
     }
 
@@ -80,6 +90,7 @@ class MyItemRecyclerViewAdapter(
         val taskStatus: TextView = binding.taskStatus
         val taskDeadline: TextView = binding.taskDeadline
         val taskAttachment: TextView = binding.taskAttachment
+        val taskFinishDate: TextView = binding.taskFinishDate
         val card: MaterialCardView = binding.collectionCard
 
 

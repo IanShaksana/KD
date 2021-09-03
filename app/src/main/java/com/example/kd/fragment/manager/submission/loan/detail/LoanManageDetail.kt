@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
@@ -128,6 +130,34 @@ class LoanManageDetail : Fragment(), DialogFinishReject.dialogListenerFinishReje
 
                 finish.isEnabled = data.getString("status").equals("Diajukan", true)
 
+                var fields: Array<TextView> = arrayOf(
+                    binding.pengajuanTitle,
+                    binding.debiturNama,
+                    binding.debiturKontak,
+                    binding.debiturAlamat,
+                    binding.debiturNik,
+                    binding.pengajuanProduk,
+
+                    binding.pengajuanPlafon,
+                    binding.pengajuanJangkaWaktu,
+                    binding.pengajuanBungaRate,
+                    binding.pengajuanProvisiRate,
+                    binding.pengajuanTanggal,
+                    binding.pengajuanTanggalAngsuranPertama,
+                    binding.pengajuanJenisPenggunaan,
+                    binding.pengajuanTujuanKredit,
+
+                    binding.jaminanTipe,
+                    binding.jaminanKepemilikan,
+                    binding.jaminanTahun,
+                    binding.jaminanNominal,
+                    binding.jaminanDeskripsi,
+                    binding.status,
+                    binding.review,
+                    binding.informasiTambahan
+                )
+                validate(fields)
+
             }
 
 
@@ -192,6 +222,11 @@ class LoanManageDetail : Fragment(), DialogFinishReject.dialogListenerFinishReje
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
                 // update fragment
+                Toast.makeText(
+                    requireContext(),
+                    "Deposito Berhasil Direview",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
@@ -201,5 +236,16 @@ class LoanManageDetail : Fragment(), DialogFinishReject.dialogListenerFinishReje
         backgroundFinish(value, choice)
     }
 
+    private fun validate(fields: Array<TextView>): Boolean {
+        for (i in fields.indices) {
+            val currentField = fields[i]
+
+            if (currentField.text.toString().contains("null")) {
+                val value = currentField.text.toString().split("null").get(0)
+                currentField.text = value + "-"
+            }
+        }
+        return true
+    }
 
 }

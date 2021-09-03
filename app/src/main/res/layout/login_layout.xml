@@ -17,7 +17,6 @@
             app:flexDirection="row"
             app:layout_flexBasisPercent="10%">
 
-
             <ImageView
                 android:id="@+id/logo_vis"
                 android:layout_width="match_parent"

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
@@ -115,6 +116,25 @@ class DepositoManageDetail : Fragment(), DialogFinishReject.dialogListenerFinish
 
                 finish.isEnabled = data.getString("status").equals("Diajukan", true)
 
+                var fields: Array<TextView> = arrayOf(
+                    binding.pengajuanTitle,
+                    binding.deposanNama,
+                    binding.deposanKontak,
+                    binding.deposanAlamat,
+                    binding.deposanNik,
+                    binding.pengajuanProduk,
+
+                    binding.pengajuanTipe,
+                    binding.pengajuanSaldoAwal,
+                    binding.pengajuanBungaRate,
+                    binding.pengajuanTanggal,
+
+                    binding.status,
+                    binding.review,
+                    binding.informasiTambahan
+                )
+                validate(fields)
+
             }
 
 
@@ -124,7 +144,7 @@ class DepositoManageDetail : Fragment(), DialogFinishReject.dialogListenerFinish
     private fun backgroundFinish(message: String, choice: Int) {
         CoroutineScope(Dispatchers.IO).launch {
 
-            if(choice ==1){
+            if (choice == 1) {
                 onFinish(
                     finish(
                         this@DepositoManageDetail.requireContext().resources.getString(R.string.submitDepositoFinishManager),
@@ -139,7 +159,7 @@ class DepositoManageDetail : Fragment(), DialogFinishReject.dialogListenerFinish
                 )
             }
 
-            if(choice ==0){
+            if (choice == 0) {
                 onFinish(
                     finish(
                         this@DepositoManageDetail.requireContext().resources.getString(R.string.submitDepositoRejectManager),
@@ -179,14 +199,30 @@ class DepositoManageDetail : Fragment(), DialogFinishReject.dialogListenerFinish
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
                 // update fragment
+                Toast.makeText(
+                    requireContext(),
+                    "Deposito Berhasil Direview",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
     }
 
-
     override fun onDialogClickFinishReject(value: String, choice: Int) {
         backgroundFinish(value, choice)
+    }
+
+    private fun validate(fields: Array<TextView>): Boolean {
+        for (i in fields.indices) {
+            val currentField = fields[i]
+
+            if (currentField.text.toString().contains("null")) {
+                val value = currentField.text.toString().split("null").get(0)
+                currentField.text = value +"-"
+            }
+        }
+        return true
     }
 
 }

@@ -302,6 +302,11 @@ class Sub31LoanEdit : Fragment(),
     private suspend fun onSuccessEdit(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Pinjaman Berhasil Diubah",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }

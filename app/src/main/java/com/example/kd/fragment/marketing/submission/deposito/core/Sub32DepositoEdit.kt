@@ -234,6 +234,11 @@ class Sub32DepositoEdit : Fragment(),
     private suspend fun onSuccessEdit(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Deposito Berhasil Diubah",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }

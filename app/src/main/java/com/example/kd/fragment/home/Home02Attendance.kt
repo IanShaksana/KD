@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.android.volley.Request
@@ -64,7 +65,7 @@ class Home02Attendance : Fragment() {
                                     getString(R.string.loginIdPref),
                                     ""
                                 ),
-                                Date(),
+                                DateTime(Date()).toString("MMM dd, yyyy hh:mm:ss a"),
                                 Calendar.getInstance().timeZone.rawOffset
 //                                        DateTime(Date()).toString(requireContext().resources.getString(R.string.format_date_sb2))
                             )
@@ -97,6 +98,11 @@ class Home02Attendance : Fragment() {
     private suspend fun onSuccess(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                requireContext(),
+                "Absen Berhasil",
+                Toast.LENGTH_SHORT
+            ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
@@ -118,7 +124,7 @@ class Home02Attendance : Fragment() {
                                     getString(R.string.loginIdPref),
                                     ""
                                 ),
-                                Date(),
+                                DateTime(Date()).toString("MMM dd, yyyy hh:mm:ss a"),
                                 Calendar.getInstance().timeZone.rawOffset
                             )
                         )

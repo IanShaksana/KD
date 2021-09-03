@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        android:format12Hour="dd/MM/yyyy hh:mm:ss a"
+        android:format12Hour="hh:mm:ss a"
         android:layout_centerHorizontal="true"
         />
 

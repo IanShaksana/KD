@@ -170,7 +170,6 @@ class TaskManagerPersonalCreate : Fragment(), DialogMarketing.dialogListenerMark
                                     requireContext().getString(R.string.loginIdPref),
                                     ""
                                 )!!,
-                                binding.deadline.text.toString(),
                                 binding.description.text.toString()
                             )
                         )
@@ -202,6 +201,12 @@ class TaskManagerPersonalCreate : Fragment(), DialogMarketing.dialogListenerMark
     private suspend fun onSuccess(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Tugas Berhasil Dibuat",
+                    Toast.LENGTH_SHORT
+                ).show()
+                binding.root.findNavController().popBackStack()
                 binding.root.findNavController().popBackStack()
             }
         }

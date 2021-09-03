@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -43,7 +44,6 @@ class Sub32DepositoDetail : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         binding.edit.setOnClickListener {
-            Toast.makeText(context, value.idDetailDepositoSubmisson, Toast.LENGTH_SHORT).show()
             val action =
                 Sub32DepositoDetailDirections.actionSub02DepositoDetailToSub32DepositoEdit(value.idDetailDepositoSubmisson)
             requireView().findNavController().navigate(action)
@@ -109,7 +109,7 @@ class Sub32DepositoDetail : Fragment() {
 
                 pengajuanProduk.text = "Produk : ${data.getString("pengajuanProduk")}"
                 pengajuanTipe.text = "Tipe : ${data.getString("pengajuanTipe")}"
-                pengajuanSaldoAwal.text = "Saldo Awal : ${data.getString("pengajuanSaldoAwal")}"
+                pengajuanSaldoAwal.text = "Saldo awal : ${data.getString("pengajuanSaldoAwal")}"
 //                pengajuanJangkaWaktu.text =
 //                    "Jangka Waktu : ${data.getString("pengajuanJangkaWaktu")}"
                 pengajuanBungaRate.text = "Bunga (%) : ${data.getString("pengajuanBungaRate")}"
@@ -121,8 +121,8 @@ class Sub32DepositoDetail : Fragment() {
 
                 status.text = "Status : ${data.getString("status")}"
 
-                informasiTambahan.text = "Detail : ${data.getString("informasiTambahan")}"
-                review.text = "Detail : ${data.getString("review")}"
+                informasiTambahan.text = "Detil : ${data.getString("informasiTambahan")}"
+                review.text = "Detil : ${data.getString("review")}"
 
                 if (data.getString("status").equals("Draft", true)) {
                     edit.isEnabled = true
@@ -133,6 +133,26 @@ class Sub32DepositoDetail : Fragment() {
                     delete.isEnabled = false
                     finish.isEnabled = false
                 }
+
+
+                var fields: Array<TextView> = arrayOf(
+                    binding.pengajuanTitle,
+                    binding.deposanNama,
+                    binding.deposanKontak,
+                    binding.deposanAlamat,
+                    binding.deposanNik,
+                    binding.pengajuanProduk,
+
+                    binding.pengajuanTipe,
+                    binding.pengajuanSaldoAwal,
+                    binding.pengajuanBungaRate,
+                    binding.pengajuanTanggal,
+
+                    binding.status,
+                    binding.review,
+                    binding.informasiTambahan
+                )
+                validate(fields)
 
             }
 
@@ -174,6 +194,11 @@ class Sub32DepositoDetail : Fragment() {
     private suspend fun onSuccessDelete(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Deposito Berhasil Dihapus",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
@@ -213,9 +238,26 @@ class Sub32DepositoDetail : Fragment() {
     private suspend fun onSuccessFinish(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Deposito Diajukan",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
+    }
+
+    private fun validate(fields: Array<TextView>): Boolean {
+        for (i in fields.indices) {
+            val currentField = fields[i]
+
+            if (currentField.text.toString().contains("null")) {
+                val value = currentField.text.toString().split("null").get(0)
+                currentField.text = value +"-"
+            }
+        }
+        return true
     }
 
 

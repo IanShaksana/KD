@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
@@ -53,8 +55,6 @@ class Task02TaskDetail : Fragment(), DialogInputMarketing.dialogListener {
     }
 
 
-
-
     private fun background() {
         CoroutineScope(Dispatchers.IO).launch {
 
@@ -96,7 +96,7 @@ class Task02TaskDetail : Fragment(), DialogInputMarketing.dialogListener {
         withContext(Dispatchers.Main) {
             val data = resp.getJSONArray("data").getJSONObject(0)
             binding.apply {
-                detailSumber.text = "Sumber : ${data.getString("detailSumber")}"
+                detailSumber.text = "Dibuat oleh : ${data.getString("detailSumber")}"
 
                 val tanggal = DateTime(data.getString("createdat"))
                 val deadline = DateTime(data.getString("detailDeadline"))
@@ -105,24 +105,49 @@ class Task02TaskDetail : Fragment(), DialogInputMarketing.dialogListener {
                 val valueDeadline =
                     deadline.toString(activity?.resources?.getString(R.string.format_date_1))
 
-                detailTanggal.text = "Tanggal : $valueTanggal"
+                detailTanggal.text = "Dibuat tanggal : $valueTanggal"
                 detailDeadline.text = "Deadline : $valueDeadline"
                 detailDesc.text = "Deskripsi : ${data.getString("detailDesc")}"
 
-                fileJumlah.text = "Jumlah File : ${data.getInt("fileJumlah")}"
 
                 status.text = "Status : ${data.getString("status")}"
+                val status: String = data.getString("status")
+                if (status.equals("Review", true) || status.equals(
+                        "Selesai",
+                        true
+                    ) || status.equals("Ditolak", true)
+                ) {
+                    val finish = DateTime(data.getString("finishdate"))
+                    val valuefinish =
+                        finish.toString(activity?.resources?.getString(R.string.format_date_1))
+                    detailFinishDate.text = "Tanggal selesai : ${valuefinish}"
+                } else {
+                    detailFinishDate.text = "Tanggal selesai :"
+                }
 
-                review.text = "Detail : ${data.getString("review")}"
-                noteMarketing.text = "Detail : ${data.getString("noteMarketing")}"
+                fileJumlah.text = "Jumlah file : ${data.getInt("fileJumlah")}"
+
+                review.text = "Detil : ${data.getString("review")}"
+                noteMarketing.text = "Detil : ${data.getString("noteMarketing")}"
 
                 finish.isEnabled = data.getString("status").equals("To Do", true)
                 if (finish.isEnabled) {
                     finish.visibility = View.VISIBLE
                 } else {
                     finish.visibility = View.INVISIBLE
-
                 }
+
+                var fields: Array<TextView> = arrayOf(
+                    binding.detailSumber,
+                    binding.detailTanggal,
+                    binding.detailTanggal,
+                    binding.detailDesc,
+                    binding.detailFinishDate,
+                    binding.fileJumlah,
+                    binding.review,
+                    binding.noteMarketing
+                )
+                validate(fields)
 
             }
 
@@ -171,6 +196,11 @@ class Task02TaskDetail : Fragment(), DialogInputMarketing.dialogListener {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
                 // update fragment
+                Toast.makeText(
+                    requireContext(),
+                    "Tugas Siap Direview",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
@@ -178,6 +208,19 @@ class Task02TaskDetail : Fragment(), DialogInputMarketing.dialogListener {
 
     override fun onDialogInputMarketingClick(value: String) {
         backgroundFinish(value)
+    }
+
+
+    private fun validate(fields: Array<TextView>): Boolean {
+        for (i in fields.indices) {
+            val currentField = fields[i]
+
+            if (currentField.text.toString().contains("null")) {
+                val value = currentField.text.toString().split("null").get(0)
+                currentField.text = value + "-"
+            }
+        }
+        return true
     }
 
 

@@ -13,6 +13,9 @@ import com.android.volley.toolbox.RequestFuture
 import com.android.volley.toolbox.Volley
 import com.example.kd.R
 import com.example.kd.databinding.FragmentSub32DepositoListBinding
+import com.example.kd.dialog.DialogStatusSub
+import com.example.kd.dialog.DialogStatusTugas
+import com.example.kd.modelbody.IdMessageOnly
 import com.example.kd.modelbody.IdOnly
 import com.example.kd.modelbody.TaskModelLoan
 import com.google.gson.Gson
@@ -27,7 +30,7 @@ import java.util.concurrent.TimeUnit
 /**
  * A fragment representing a list of Items.
  */
-class Sub32Deposito : Fragment() {
+class Sub32Deposito : Fragment(), DialogStatusSub.dialogListener {
 
 
     private lateinit var binding: FragmentSub32DepositoListBinding
@@ -39,7 +42,7 @@ class Sub32Deposito : Fragment() {
     ): View {
 
         binding = FragmentSub32DepositoListBinding.inflate(inflater, container, false)
-        background()
+        background("ALL")
 
         binding.fab.setOnClickListener {
             val action =
@@ -47,11 +50,16 @@ class Sub32Deposito : Fragment() {
             binding.root.findNavController().navigate(action)
         }
 
+        binding.statusCard.setOnClickListener {
+            val dialog = DialogStatusSub()
+            dialog.show(childFragmentManager, "Dialog Loan Produk")
+        }
+
         return binding.root
     }
 
 
-    private fun background() {
+    private fun background(status:String) {
         CoroutineScope(Dispatchers.IO).launch {
             val sharedPref = this@Sub32Deposito.requireActivity().getSharedPreferences(
                 getString(R.string.credPref), Context.MODE_PRIVATE
@@ -61,11 +69,12 @@ class Sub32Deposito : Fragment() {
                     this@Sub32Deposito.requireContext().resources.getString(R.string.submitDepositoGet),
                     JSONObject(
                         Gson().toJson(
-                            IdOnly(
+                            IdMessageOnly(
                                 sharedPref.getString(
                                     getString(R.string.loginIdPref),
                                     ""
-                                )
+                                ),
+                                status
                             )
                         )
                     )
@@ -115,6 +124,11 @@ class Sub32Deposito : Fragment() {
             }
 
         }
+    }
+
+    override fun onDialogStatusSubClick(value: String) {
+        binding.statusText.text = value
+        background(value)
     }
 
 

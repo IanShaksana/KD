@@ -221,6 +221,11 @@ class Sub31LoanCreate : Fragment(),
     private suspend fun onSuccess(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Pinjaman Berhasil Dibuat",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }

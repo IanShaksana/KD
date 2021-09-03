@@ -26,9 +26,9 @@
                 android:id="@+id/taskTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title tugas"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:text="Title tugas"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <LinearLayout
@@ -41,26 +41,24 @@
                     android:id="@+id/taskType"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/username"
-                    android:paddingVertical="3dp"
-                    android:textAlignment="center"
                     android:background="@drawable/shape_tipe"
+                    android:paddingVertical="3dp"
+                    android:text="@string/username"
+                    android:textAlignment="center"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
+                    android:textColor="?android:attr/textColorSecondary" />
 
                 <TextView
                     android:id="@+id/taskStatus"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/username"
-                    android:paddingVertical="3dp"
                     android:layout_marginStart="5dp"
-                    android:textAlignment="center"
                     android:background="@drawable/shape_tipe"
+                    android:paddingVertical="3dp"
+                    android:text="@string/username"
+                    android:textAlignment="center"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    />
+                    android:textColor="?android:attr/textColorSecondary" />
 
             </LinearLayout>
 
@@ -74,6 +72,14 @@
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary" />
 
+            <TextView
+                android:id="@+id/taskFinishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tanggal Selesai : ..."
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
 
 
         </LinearLayout>
@@ -88,8 +94,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@null"
                 android:layout_toLeftOf="@id/center"
+                android:background="@null"
                 android:src="@drawable/ic_baseline_attachment_24" />
 
             <TextView
@@ -103,8 +109,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="1"
                 android:layout_toRightOf="@id/center"
+                android:text="1"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary" />
 

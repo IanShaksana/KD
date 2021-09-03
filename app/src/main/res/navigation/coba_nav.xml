@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_nav_home_to_nav_attendance"
             app:destination="@id/nav_attendance" />
+        <action
+            android:id="@+id/action_nav_home_to_collectionDemoFragment"
+            app:destination="@id/collectionDemoFragment" />
     </fragment>
 
     <fragment
@@ -123,9 +126,6 @@
         android:name="com.example.kd.fragment.marketing.submission.loan.core.Sub31LoanCreate"
         android:label="@string/label_sub_sec_loan_create"
         tools:layout="@layout/sub31_loan_create_fragment" />
-
-
-
     <fragment
         android:id="@+id/sub31LoanEdit"
         android:name="com.example.kd.fragment.marketing.submission.loan.core.Sub31LoanEdit"
@@ -279,5 +279,10 @@
         tools:layout="@layout/fragment_loan_manage_detail">
         <argument android:name="idsub" />
     </fragment>
+    <fragment
+        android:id="@+id/collectionDemoFragment"
+        android:name="com.example.kd.tabbeddemo.frag.CollectionDemoFragment"
+        android:label="CollectionDemoFragment"
+        tools:layout="@layout/collection_demo"/>
 
 </navigation>

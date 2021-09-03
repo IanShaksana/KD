@@ -243,7 +243,6 @@ class TaskManagerPersonalEdit : Fragment(), DatePickerDialog.OnDateSetListener,
                                     requireContext().getString(R.string.loginIdPref),
                                     ""
                                 )!!,
-                                binding.deadline.text.toString(),
                                 binding.description.text.toString(),
                                 data.getInt("version")
                             )
@@ -276,6 +275,11 @@ class TaskManagerPersonalEdit : Fragment(), DatePickerDialog.OnDateSetListener,
     private suspend fun onSuccessEdit(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Tugas Berhasil Diubah",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }

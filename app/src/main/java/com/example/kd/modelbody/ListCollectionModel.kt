@@ -9,4 +9,6 @@ data class ListCollectionModel(
     val angsuranTanggal: String,
     val angsuranNominal: String,
     val angsuranDenda: String,
+    val flagdenda: String,
+    val nominaldenda: String,
 )

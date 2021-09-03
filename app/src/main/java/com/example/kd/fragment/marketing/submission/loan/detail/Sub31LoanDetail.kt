@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
@@ -107,7 +109,7 @@ class Sub31LoanDetail : Fragment() {
                 pengajuanProduk.text = "Produk : ${data.getString("pengajuanProduk")}"
                 pengajuanPlafon.text = "Plafon : ${data.getString("pengajuanPlafon")}"
                 pengajuanJangkaWaktu.text =
-                    "Jangka Waktu : ${data.getString("pengajuanJangkaWaktu")}"
+                    "Jangka waktu : ${data.getString("pengajuanJangkaWaktu")}"
                 pengajuanBungaRate.text = "Bunga (%) : ${data.getString("pengajuanBungaRate")}"
                 pengajuanProvisiRate.text = "Provisi (%) : ${data.getString("pengajuanProvisiRate")}"
                 val tanggal1 = DateTime(data.getString("pengajuanTanggal"))
@@ -117,9 +119,9 @@ class Sub31LoanDetail : Fragment() {
                 val valueTanggal2 =
                     tanggal2.toString(activity?.resources?.getString(R.string.format_date_1))
                 pengajuanTanggal.text = "Tanggal : ${valueTanggal1}"
-                pengajuanTanggalAngsuranPertama.text = "Tanggal Angsuran Pertama : ${valueTanggal2}"
-                pengajuanJenisPenggunaan.text = "Jenis Penggunaan : ${data.getString("pengajuanJenisPenggunaan")}"
-                pengajuanTujuanKredit.text = "Tujuan Kredit : ${data.getString("pengajuanTujuanKredit")}"
+                pengajuanTanggalAngsuranPertama.text = "Tanggal angsuran pertama : ${valueTanggal2}"
+                pengajuanJenisPenggunaan.text = "Jenis penggunaan : ${data.getString("pengajuanJenisPenggunaan")}"
+                pengajuanTujuanKredit.text = "Tujuan kredit : ${data.getString("pengajuanTujuanKredit")}"
 
                 jaminanTipe.text = "Tipe : ${data.getString("jaminanTipe")}"
                 jaminanKepemilikan.text = "Kepemelikan : ${data.getString("jaminanKepemilikan")}"
@@ -129,8 +131,8 @@ class Sub31LoanDetail : Fragment() {
 
                 status.text = "Status : ${data.getString("status")}"
 
-                informasiTambahan.text = "Detail : ${data.getString("informasiTambahan")}"
-                review.text = "Detail : ${data.getString("review")}"
+                informasiTambahan.text = "Detil : ${data.getString("informasiTambahan")}"
+                review.text = "Detil : ${data.getString("review")}"
 
 
 
@@ -143,6 +145,34 @@ class Sub31LoanDetail : Fragment() {
                     delete.isEnabled = false
                     finish.isEnabled = false
                 }
+
+                var fields: Array<TextView> = arrayOf(
+                    binding.pengajuanTitle,
+                    binding.debiturNama,
+                    binding.debiturKontak,
+                    binding.debiturAlamat,
+                    binding.debiturNik,
+                    binding.pengajuanProduk,
+
+                    binding.pengajuanPlafon,
+                    binding.pengajuanJangkaWaktu,
+                    binding.pengajuanBungaRate,
+                    binding.pengajuanProvisiRate,
+                    binding.pengajuanTanggal,
+                    binding.pengajuanTanggalAngsuranPertama,
+                    binding.pengajuanJenisPenggunaan,
+                    binding.pengajuanTujuanKredit,
+
+                    binding.jaminanTipe,
+                    binding.jaminanKepemilikan,
+                    binding.jaminanTahun,
+                    binding.jaminanNominal,
+                    binding.jaminanDeskripsi,
+                    binding.status,
+                    binding.review,
+                    binding.informasiTambahan
+                )
+                validate(fields)
 
             }
 
@@ -184,6 +214,11 @@ class Sub31LoanDetail : Fragment() {
     private suspend fun onSuccessDelete(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Pinjaman Berhasil Dihapus",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
@@ -223,9 +258,26 @@ class Sub31LoanDetail : Fragment() {
     private suspend fun onSuccessFinish(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Pinjaman Diajukan",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
+    }
+
+    private fun validate(fields: Array<TextView>): Boolean {
+        for (i in fields.indices) {
+            val currentField = fields[i]
+
+            if (currentField.text.toString().contains("null")) {
+                val value = currentField.text.toString().split("null").get(0)
+                currentField.text = value +"-"
+            }
+        }
+        return true
     }
 
 

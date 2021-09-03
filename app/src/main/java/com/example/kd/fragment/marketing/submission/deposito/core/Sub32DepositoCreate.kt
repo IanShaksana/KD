@@ -154,6 +154,11 @@ class Sub32DepositoCreate : Fragment(),
     private suspend fun onSuccess(resp: JSONObject) {
         withContext(Dispatchers.Main) {
             if (resp["status"] == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Deposito Berhasil Dibuat",
+                    Toast.LENGTH_SHORT
+                ).show()
                 binding.root.findNavController().popBackStack()
             }
         }
