@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.kd.fragment.home.Home01Profile"
+        android:name="com.segen.kd.fragment.home.Home01Profile"
         android:label="@string/label_sub_sec_home"
         tools:layout="@layout/frag_11_profile">
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/nav_attendance"
-        android:name="com.example.kd.fragment.home.Home02Attendance"
+        android:name="com.segen.kd.fragment.home.Home02Attendance"
         android:label="@string/label_sub_sec_att"
         tools:layout="@layout/frag_12_attendance">
         <action
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/nav_collection"
-        android:name="com.example.kd.fragment.marketing.task.core.Task01Collection"
+        android:name="com.segen.kd.fragment.marketing.task.core.Task01Collection"
         android:label="@string/label_sub_sec_task"
         tools:layout="@layout/frag_21_collection_01" >
         <action
@@ -46,7 +46,7 @@
 
     <fragment
         android:id="@+id/task01CollectionDetail"
-        android:name="com.example.kd.fragment.marketing.task.detail.Task01CollectionDetail"
+        android:name="com.segen.kd.fragment.marketing.task.detail.Task01CollectionDetail"
         android:label="@string/label_sub_sec_task_detail"
         tools:layout="@layout/frag_21_collection_02_detail" >
         <argument
@@ -57,7 +57,7 @@
 
     <fragment
         android:id="@+id/task02TaskDetail"
-        android:name="com.example.kd.fragment.marketing.task.detail.Task02TaskDetail"
+        android:name="com.segen.kd.fragment.marketing.task.detail.Task02TaskDetail"
         android:label="@string/label_sub_sec_task_detail"
         tools:layout="@layout/frag_22_collection_02_detail" >
         <argument
@@ -71,7 +71,7 @@
 
     <fragment
         android:id="@+id/nav_deposito_submit"
-        android:name="com.example.kd.fragment.marketing.submission.deposito.core.Sub32Deposito"
+        android:name="com.segen.kd.fragment.marketing.submission.deposito.core.Sub32Deposito"
         android:label="@string/label_sub_sec_deposito"
         tools:layout="@layout/fragment_sub32_deposito_list" >
         <action
@@ -84,7 +84,7 @@
 
     <fragment
         android:id="@+id/nav_loan_submit"
-        android:name="com.example.kd.fragment.marketing.submission.loan.core.Sub31Loan"
+        android:name="com.segen.kd.fragment.marketing.submission.loan.core.Sub31Loan"
         android:label="@string/label_sub_sec_loan"
         tools:layout="@layout/fragment_sub31_loan_list" >
         <action
@@ -97,7 +97,7 @@
 
     <fragment
         android:id="@+id/sub01LoanDetail"
-        android:name="com.example.kd.fragment.marketing.submission.loan.detail.Sub31LoanDetail"
+        android:name="com.segen.kd.fragment.marketing.submission.loan.detail.Sub31LoanDetail"
         android:label="@string/label_sub_sec_loan_detail"
         tools:layout="@layout/sub31_loan_detail_fragment" >
         <argument
@@ -110,7 +110,7 @@
     </fragment>
     <fragment
         android:id="@+id/sub02DepositoDetail"
-        android:name="com.example.kd.fragment.marketing.submission.deposito.detail.Sub32DepositoDetail"
+        android:name="com.segen.kd.fragment.marketing.submission.deposito.detail.Sub32DepositoDetail"
         android:label="@string/label_sub_sec_deposito_detail"
         tools:layout="@layout/sub32_deposito_detail_fragment" >
         <argument
@@ -123,12 +123,12 @@
     </fragment>
     <fragment
         android:id="@+id/sub31LoanCreate"
-        android:name="com.example.kd.fragment.marketing.submission.loan.core.Sub31LoanCreate"
+        android:name="com.segen.kd.fragment.marketing.submission.loan.core.Sub31LoanCreate"
         android:label="@string/label_sub_sec_loan_create"
         tools:layout="@layout/sub31_loan_create_fragment" />
     <fragment
         android:id="@+id/sub31LoanEdit"
-        android:name="com.example.kd.fragment.marketing.submission.loan.core.Sub31LoanEdit"
+        android:name="com.segen.kd.fragment.marketing.submission.loan.core.Sub31LoanEdit"
         android:label="@string/label_sub_sec_loan_edit"
         tools:layout="@layout/sub31_loan_edit_fragment" >
         <argument
@@ -139,12 +139,12 @@
 
     <fragment
         android:id="@+id/sub32DepositoCreate"
-        android:name="com.example.kd.fragment.marketing.submission.deposito.core.Sub32DepositoCreate"
+        android:name="com.segen.kd.fragment.marketing.submission.deposito.core.Sub32DepositoCreate"
         android:label="@string/label_sub_sec_deposito_create"
         tools:layout="@layout/sub32_deposito_create_fragment" />
     <fragment
         android:id="@+id/sub32DepositoEdit"
-        android:name="com.example.kd.fragment.marketing.submission.deposito.core.Sub32DepositoEdit"
+        android:name="com.segen.kd.fragment.marketing.submission.deposito.core.Sub32DepositoEdit"
         android:label="@string/label_sub_sec_deposito_edit"
         tools:layout="@layout/sub32_deposito_edit_fragment" >
         <argument
@@ -154,18 +154,18 @@
     </fragment>
     <fragment
         android:id="@+id/file"
-        android:name="com.example.kd.fragment.marketing.task.file.file"
+        android:name="com.segen.kd.fragment.marketing.task.file.file"
         android:label="Detil File"
         tools:layout="@layout/fragment_file_list" />
     <fragment
         android:id="@+id/attendanceList"
-        android:name="com.example.kd.fragment.home.attendance.AttendanceList"
+        android:name="com.segen.kd.fragment.home.attendance.AttendanceList"
         android:label="List Absen"
         tools:layout="@layout/fragment_attendance_list_list" />
 
     <fragment
         android:id="@+id/nav_task_manager"
-        android:name="com.example.kd.fragment.manager.task.list.TaskManager"
+        android:name="com.segen.kd.fragment.manager.task.list.TaskManager"
         android:label="Manajemen Tugas"
         tools:layout="@layout/fragment_task_manager_list">
         <action
@@ -180,7 +180,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerCrudSelect"
-        android:name="com.example.kd.fragment.manager.task.crud.TaskManagerCrudSelect"
+        android:name="com.segen.kd.fragment.manager.task.crud.TaskManagerCrudSelect"
         android:label="Buat Tugas"
         tools:layout="@layout/fragment_task_manager_crud_select" >
         <action
@@ -192,7 +192,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerPersonalDetail"
-        android:name="com.example.kd.fragment.manager.task.detail.TaskManagerPersonalDetail"
+        android:name="com.segen.kd.fragment.manager.task.detail.TaskManagerPersonalDetail"
         android:label="Detil Tugas Personal"
         tools:layout="@layout/fragment_task_manager_personal_detail">
         <action
@@ -205,7 +205,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerCollectionDetail"
-        android:name="com.example.kd.fragment.manager.task.detail.TaskManagerCollectionDetail"
+        android:name="com.segen.kd.fragment.manager.task.detail.TaskManagerCollectionDetail"
         android:label="Detil Tugas Collection"
         tools:layout="@layout/fragment_task_manager_collection_detail">
         <action
@@ -218,17 +218,17 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerCollectionCreate"
-        android:name="com.example.kd.fragment.manager.task.crud.collection.TaskManagerCollectionCreate"
+        android:name="com.segen.kd.fragment.manager.task.crud.collection.TaskManagerCollectionCreate"
         android:label="Buat Tugas Collection"
         tools:layout="@layout/fragment_task_manager_collection_create" />
     <fragment
         android:id="@+id/taskManagerPersonalCreate"
-        android:name="com.example.kd.fragment.manager.task.crud.personal.TaskManagerPersonalCreate"
+        android:name="com.segen.kd.fragment.manager.task.crud.personal.TaskManagerPersonalCreate"
         android:label="Buat Tugas Personal"
         tools:layout="@layout/fragment_task_manager_personal_create" />
     <fragment
         android:id="@+id/taskManagerCollectionEdit"
-        android:name="com.example.kd.fragment.manager.task.crud.collection.TaskManagerCollectionEdit"
+        android:name="com.segen.kd.fragment.manager.task.crud.collection.TaskManagerCollectionEdit"
         android:label="Edit Tugas Collection"
         tools:layout="@layout/fragment_task_manager_collection_edit" >
         <argument
@@ -237,7 +237,7 @@
     </fragment>
     <fragment
         android:id="@+id/taskManagerPersonalEdit"
-        android:name="com.example.kd.fragment.manager.task.crud.personal.TaskManagerPersonalEdit"
+        android:name="com.segen.kd.fragment.manager.task.crud.personal.TaskManagerPersonalEdit"
         android:label="Edit Tugas Personal"
         tools:layout="@layout/fragment_task_manager_personal_edit">
         <argument
@@ -247,7 +247,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_deposito_manager"
-        android:name="com.example.kd.fragment.manager.submission.deposito.core.DepositoManage"
+        android:name="com.segen.kd.fragment.manager.submission.deposito.core.DepositoManage"
         android:label="Manajemen Deposito Baru"
         tools:layout="@layout/fragment_deposito_manage_list" >
         <action
@@ -256,7 +256,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_loan_manager"
-        android:name="com.example.kd.fragment.manager.submission.loan.core.LoanManage"
+        android:name="com.segen.kd.fragment.manager.submission.loan.core.LoanManage"
         android:label="Manajemen Pinjaman Baru"
         tools:layout="@layout/fragment_loan_manage_list" >
         <action
@@ -265,7 +265,7 @@
     </fragment>
     <fragment
         android:id="@+id/depositoManageDetail"
-        android:name="com.example.kd.fragment.manager.submission.deposito.detail.DepositoManageDetail"
+        android:name="com.segen.kd.fragment.manager.submission.deposito.detail.DepositoManageDetail"
         android:label="Detil Deposito Baru"
         tools:layout="@layout/fragment_deposito_manage_detail">
         <argument
@@ -274,14 +274,14 @@
     </fragment>
     <fragment
         android:id="@+id/loanManageDetail"
-        android:name="com.example.kd.fragment.manager.submission.loan.detail.LoanManageDetail"
+        android:name="com.segen.kd.fragment.manager.submission.loan.detail.LoanManageDetail"
         android:label="Detil Pinjaman Baru"
         tools:layout="@layout/fragment_loan_manage_detail">
         <argument android:name="idsub" />
     </fragment>
     <fragment
         android:id="@+id/collectionDemoFragment"
-        android:name="com.example.kd.tabbeddemo.frag.CollectionDemoFragment"
+        android:name="com.segen.kd.tabbeddemo.frag.CollectionDemoFragment"
         android:label="CollectionDemoFragment"
         tools:layout="@layout/collection_demo"/>
 

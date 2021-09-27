@@ -126,13 +126,13 @@
 
     <string name="submitDepositoGetManager">http://192.168.0.3:8081/api/manager/submit/deposito</string>
     <string name="submitDepositoGetDetailManager">http://192.168.0.3:8081/api/manager/submit/deposito/detail</string>
-    <string name="submitDepositoFinishManager">http://192.168.0.3:8081/api/manager/submit/deposito/create</string>
-    <string name="submitDepositoRejectManager">http://192.168.0.3:8081/api/manager/submit/deposito/send</string>
+    <string name="submitDepositoFinishManager">http://192.168.0.3:8081/api/manager/submit/deposito/finish</string>
+    <string name="submitDepositoRejectManager">http://192.168.0.3:8081/api/manager/submit/deposito/reject</string>
 
     <string name="submitLoanGetManager">http://192.168.0.3:8081/api/manager/submit/loan</string>
     <string name="submitLoanGetDetailManager">http://192.168.0.3:8081/api/manager/submit/loan/detail</string>
-    <string name="submitLoanFinishManager">http://192.168.0.3:8081/api/manager/submit/loan/create</string>
-    <string name="submitLoanRejectManager">http://192.168.0.3:8081/api/manager/submit/loan/send</string>
+    <string name="submitLoanFinishManager">http://192.168.0.3:8081/api/manager/submit/loan/finish</string>
+    <string name="submitLoanRejectManager">http://192.168.0.3:8081/api/manager/submit/loan/reject</string>
 
     <!-- String API http://192.168.1.14:8081 -->
     <!--

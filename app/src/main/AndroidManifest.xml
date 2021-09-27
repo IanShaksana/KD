@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kd" >
+    package="com.segen.kd" >
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:hardwareAccelerated="true"
-        android:name=".TimberInit"
+        android:name="com.segen.kd.TimberInit"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
@@ -14,14 +14,14 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.KD.NoActionBar" >
 
-        <activity android:name=".activity.LoginActivity" >
+        <activity android:name="com.segen.kd.activity.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" >
+        <activity android:name="com.segen.kd.activity.MainActivity" >
         </activity>
     </application>
 
